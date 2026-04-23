@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>무료 상담 신청 — 그로스컴퍼니</title>
+<meta name="description" content="30분 무료 진단. 광고비 규모와 현재 상황만 알려주시면 24시간 내 전담 전문가가 맞춤 제안서로 연락드립니다."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="./assets/tw-config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="./assets/styles.css?v=20260423w" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="./assets/logo-icon.png"/>
+<link rel="apple-touch-icon" href="./assets/logo-icon.png"/>
+</head>
+<body class="antialiased bg-background min-h-screen flex flex-col">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 border-b border-outline-variant bg-white/90 backdrop-blur-md">
+  <div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="./index.html" class="flex items-center" aria-label="그로스컴퍼니 홈"><img src="./assets/logo-horizontal.png" alt="Growth Company" class="h-5 md:h-6 w-auto"/></a>
+    <div class="hidden md:flex items-center gap-8">
+      <a data-nav-link href="index.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Home</a>
+      <a data-nav-link href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Services</a>
+      <a data-nav-link href="case-studies.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Case Studies</a>
+      <a data-nav-link href="contact.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Contact</a>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+      <a href="contact.html" class="bg-primary text-on-primary text-sm font-medium px-4 py-2 rounded-lg hover:bg-surface-tint transition-all active:scale-95 shadow-ambient">무료 상담 신청</a>
+    </div>
+    <button data-mobile-menu-btn class="md:hidden text-on-surface" aria-label="메뉴 열기">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <div data-mobile-menu class="hidden md:hidden border-t border-outline-variant bg-white px-6 py-4 space-y-3">
+    <a href="index.html" class="block text-sm">Home</a>
+    <a href="services.html" class="block text-sm">Services</a>
+    <a href="case-studies.html" class="block text-sm">Case Studies</a>
+    <a href="contact.html" class="block text-sm">Contact</a>
+  </div>
+</nav>
+
+<main class="flex-grow pt-24 py-margin">
+  <div class="max-w-[1280px] mx-auto px-6 w-full flex flex-col md:flex-row gap-gutter">
+
+    <!-- Sidebar -->
+    <aside class="w-full md:w-1/3 flex flex-col gap-stack-lg md:sticky md:top-24 self-start">
+      <div>
+        <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium mb-stack-md">
+          <span class="material-symbols-outlined text-[14px]">chat</span>
+          Free Consultation
+        </span>
+        <h1 class="text-display-xl font-bold text-on-surface mb-stack-sm">성장에 대해<br/>이야기해요.</h1>
+        <p class="text-body-lg text-on-surface-variant">보이지 않는 자동화 시스템으로 보이는 성장을 만듭니다. 30분만 투자하세요.</p>
+      </div>
+
+      <div class="bg-surface-container-lowest card-border rounded-lg p-stack-lg shadow-ambient">
+        <h3 class="text-headline-md font-semibold text-on-surface mb-stack-md">왜 그로스컴퍼니인가요?</h3>
+        <ul class="flex flex-col gap-stack-md">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary mt-1">bar_chart</span>
+            <div>
+              <h4 class="text-label-sm text-on-surface font-semibold">데이터 중심 판단</h4>
+              <p class="text-caption text-on-surface-variant">추측이 아닌 분석으로 의사결정을 이끕니다.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary mt-1">account_tree</span>
+            <div>
+              <h4 class="text-label-sm text-on-surface font-semibold">확장 가능한 아키텍처</h4>
+              <p class="text-caption text-on-surface-variant">비즈니스 성장에 맞춰 자연스럽게 확장됩니다.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary mt-1">verified</span>
+            <div>
+              <h4 class="text-label-sm text-on-surface font-semibold">검증된 전문성</h4>
+              <p class="text-caption text-on-surface-variant">10년간 누적된 퍼포먼스·AI 엔지니어링 실적.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary mt-1">schedule</span>
+            <div>
+              <h4 class="text-label-sm text-on-surface font-semibold">24시간 내 응답</h4>
+              <p class="text-caption text-on-surface-variant">신청 후 하루 안에 전담 전문가가 연락드립니다.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-inverse-surface rounded-lg p-stack-lg text-inverse-on-surface relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 bg-primary opacity-30 blur-3xl rounded-full"></div>
+        <div class="relative z-10">
+          <div class="text-caption text-slate-300 mb-stack-xs">이메일</div>
+          <a href="mailto:dan@growthcompany.kr" class="text-label-sm text-white hover:text-primary-fixed-dim">dan@growthcompany.kr</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Form -->
+    <div class="w-full md:w-2/3 bg-surface-container-lowest card-border rounded-lg p-stack-lg shadow-ambient">
+      <form id="contactForm" class="flex flex-col gap-stack-xl" novalidate>
+
+        <!-- Step 1: Scale -->
+        <div class="flex flex-col gap-stack-md border-b border-outline-variant pb-stack-lg">
+          <div>
+            <h2 class="text-headline-md font-semibold text-on-surface">1. 비즈니스 규모</h2>
+            <p class="text-body-md text-on-surface-variant">현재 운영 중인 사업 규모를 알려주세요.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-stack-sm">
+            <label class="flex items-center gap-3 p-4 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="scale" type="radio" value="startup-sme"/>
+              <span class="text-label-sm text-on-surface">스타트업·중소기업</span>
+            </label>
+            <label class="flex items-center gap-3 p-4 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="scale" type="radio" value="mid"/>
+              <span class="text-label-sm text-on-surface">중견기업</span>
+            </label>
+            <label class="flex items-center gap-3 p-4 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="scale" type="radio" value="enterprise"/>
+              <span class="text-label-sm text-on-surface">대기업</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2: Industry -->
+        <div class="flex flex-col gap-stack-md border-b border-outline-variant pb-stack-lg">
+          <div>
+            <h2 class="text-headline-md font-semibold text-on-surface">2. 업종</h2>
+            <p class="text-body-md text-on-surface-variant">운영 중인 비즈니스가 속한 업종을 선택하세요.</p>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-stack-sm">
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="industry" type="radio" value="ecommerce"/>
+              <span class="text-label-sm text-on-surface">이커머스·쇼핑몰</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="industry" type="radio" value="beauty-fashion"/>
+              <span class="text-label-sm text-on-surface">뷰티·패션</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="industry" type="radio" value="medical"/>
+              <span class="text-label-sm text-on-surface">병원·의료</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="industry" type="radio" value="education"/>
+              <span class="text-label-sm text-on-surface">교육·에듀테크</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="industry" type="radio" value="finance"/>
+              <span class="text-label-sm text-on-surface">금융·보험</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="industry" type="radio" value="food"/>
+              <span class="text-label-sm text-on-surface">식음료·F&amp;B</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="industry" type="radio" value="app-saas"/>
+              <span class="text-label-sm text-on-surface">앱·SaaS</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="industry" type="radio" value="manufacturing-b2b"/>
+              <span class="text-label-sm text-on-surface">제조·B2B</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="industry" type="radio" value="other"/>
+              <span class="text-label-sm text-on-surface">기타</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 3: Channels -->
+        <div class="flex flex-col gap-stack-md border-b border-outline-variant pb-stack-lg">
+          <div>
+            <h2 class="text-headline-md font-semibold text-on-surface">3. 주요 광고 채널</h2>
+            <p class="text-body-md text-on-surface-variant">현재 집행 중이거나 집중하고 싶은 채널을 모두 선택하세요.</p>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-stack-sm">
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="rounded text-primary focus:ring-primary border-outline-variant" name="channels" type="checkbox" value="meta"/>
+              <span class="text-label-sm text-on-surface">Meta</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="rounded text-primary focus:ring-primary border-outline-variant" name="channels" type="checkbox" value="google"/>
+              <span class="text-label-sm text-on-surface">Google</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="rounded text-primary focus:ring-primary border-outline-variant" name="channels" type="checkbox" value="naver"/>
+              <span class="text-label-sm text-on-surface">Naver</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="rounded text-primary focus:ring-primary border-outline-variant" name="channels" type="checkbox" value="kakao"/>
+              <span class="text-label-sm text-on-surface">Kakao</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="rounded text-primary focus:ring-primary border-outline-variant" name="channels" type="checkbox" value="tiktok"/>
+              <span class="text-label-sm text-on-surface">TikTok</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="rounded text-primary focus:ring-primary border-outline-variant" name="channels" type="checkbox" value="youtube"/>
+              <span class="text-label-sm text-on-surface">YouTube</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="rounded text-primary focus:ring-primary border-outline-variant" name="channels" type="checkbox" value="other"/>
+              <span class="text-label-sm text-on-surface">기타</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 4: Pain Point -->
+        <div class="flex flex-col gap-stack-md border-b border-outline-variant pb-stack-lg">
+          <div>
+            <h2 class="text-headline-md font-semibold text-on-surface">4. 가장 시급한 문제</h2>
+            <p class="text-body-md text-on-surface-variant">어떤 고민을 가장 먼저 해결하고 싶으신가요?</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-sm">
+            <label class="flex items-center gap-3 p-4 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="painpoint" type="radio" value="efficiency"/>
+              <span class="text-label-sm text-on-surface">광고 효율</span>
+            </label>
+            <label class="flex items-center gap-3 p-4 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="painpoint" type="radio" value="reporting"/>
+              <span class="text-label-sm text-on-surface">리포트·분석 자동화</span>
+            </label>
+            <label class="flex items-center gap-3 p-4 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="painpoint" type="radio" value="creative"/>
+              <span class="text-label-sm text-on-surface">소재 제작</span>
+            </label>
+            <label class="flex items-center gap-3 p-4 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="painpoint" type="radio" value="leadgen"/>
+              <span class="text-label-sm text-on-surface">고객 DB 확보</span>
+            </label>
+            <label class="flex items-center gap-3 p-4 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="painpoint" type="radio" value="crm"/>
+              <span class="text-label-sm text-on-surface">CRM 연동</span>
+            </label>
+            <label class="flex items-center gap-3 p-4 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="text-primary focus:ring-primary border-outline-variant" name="painpoint" type="radio" value="other"/>
+              <span class="text-label-sm text-on-surface">기타</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 5: Monthly budget -->
+        <div class="flex flex-col gap-stack-md border-b border-outline-variant pb-stack-lg">
+          <div>
+            <h2 class="text-headline-md font-semibold text-on-surface">5. 월 평균 광고비 규모</h2>
+            <p class="text-body-md text-on-surface-variant">맞춤형 제안을 위해 참고합니다.</p>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-stack-sm">
+            <label class="flex items-center justify-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="sr-only" name="budget" type="radio" value="<500"/>
+              <span class="text-label-sm text-on-surface">~500만원</span>
+            </label>
+            <label class="flex items-center justify-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="sr-only" name="budget" type="radio" value="500-2000"/>
+              <span class="text-label-sm text-on-surface">500~2,000만원</span>
+            </label>
+            <label class="flex items-center justify-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="sr-only" name="budget" type="radio" value="2000-5000"/>
+              <span class="text-label-sm text-on-surface">2,000~5,000만원</span>
+            </label>
+            <label class="flex items-center justify-center gap-2 p-3 card-border rounded-md cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+              <input class="sr-only" name="budget" type="radio" value=">5000"/>
+              <span class="text-label-sm text-on-surface">5,000만원 이상</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 6: Contact -->
+        <div class="flex flex-col gap-stack-md">
+          <div>
+            <h2 class="text-headline-md font-semibold text-on-surface">6. 연락처</h2>
+            <p class="text-body-md text-on-surface-variant">어디로 연락드리면 될까요?</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-md">
+            <div class="flex flex-col gap-stack-xs">
+              <label class="text-label-sm text-on-surface" for="name">이름</label>
+              <input class="card-border rounded-md p-2 focus:ring-1 focus:ring-primary focus:border-primary bg-surface text-body-md text-on-surface placeholder:text-outline" id="name" name="name" placeholder="홍길동" type="text" required/>
+            </div>
+            <div class="flex flex-col gap-stack-xs">
+              <label class="text-label-sm text-on-surface" for="phone">연락처</label>
+              <input class="card-border rounded-md p-2 focus:ring-1 focus:ring-primary focus:border-primary bg-surface text-body-md text-on-surface placeholder:text-outline" id="phone" name="phone" placeholder="010-1234-5678" type="tel"/>
+            </div>
+            <div class="flex flex-col gap-stack-xs sm:col-span-2">
+              <label class="text-label-sm text-on-surface" for="email">업무 이메일</label>
+              <input class="card-border rounded-md p-2 focus:ring-1 focus:ring-primary focus:border-primary bg-surface text-body-md text-on-surface placeholder:text-outline" id="email" name="email" placeholder="name@company.com" type="email" required/>
+            </div>
+            <div class="flex flex-col gap-stack-xs sm:col-span-2">
+              <label class="text-label-sm text-on-surface" for="company">회사명</label>
+              <input class="card-border rounded-md p-2 focus:ring-1 focus:ring-primary focus:border-primary bg-surface text-body-md text-on-surface placeholder:text-outline" id="company" name="company" placeholder="(주)브랜드명" type="text"/>
+            </div>
+            <div class="flex flex-col gap-stack-xs sm:col-span-2">
+              <label class="text-label-sm text-on-surface" for="message">추가로 알려주고 싶은 내용 (선택)</label>
+              <textarea class="card-border rounded-md p-2 focus:ring-1 focus:ring-primary focus:border-primary bg-surface text-body-md text-on-surface placeholder:text-outline min-h-[96px]" id="message" name="message" placeholder="현재 상황, 목표, 기대 결과 등을 자유롭게 적어주세요."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Consent + Submit -->
+        <div class="flex flex-col gap-stack-md pt-stack-md border-t border-outline-variant">
+          <label class="flex items-start gap-2 text-caption text-on-surface-variant">
+            <input class="mt-1 rounded text-primary focus:ring-primary border-outline-variant" name="consent" type="checkbox" required/>
+            <span>개인정보 수집·이용에 동의합니다. 제공된 정보는 상담 응대 목적으로만 사용되며 3개월 후 파기됩니다.</span>
+          </label>
+          <div class="flex items-center justify-between">
+            <p class="text-caption text-on-surface-variant hidden sm:block">평균 응답 시간: <span class="text-primary font-semibold">3시간 이내</span></p>
+            <button class="bg-primary text-on-primary text-label-sm px-6 py-3 rounded-md hover:bg-surface-tint transition-all shadow-ambient active:scale-95 flex items-center gap-2" type="submit">
+              상담 요청 보내기
+              <span class="material-symbols-outlined text-[18px]">send</span>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Success banner (hidden by default) -->
+      <div id="successBanner" class="hidden mt-stack-lg p-stack-md bg-primary-container text-on-primary-container rounded-lg flex items-center gap-stack-sm">
+        <span class="material-symbols-outlined" data-weight="fill">check_circle</span>
+        <div>
+          <div class="text-label-sm font-semibold">요청이 접수되었습니다.</div>
+          <div class="text-caption">24시간 이내에 전담 전문가가 연락드리겠습니다.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full border-t border-outline-variant bg-surface-container-lowest mt-stack-xl">
+  <div class="max-w-[1280px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-gutter">
+    <div class="md:col-span-2">
+      <img src="./assets/logo-horizontal.png" alt="Growth Company" class="h-6 w-auto mb-3"/>
+      <p class="text-caption text-on-surface-variant max-w-sm">보이지 않는 자동화, 보이는 성장. 10년차 퍼포먼스 × AI 엔지니어링.</p>
+    </div>
+    <div>
+      <div class="text-label-sm text-on-surface mb-stack-sm">Product</div>
+      <ul class="space-y-2 text-caption text-on-surface-variant">
+        <li><a href="services.html" class="hover:text-primary">Marketing Automation</a></li>
+        <li><a href="services.html" class="hover:text-primary">GrowthAd</a></li>
+        <li><a href="services.html" class="hover:text-primary">GrowthMedi</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="text-label-sm text-on-surface mb-stack-sm">Company</div>
+      <ul class="space-y-2 text-caption text-on-surface-variant">
+        <li><a href="case-studies.html" class="hover:text-primary">Case Studies</a></li>
+        <li><a href="contact.html" class="hover:text-primary">Contact</a></li>
+        <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-outline-variant">
+    <div class="max-w-[1280px] mx-auto px-6 py-4 text-caption text-on-surface-variant flex flex-col md:flex-row justify-between gap-2">
+      <div>© <span data-footer-year>2026</span> Growth Company. All rights reserved.</div>
+      <div>dan@growthcompany.kr</div>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/site.js?v=20260423w"></script>
+<script>
+  // Google Apps Script 웹앱 URL — 배포 후 발급된 URL 로 교체
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxT34kLGXUxfWEVuO7GT-L48lNQlbjVb7bz1YtrzK0SB0n1lH6dGah4OfpNlJUYeXI-5A/exec";
+
+  const form = document.getElementById("contactForm");
+  const banner = document.getElementById("successBanner");
+  const submitBtn = form?.querySelector('button[type="submit"]');
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+
+    submitBtn.disabled = true;
+    const origLabel = submitBtn.innerHTML;
+    submitBtn.innerHTML = '전송 중…';
+
+    const fd = new FormData(form);
+    const body = new URLSearchParams();
+    fd.forEach((v, k) => body.append(k, v));
+    body.append("referrer", document.referrer || "");
+    body.append("ua", navigator.userAgent);
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        body: body
+      });
+      banner.classList.remove("hidden");
+      form.reset();
+      banner.scrollIntoView({ behavior: "smooth", block: "center" });
+    } catch (err) {
+      alert("전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origLabel;
+    }
+  });
+</script>
+</body>
+</html>

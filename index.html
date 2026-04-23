@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>그로스컴퍼니 — 마케팅을 사람의 일이 아닌, 성장하는 시스템으로</title>
+<meta name="description" content="퍼포먼스·콘텐츠·인플루언서·CRM·웹 운영. 5가지 핵심 영역이 유기적으로 연결되어, 당신이 잠든 시간에도 비즈니스를 키우는 '자동 성장 엔진'을 구축합니다."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="./assets/tw-config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="./assets/styles.css?v=20260423w" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="./assets/logo-icon.png"/>
+<link rel="apple-touch-icon" href="./assets/logo-icon.png"/>
+</head>
+<body class="antialiased bg-background">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 border-b border-outline-variant bg-white/90 backdrop-blur-md">
+  <div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="./index.html" class="flex items-center" aria-label="그로스컴퍼니 홈"><img src="./assets/logo-horizontal.png" alt="Growth Company" class="h-5 md:h-6 w-auto"/></a>
+    <div class="hidden md:flex items-center gap-8">
+      <a data-nav-link href="index.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Home</a>
+      <a data-nav-link href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Services</a>
+      <a data-nav-link href="case-studies.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Case Studies</a>
+      <a data-nav-link href="contact.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Contact</a>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+      <a href="contact.html" class="bg-primary text-on-primary text-sm font-medium px-4 py-2 rounded-lg hover:bg-surface-tint transition-all active:scale-95 shadow-ambient">무료 상담 신청</a>
+    </div>
+    <button data-mobile-menu-btn class="md:hidden text-on-surface" aria-label="메뉴 열기">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <div data-mobile-menu class="hidden md:hidden border-t border-outline-variant bg-white px-6 py-4 space-y-3">
+    <a href="index.html" class="block text-sm">Home</a>
+    <a href="services.html" class="block text-sm">Services</a>
+    <a href="case-studies.html" class="block text-sm">Case Studies</a>
+    <a href="contact.html" class="block text-sm">Contact</a>
+    <a href="contact.html" class="block bg-primary text-on-primary text-sm font-medium px-4 py-2 rounded-lg text-center">무료 상담 신청</a>
+  </div>
+</nav>
+
+<main class="pt-24">
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 hero-accent pointer-events-none"></div>
+    <div class="max-w-[1280px] mx-auto px-6 py-stack-xl flex flex-col md:flex-row items-center gap-gutter relative">
+      <div class="flex-1 space-y-stack-md">
+        <span class="hero-anim hero-anim--1 inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium">
+          <span class="material-symbols-outlined text-[14px]">precision_manufacturing</span>
+          마케팅 자동화 시스템 구축 파트너
+        </span>
+        <h1 class="hero-anim hero-anim--2 text-display-xl font-bold text-on-surface leading-tight">마케팅을 <span class="text-primary">사람의 일</span>이 아닌,<br/><span class="text-primary">성장하는 시스템</span>으로.</h1>
+        <p class="hero-anim hero-anim--3 text-body-lg md:text-[20px] leading-relaxed text-on-surface-variant max-w-xl break-keep">
+          퍼포먼스·콘텐츠·인플루언서·CRM·웹 운영 —<br/>
+          <span class="font-semibold text-on-surface">5가지 엔진을 하나의 자동 성장 시스템으로</span> 설계·구축합니다.
+        </p>
+        <div class="hero-anim hero-anim--4 flex flex-col sm:flex-row gap-stack-sm pt-stack-sm">
+          <a href="contact.html" class="hero-pulse-ring bg-primary text-on-primary text-label-sm px-6 py-3 rounded-lg hover:bg-surface-tint transition-all shadow-ambient flex items-center justify-center gap-2">
+            우리 비즈니스 자동화 진단받기
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </a>
+          <a href="#flywheel" class="border border-on-surface text-on-surface text-label-sm px-6 py-3 rounded-lg hover:bg-surface-container-low transition-all flex items-center justify-center gap-2">
+            5대 엔진 상세 보기
+            <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+          </a>
+        </div>
+        <div class="hero-anim hero-anim--5 flex items-center gap-6 pt-stack-md text-caption text-on-surface-variant">
+          <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">verified</span>누적 광고비 운영 50억+</div>
+          <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">groups</span>시스템 도입 고객사 80+</div>
+        </div>
+      </div>
+
+      <div class="flex-1 w-full relative">
+        <div class="hero-card w-full aspect-square rounded-xl bg-gradient-to-br from-surface-container-high to-surface-container-low relative overflow-hidden card-border shadow-ambient">
+          <div class="absolute inset-0 dot-grid"></div>
+          <div class="absolute top-8 left-8 right-8 bg-white rounded-lg card-border shadow-ambient p-stack-md">
+            <div class="flex items-center justify-between mb-stack-md">
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <span class="text-label-sm text-on-surface">Growth System · Live</span>
+              </div>
+              <span class="text-caption text-on-surface-variant">2026-04-22</span>
+            </div>
+            <div class="grid grid-cols-3 gap-stack-sm mb-stack-md">
+              <div>
+                <div class="text-caption text-on-surface-variant">ROAS</div>
+                <div class="text-headline-md font-semibold text-primary" data-count-to="418" data-count-suffix="%" data-count-delay="800">0%</div>
+              </div>
+              <div>
+                <div class="text-caption text-on-surface-variant">CPA</div>
+                <div class="text-headline-md font-semibold text-on-surface" data-count-to="12340" data-count-prefix="₩" data-count-delay="800">₩0</div>
+              </div>
+              <div>
+                <div class="text-caption text-on-surface-variant">전환</div>
+                <div class="text-headline-md font-semibold text-on-surface" data-count-to="1284" data-count-delay="800">0</div>
+              </div>
+            </div>
+            <div class="flex items-end gap-1 h-16">
+              <div class="hero-bar hero-bar--1 flex-1 bg-surface-variant rounded-t-sm h-[30%]"></div>
+              <div class="hero-bar hero-bar--2 flex-1 bg-surface-variant rounded-t-sm h-[45%]"></div>
+              <div class="hero-bar hero-bar--3 flex-1 bg-secondary-fixed-dim rounded-t-sm h-[60%]"></div>
+              <div class="hero-bar hero-bar--4 flex-1 bg-secondary-fixed-dim rounded-t-sm h-[55%]"></div>
+              <div class="hero-bar hero-bar--5 flex-1 bg-primary rounded-t-sm h-[78%]"></div>
+              <div class="hero-bar hero-bar--6 flex-1 bg-primary rounded-t-sm h-[90%]"></div>
+              <div class="hero-bar hero-bar--7 flex-1 bg-primary rounded-t-sm h-[100%]"></div>
+            </div>
+
+            <!-- Engine Live Status -->
+            <div class="mt-stack-md pt-stack-md border-t border-outline-variant">
+              <div class="flex items-center justify-between mb-stack-sm">
+                <div class="text-caption text-on-surface-variant uppercase tracking-wider">5 Engines · Live</div>
+                <div class="flex items-center gap-1 text-caption text-on-surface-variant">
+                  <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                  <span>All systems operational</span>
+                </div>
+              </div>
+              <div class="space-y-1.5">
+                <div class="hero-row hero-row--1 engine-row-active engine-row-active--1 flex items-center justify-between text-caption">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="engine-dot engine-dot--1"></span>
+                    <span class="w-6 h-6 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[14px]">radar</span></span>
+                    <span class="text-on-surface font-medium">01 Performance</span>
+                  </div>
+                  <span class="text-on-surface-variant truncate ml-2">입찰 재분배 · 2m</span>
+                </div>
+                <div class="hero-row hero-row--2 engine-row-active engine-row-active--2 flex items-center justify-between text-caption">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="engine-dot engine-dot--2"></span>
+                    <span class="w-6 h-6 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[14px]">palette</span></span>
+                    <span class="text-on-surface font-medium">02 Creative</span>
+                  </div>
+                  <span class="text-on-surface-variant truncate ml-2">소재 24개 생성 · 5m</span>
+                </div>
+                <div class="hero-row hero-row--3 engine-row-active engine-row-active--3 flex items-center justify-between text-caption">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="engine-dot engine-dot--3"></span>
+                    <span class="w-6 h-6 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[14px]">diversity_3</span></span>
+                    <span class="text-on-surface font-medium">03 Influencer</span>
+                  </div>
+                  <span class="text-on-surface-variant truncate ml-2">KOL 8명 매칭 · 12m</span>
+                </div>
+                <div class="hero-row hero-row--4 engine-row-active engine-row-active--4 flex items-center justify-between text-caption">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="engine-dot engine-dot--4"></span>
+                    <span class="w-6 h-6 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[14px]">workflow</span></span>
+                    <span class="text-on-surface font-medium">04 CRM</span>
+                  </div>
+                  <span class="text-on-surface-variant truncate ml-2">재구매 메시지 발송 342건 · 1m</span>
+                </div>
+                <div class="hero-row hero-row--5 engine-row-active engine-row-active--5 flex items-center justify-between text-caption">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="engine-dot engine-dot--5"></span>
+                    <span class="w-6 h-6 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[14px]">dns</span></span>
+                    <span class="text-on-surface font-medium">05 Web-Ops</span>
+                  </div>
+                  <span class="text-on-surface-variant truncate ml-2">Pixel 99.2% · 정상</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- Impact / Benefits              -->
+  <!-- ============================== -->
+  <section class="max-w-[1280px] mx-auto px-6 py-stack-xl">
+    <div class="text-center max-w-3xl mx-auto mb-stack-xl">
+      <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium">
+        <span class="material-symbols-outlined text-[14px]">insights</span>
+        Impact
+      </span>
+      <h2 class="text-headline-lg font-semibold text-on-surface mt-stack-md mb-stack-sm break-keep">도입 후,<br/><span class="text-primary">이렇게 달라집니다.</span></h2>
+      <p class="text-body-md text-on-surface-variant break-keep">사람이 하던 반복 작업은 시스템이, 판단은 사람이. 숫자로 보는 변화입니다.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      <!-- Card 1: Time saved -->
+      <div class="bg-white card-border rounded-xl p-stack-lg shadow-ambient text-center relative overflow-hidden">
+        <div class="w-14 h-14 rounded-xl bg-primary-container text-on-primary-container mx-auto flex items-center justify-center mb-stack-md">
+          <span class="material-symbols-outlined text-[30px]" data-weight="fill">schedule</span>
+        </div>
+        <div class="text-[48px] md:text-[56px] font-bold text-primary leading-none mb-stack-xs tracking-tight" data-count-to="95" data-count-prefix="−" data-count-suffix="%">−0%</div>
+        <div class="text-label-sm text-on-surface font-semibold mb-stack-xs">광고 운영 시간</div>
+        <p class="text-caption text-on-surface-variant break-keep">매일 2~3시간 수기 관리<br/>→ 24/7 자동 최적화</p>
+      </div>
+
+      <!-- Card 2: Content output -->
+      <div class="bg-white card-border rounded-xl p-stack-lg shadow-ambient text-center relative overflow-hidden">
+        <div class="w-14 h-14 rounded-xl bg-primary-container text-on-primary-container mx-auto flex items-center justify-center mb-stack-md">
+          <span class="material-symbols-outlined text-[30px]" data-weight="fill">auto_awesome</span>
+        </div>
+        <div class="text-[48px] md:text-[56px] font-bold text-primary leading-none mb-stack-xs tracking-tight" data-count-to="3" data-count-prefix="×">×0</div>
+        <div class="text-label-sm text-on-surface font-semibold mb-stack-xs">소재 생산량</div>
+        <p class="text-caption text-on-surface-variant break-keep">디자이너 반나절 1장<br/>→ AI 30초에 3장</p>
+      </div>
+
+      <!-- Card 3: Retention -->
+      <div class="bg-white card-border rounded-xl p-stack-lg shadow-ambient text-center relative overflow-hidden">
+        <div class="w-14 h-14 rounded-xl bg-primary-container text-on-primary-container mx-auto flex items-center justify-center mb-stack-md">
+          <span class="material-symbols-outlined text-[30px]" data-weight="fill">trending_up</span>
+        </div>
+        <div class="text-[48px] md:text-[56px] font-bold text-primary leading-none mb-stack-xs tracking-tight" data-count-to="72" data-count-prefix="+" data-count-suffix="%">+0%</div>
+        <div class="text-label-sm text-on-surface font-semibold mb-stack-xs">재구매율</div>
+        <p class="text-caption text-on-surface-variant break-keep">일괄 푸시·이탈 방치<br/>→ 행동 기반 시나리오</p>
+      </div>
+
+      <!-- Card 4: Response speed -->
+      <div class="bg-white card-border rounded-xl p-stack-lg shadow-ambient text-center relative overflow-hidden">
+        <div class="w-14 h-14 rounded-xl bg-primary-container text-on-primary-container mx-auto flex items-center justify-center mb-stack-md">
+          <span class="material-symbols-outlined text-[30px]" data-weight="fill">bolt</span>
+        </div>
+        <div class="text-[48px] md:text-[56px] font-bold text-primary leading-none mb-stack-xs tracking-tight">즉시</div>
+        <div class="text-label-sm text-on-surface font-semibold mb-stack-xs">장애·품절 대응</div>
+        <p class="text-caption text-on-surface-variant break-keep">고객 문의 후 다음 날<br/>→ 시스템이 먼저 감지</p>
+      </div>
+    </div>
+
+    <div class="mt-stack-xl text-center">
+      <a href="#flywheel" class="inline-flex items-center gap-2 text-primary text-label-sm hover:underline">
+        어떻게 작동하는지 보기
+        <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- 1. Business OS Flywheel        -->
+  <!-- ============================== -->
+  <section id="flywheel" class="max-w-[1280px] mx-auto px-6 py-stack-xl">
+    <div class="text-center max-w-3xl mx-auto mb-stack-xl">
+      <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium">
+        <span class="material-symbols-outlined text-[14px]">hub</span>
+        Growth Flywheel
+      </span>
+      <h2 class="text-headline-lg font-semibold text-on-surface mt-stack-md mb-stack-sm">5개의 엔진이,<br/><span class="text-primary">서로에게 연료가 됩니다.</span></h2>
+      <p class="text-body-md text-on-surface-variant break-keep">엔진 하나가 만든 결과가 다음 엔진의 재료가 됩니다. 광고가 좋아지면 소재가 똑똑해지고, 소재가 좋아지면 고객이 늘고, 고객이 늘면 광고가 더 정확해집니다.</p>
+    </div>
+
+    <!-- Flywheel visual -->
+    <div class="flywheel-wrap">
+      <!-- Rotating rings -->
+      <div class="flywheel-ring"></div>
+
+      <!-- Center core -->
+      <div class="flywheel-core">
+        <span class="material-symbols-outlined text-[28px] md:text-[36px] mb-1" data-weight="fill">memory</span>
+        <div class="text-label-sm md:text-headline-md font-semibold leading-tight">Growth OS</div>
+        <div class="text-caption opacity-80 mt-1 hidden md:block">5 Engines · 1 Brain</div>
+      </div>
+
+      <!-- Node 1: Performance (top) -->
+      <div class="flywheel-node flywheel-node--1">
+        <div class="bg-white card-border rounded-xl shadow-ambient p-stack-md">
+          <div class="flex items-center gap-2 mb-stack-xs">
+            <div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-[18px]">radar</span>
+            </div>
+            <div class="text-caption text-primary font-semibold">01 · Performance</div>
+          </div>
+          <div class="text-label-sm text-on-surface font-semibold">API 기반 24/7 최적화</div>
+          <div class="text-caption text-on-surface-variant mt-1">사람보다 정확하게, 실시간으로.</div>
+        </div>
+      </div>
+
+      <!-- Node 2: Creative (top-right) -->
+      <div class="flywheel-node flywheel-node--2">
+        <div class="bg-white card-border rounded-xl shadow-ambient p-stack-md">
+          <div class="flex items-center gap-2 mb-stack-xs">
+            <div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-[18px]">palette</span>
+            </div>
+            <div class="text-caption text-primary font-semibold">02 · Creative</div>
+          </div>
+          <div class="text-label-sm text-on-surface font-semibold">AI 생성 + 데이터 검증</div>
+          <div class="text-caption text-on-surface-variant mt-1">소재 1개가 3개로, 30초 만에.</div>
+        </div>
+      </div>
+
+      <!-- Node 3: Influencer (bottom-right) -->
+      <div class="flywheel-node flywheel-node--3">
+        <div class="bg-white card-border rounded-xl shadow-ambient p-stack-md">
+          <div class="flex items-center gap-2 mb-stack-xs">
+            <div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-[18px]">diversity_3</span>
+            </div>
+            <div class="text-caption text-primary font-semibold">03 · Influencer</div>
+          </div>
+          <div class="text-label-sm text-on-surface font-semibold">데이터로 관리되는 인프라</div>
+          <div class="text-caption text-on-surface-variant mt-1">섭외가 아니라, 운영입니다.</div>
+        </div>
+      </div>
+
+      <!-- Node 4: CRM (bottom-left) -->
+      <div class="flywheel-node flywheel-node--4">
+        <div class="bg-white card-border rounded-xl shadow-ambient p-stack-md">
+          <div class="flex items-center gap-2 mb-stack-xs">
+            <div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-[18px]">workflow</span>
+            </div>
+            <div class="text-caption text-primary font-semibold">04 · CRM</div>
+          </div>
+          <div class="text-label-sm text-on-surface font-semibold">행동 기반 자동 수익화</div>
+          <div class="text-caption text-on-surface-variant mt-1">고객이 움직이면, 시스템이 반응합니다.</div>
+        </div>
+      </div>
+
+      <!-- Node 5: Web-Ops (top-left) -->
+      <div class="flywheel-node flywheel-node--5">
+        <div class="bg-white card-border rounded-xl shadow-ambient p-stack-md">
+          <div class="flex items-center gap-2 mb-stack-xs">
+            <div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-[18px]">dns</span>
+            </div>
+            <div class="text-caption text-primary font-semibold">05 · Web-Ops</div>
+          </div>
+          <div class="text-label-sm text-on-surface font-semibold">운영 자동화 · 무중단</div>
+          <div class="text-caption text-on-surface-variant mt-1">본질에만 집중하게 만듭니다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flow legend -->
+    <div class="mt-stack-xl grid grid-cols-1 md:grid-cols-5 gap-gutter max-w-5xl mx-auto text-caption text-on-surface-variant">
+      <div class="flex items-start gap-2"><span class="text-primary font-semibold">01→02</span><span>성과 데이터가 어떤 소재를 만들지 결정</span></div>
+      <div class="flex items-start gap-2"><span class="text-primary font-semibold">02→03</span><span>검증된 훅·메시지가 인플루언서의 무기로</span></div>
+      <div class="flex items-start gap-2"><span class="text-primary font-semibold">03→04</span><span>신규 유입이 자동 시나리오로 진입</span></div>
+      <div class="flex items-start gap-2"><span class="text-primary font-semibold">04→05</span><span>전환·이탈 데이터가 웹 운영 우선순위로</span></div>
+      <div class="flex items-start gap-2"><span class="text-primary font-semibold">05→01</span><span>최신 사용자 데이터가 다시 광고 최적화로</span></div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- 2. Industry Selector           -->
+  <!-- ============================== -->
+  <section id="industry" class="bg-surface-container-low py-stack-xl">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-stack-lg">
+        <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium">
+          <span class="material-symbols-outlined text-[14px]">tune</span>
+          Tailored by Industry
+        </span>
+        <h2 class="text-headline-lg font-semibold text-on-surface mt-stack-md mb-stack-sm">마케팅 자동화,<br/><span class="text-primary">업종에 맞춰 구축됩니다.</span></h2>
+        <p class="text-body-md text-on-surface-variant">업종을 선택하면 5개 엔진이 각각 어떻게 설계·튜닝되는지 볼 수 있습니다.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex flex-wrap justify-center gap-stack-sm mb-stack-lg">
+        <button data-industry-tab="commerce" aria-pressed="true" class="bg-primary text-on-primary shadow-ambient text-label-sm px-5 py-3 rounded-full transition-all inline-flex items-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+          커머스
+        </button>
+        <button data-industry-tab="leadgen" aria-pressed="false" class="bg-surface-container-lowest text-on-surface-variant text-label-sm px-5 py-3 rounded-full card-border transition-all inline-flex items-center gap-2 hover:bg-surface-container">
+          <span class="material-symbols-outlined text-[18px]">contact_mail</span>
+          고객 DB 확보
+        </button>
+        <button data-industry-tab="global" aria-pressed="false" class="bg-surface-container-lowest text-on-surface-variant text-label-sm px-5 py-3 rounded-full card-border transition-all inline-flex items-center gap-2 hover:bg-surface-container">
+          <span class="material-symbols-outlined text-[18px]">public</span>
+          해외 마케팅
+        </button>
+      </div>
+
+      <!-- Industry-specific 5-engine grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter">
+
+        <!-- Engine: Performance -->
+        <div class="bg-surface-container-lowest card-border rounded-xl p-stack-lg shadow-ambient flex flex-col">
+          <div class="flex items-center gap-2 mb-stack-md">
+            <div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined">radar</span>
+            </div>
+            <div>
+              <div class="text-caption text-on-surface-variant">01</div>
+              <div class="text-label-sm text-on-surface font-semibold">Performance</div>
+            </div>
+          </div>
+          <div data-industry-content="commerce">
+            <div class="text-caption text-tertiary font-semibold mb-1">커머스 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>카탈로그 광고 <strong class="text-on-surface">자동 관리</strong></li>
+              <li>신제품 자동 스케일업</li>
+              <li>ROAS 티어별 예산 자동 재분배</li>
+            </ul>
+          </div>
+          <div data-industry-content="leadgen" hidden>
+            <div class="text-caption text-tertiary font-semibold mb-1">DB 확보 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>리드 단가(CPL) <strong class="text-on-surface">실시간 최적화</strong></li>
+              <li>양질 리드 소스 자동 판별</li>
+              <li>중복·허수 DB 자동 필터</li>
+            </ul>
+          </div>
+          <div data-industry-content="global" hidden>
+            <div class="text-caption text-tertiary font-semibold mb-1">해외 마케팅 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>Meta·Google·TikTok <strong class="text-on-surface">글로벌 통합</strong></li>
+              <li>국가별 입찰·예산 자동 분리</li>
+              <li>현지 통화·시간대 자동 정산</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Engine: Creative -->
+        <div class="bg-surface-container-lowest card-border rounded-xl p-stack-lg shadow-ambient flex flex-col">
+          <div class="flex items-center gap-2 mb-stack-md">
+            <div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined">palette</span>
+            </div>
+            <div>
+              <div class="text-caption text-on-surface-variant">02</div>
+              <div class="text-label-sm text-on-surface font-semibold">Creative</div>
+            </div>
+          </div>
+          <div data-industry-content="commerce">
+            <div class="text-caption text-tertiary font-semibold mb-1">커머스 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>상품 이미지 <strong class="text-on-surface">AI 배경 합성</strong></li>
+              <li>시즌·세일 자동 A/B</li>
+              <li>UGC 기반 소재 리믹스</li>
+            </ul>
+          </div>
+          <div data-industry-content="leadgen" hidden>
+            <div class="text-caption text-tertiary font-semibold mb-1">DB 확보 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>리드 수집용 <strong class="text-on-surface">훅·헤드라인 A/B</strong></li>
+              <li>업종별 랜딩 템플릿 자동 변형</li>
+              <li>상담·견적 폼 맞춤 디자인</li>
+            </ul>
+          </div>
+          <div data-industry-content="global" hidden>
+            <div class="text-caption text-tertiary font-semibold mb-1">해외 마케팅 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>AI <strong class="text-on-surface">다국어 현지화</strong> 소재</li>
+              <li>문화권별 소구점 A/B</li>
+              <li>영·일·중 자동 자막·카피</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Engine: Influencer -->
+        <div class="bg-surface-container-lowest card-border rounded-xl p-stack-lg shadow-ambient flex flex-col">
+          <div class="flex items-center gap-2 mb-stack-md">
+            <div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined">diversity_3</span>
+            </div>
+            <div>
+              <div class="text-caption text-on-surface-variant">03</div>
+              <div class="text-label-sm text-on-surface font-semibold">Influencer</div>
+            </div>
+          </div>
+          <div data-industry-content="commerce">
+            <div class="text-caption text-tertiary font-semibold mb-1">커머스 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>언박싱·리뷰 <strong class="text-on-surface">성과 추적</strong></li>
+              <li>판매 기여도 링크 자동 발급</li>
+              <li>단가·ROI 투명 리포트</li>
+            </ul>
+          </div>
+          <div data-industry-content="leadgen" hidden>
+            <div class="text-caption text-tertiary font-semibold mb-1">DB 확보 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>업종 전문가 KOL <strong class="text-on-surface">큐레이션</strong></li>
+              <li>세미나·웨비나 연계 리드 추적</li>
+              <li>협업 코드별 유입 분리 측정</li>
+            </ul>
+          </div>
+          <div data-industry-content="global" hidden>
+            <div class="text-caption text-tertiary font-semibold mb-1">해외 마케팅 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>US·JP·SEA·EU <strong class="text-on-surface">KOL DB</strong></li>
+              <li>현지 에이전시 없이 직접 섭외</li>
+              <li>국가별 성과 투명 리포트</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Engine: CRM -->
+        <div class="bg-surface-container-lowest card-border rounded-xl p-stack-lg shadow-ambient flex flex-col">
+          <div class="flex items-center gap-2 mb-stack-md">
+            <div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined">workflow</span>
+            </div>
+            <div>
+              <div class="text-caption text-on-surface-variant">04</div>
+              <div class="text-label-sm text-on-surface font-semibold">CRM</div>
+            </div>
+          </div>
+          <div data-industry-content="commerce">
+            <div class="text-caption text-tertiary font-semibold mb-1">커머스 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>장바구니 <strong class="text-on-surface">이탈 자동 리마인드</strong></li>
+              <li>LTV 세그먼트 자동 분류</li>
+              <li>재구매 트리거 캠페인</li>
+            </ul>
+          </div>
+          <div data-industry-content="leadgen" hidden>
+            <div class="text-caption text-tertiary font-semibold mb-1">DB 확보 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>신규 리드 즉시 <strong class="text-on-surface">Slack 자동 알림</strong></li>
+              <li>Lead Score 자동 분류·너처링</li>
+              <li>미접촉 리드 자동 리마인드</li>
+            </ul>
+          </div>
+          <div data-industry-content="global" hidden>
+            <div class="text-caption text-tertiary font-semibold mb-1">해외 마케팅 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>국가별 <strong class="text-on-surface">언어 자동 분기</strong> 시나리오</li>
+              <li>시차 고려 발송 타이밍</li>
+              <li>WhatsApp·LINE·Kakao 통합</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Engine: Web-Ops -->
+        <div class="bg-surface-container-lowest card-border rounded-xl p-stack-lg shadow-ambient flex flex-col">
+          <div class="flex items-center gap-2 mb-stack-md">
+            <div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined">dns</span>
+            </div>
+            <div>
+              <div class="text-caption text-on-surface-variant">05</div>
+              <div class="text-label-sm text-on-surface font-semibold">Web-Ops</div>
+            </div>
+          </div>
+          <div data-industry-content="commerce">
+            <div class="text-caption text-tertiary font-semibold mb-1">커머스 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>품절·가격 <strong class="text-on-surface">자동 동기화</strong></li>
+              <li>트래픽 스파이크 대응</li>
+              <li>Core Web Vitals 모니터</li>
+            </ul>
+          </div>
+          <div data-industry-content="leadgen" hidden>
+            <div class="text-caption text-tertiary font-semibold mb-1">DB 확보 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li>상담·견적 폼 <strong class="text-on-surface">에러·이탈 감지</strong></li>
+              <li>A/B 랜딩 자동 배포</li>
+              <li>스팸·봇 리드 자동 차단</li>
+            </ul>
+          </div>
+          <div data-industry-content="global" hidden>
+            <div class="text-caption text-tertiary font-semibold mb-1">해외 마케팅 맞춤</div>
+            <ul class="space-y-2 text-body-md text-on-surface-variant break-keep bullet-hang">
+              <li><strong class="text-on-surface">다국어 사이트</strong> 자동 동기화</li>
+              <li>GDPR·CCPA 준수 체크</li>
+              <li>해외 결제·배송 모듈 연결</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-stack-lg text-center">
+        <a href="contact.html" class="inline-flex items-center gap-2 text-primary text-label-sm hover:underline">
+          우리 비즈니스에 맞는 시스템 설계 받기
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- 3. Before / After Comparison   -->
+  <!-- ============================== -->
+  <section class="max-w-[1280px] mx-auto px-6 py-stack-xl" data-mvab-section>
+    <div class="text-center max-w-3xl mx-auto mb-stack-xl">
+      <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium">
+        <span class="material-symbols-outlined text-[14px]">compare</span>
+        Manual vs Automated
+      </span>
+      <h2 class="text-headline-lg font-semibold text-on-surface mt-stack-md mb-stack-sm">도입 전과 후, <span class="text-primary">같은 사람 같은 예산.</span></h2>
+      <p class="text-body-md text-on-surface-variant">엔진별로 무엇이 얼마나 달라지는지, 숫자로 보여드립니다.</p>
+    </div>
+
+    <div class="space-y-stack-md">
+      <!-- Row template repeats 5 times -->
+
+      <!-- 01 Performance -->
+      <article class="bg-surface-container-lowest card-border rounded-xl shadow-ambient overflow-hidden">
+        <header class="flex items-center justify-between p-stack-md border-b border-outline-variant bg-surface-container-low">
+          <div class="flex items-center gap-stack-sm">
+            <div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center"><span class="material-symbols-outlined">radar</span></div>
+            <div>
+              <div class="text-caption text-on-surface-variant">01</div>
+              <div class="text-label-sm text-on-surface font-semibold">Performance</div>
+            </div>
+          </div>
+          <div class="flex items-baseline gap-stack-xs justify-end">
+            <div class="text-display-xl font-bold text-primary leading-none">−95%</div>
+            <div class="text-label-sm text-on-surface-variant font-medium">운영 시간 절감</div>
+          </div>
+        </header>
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-stretch">
+          <!-- Manual -->
+          <div class="p-stack-lg">
+            <div class="flex items-center gap-2 mb-stack-sm">
+              <span class="material-symbols-outlined text-outline text-[18px]" data-weight="fill">schedule</span>
+              <span class="text-caption uppercase tracking-wider text-on-surface-variant">Manual · 도입 전</span>
+            </div>
+            <div class="text-label-sm text-on-surface mb-stack-xs">매일 2~3시간 수기 광고 관리</div>
+            <p class="text-body-md text-on-surface-variant mb-stack-md">계정마다 탭을 열고, 엑셀로 합산, 24시간 지난 데이터로 판단.</p>
+            <div class="flex items-center gap-stack-sm">
+              <div class="compare-bar flex-1"><span style="width: 30%; background: #c1c6d7;"></span></div>
+              <span class="text-caption text-on-surface-variant">ROAS 180%</span>
+            </div>
+          </div>
+          <!-- Divider arrow -->
+          <div class="hidden md:flex items-center justify-center px-stack-lg border-x border-outline-variant">
+            <span class="material-symbols-outlined text-primary text-[32px]">arrow_forward</span>
+          </div>
+          <!-- Automated -->
+          <div class="p-stack-lg bg-surface-container-low">
+            <div class="flex items-center gap-2 mb-stack-sm">
+              <span class="material-symbols-outlined text-primary text-[18px]" data-weight="fill">bolt</span>
+              <span class="text-caption uppercase tracking-wider text-primary font-semibold">Automated · 도입 후</span>
+            </div>
+            <div class="text-label-sm text-on-surface mb-stack-xs">24/7 API 자동 최적화 · 밀리초 반응</div>
+            <p class="text-body-md text-on-surface-variant mb-stack-md">Slack 이상 감지 알림과 자동 예산 재분배로, 판단할 일만 남습니다.</p>
+            <div class="flex items-center gap-stack-sm">
+              <div class="compare-bar flex-1"><span style="width: 95%; background: #0059bb;"></span></div>
+              <span class="text-caption text-primary font-semibold">ROAS 420%</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 Creative -->
+      <article class="bg-surface-container-lowest card-border rounded-xl shadow-ambient overflow-hidden">
+        <header class="flex items-center justify-between p-stack-md border-b border-outline-variant bg-surface-container-low">
+          <div class="flex items-center gap-stack-sm">
+            <div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center"><span class="material-symbols-outlined">palette</span></div>
+            <div>
+              <div class="text-caption text-on-surface-variant">02</div>
+              <div class="text-label-sm text-on-surface font-semibold">Creative</div>
+            </div>
+          </div>
+          <div class="flex items-baseline gap-stack-xs justify-end">
+            <div class="text-display-xl font-bold text-primary leading-none">×3</div>
+            <div class="text-label-sm text-on-surface-variant font-medium">소재 생산량</div>
+          </div>
+        </header>
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr]">
+          <div class="p-stack-lg">
+            <div class="flex items-center gap-2 mb-stack-sm">
+              <span class="material-symbols-outlined text-outline text-[18px]" data-weight="fill">draw</span>
+              <span class="text-caption uppercase tracking-wider text-on-surface-variant">Manual · 도입 전</span>
+            </div>
+            <div class="text-label-sm text-on-surface mb-stack-xs">디자이너 반나절 = 소재 1장</div>
+            <p class="text-body-md text-on-surface-variant mb-stack-md">외주 의뢰·컨펌·수정 반복. A/B 테스트는 사치.</p>
+            <div class="flex items-center gap-stack-sm">
+              <div class="compare-bar flex-1"><span style="width: 10%; background: #c1c6d7;"></span></div>
+              <span class="text-caption text-on-surface-variant">주 5장</span>
+            </div>
+          </div>
+          <div class="hidden md:flex items-center justify-center px-stack-lg border-x border-outline-variant">
+            <span class="material-symbols-outlined text-primary text-[32px]">arrow_forward</span>
+          </div>
+          <div class="p-stack-lg bg-surface-container-low">
+            <div class="flex items-center gap-2 mb-stack-sm">
+              <span class="material-symbols-outlined text-primary text-[18px]" data-weight="fill">auto_awesome</span>
+              <span class="text-caption uppercase tracking-wider text-primary font-semibold">Automated · 도입 후</span>
+            </div>
+            <div class="text-label-sm text-on-surface mb-stack-xs">AI 30초에 A/B 변형 3장</div>
+            <p class="text-body-md text-on-surface-variant mb-stack-md">브랜드 학습 AI가 24시간 생성, 단가 1/10, A/B 상시 운영.</p>
+            <div class="flex items-center gap-stack-sm">
+              <div class="compare-bar flex-1"><span style="width: 60%; background: #0059bb;"></span></div>
+              <span class="text-caption text-primary font-semibold">주 15장</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 Influencer -->
+      <article class="bg-surface-container-lowest card-border rounded-xl shadow-ambient overflow-hidden">
+        <header class="flex items-center justify-between p-stack-md border-b border-outline-variant bg-surface-container-low">
+          <div class="flex items-center gap-stack-sm">
+            <div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center"><span class="material-symbols-outlined">diversity_3</span></div>
+            <div>
+              <div class="text-caption text-on-surface-variant">03</div>
+              <div class="text-label-sm text-on-surface font-semibold">Influencer</div>
+            </div>
+          </div>
+          <div class="flex items-baseline gap-stack-xs justify-end">
+            <div class="text-display-xl font-bold text-primary leading-none">×10</div>
+            <div class="text-label-sm text-on-surface-variant font-medium">관리 효율</div>
+          </div>
+        </header>
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr]">
+          <div class="p-stack-lg">
+            <div class="flex items-center gap-2 mb-stack-sm">
+              <span class="material-symbols-outlined text-outline text-[18px]" data-weight="fill">table_chart</span>
+              <span class="text-caption uppercase tracking-wider text-on-surface-variant">Manual · 도입 전</span>
+            </div>
+            <div class="text-label-sm text-on-surface mb-stack-xs">엑셀로 DM·계약·성과 추적</div>
+            <p class="text-body-md text-on-surface-variant mb-stack-md">허위 팔로워·사기 리스크 상존, 성과 기여도 측정 불가.</p>
+            <div class="flex items-center gap-stack-sm">
+              <div class="compare-bar flex-1"><span style="width: 25%; background: #c1c6d7;"></span></div>
+              <span class="text-caption text-on-surface-variant">월 5명 운영</span>
+            </div>
+          </div>
+          <div class="hidden md:flex items-center justify-center px-stack-lg border-x border-outline-variant">
+            <span class="material-symbols-outlined text-primary text-[32px]">arrow_forward</span>
+          </div>
+          <div class="p-stack-lg bg-surface-container-low">
+            <div class="flex items-center gap-2 mb-stack-sm">
+              <span class="material-symbols-outlined text-primary text-[18px]" data-weight="fill">hub</span>
+              <span class="text-caption uppercase tracking-wider text-primary font-semibold">Automated · 도입 후</span>
+            </div>
+            <div class="text-label-sm text-on-surface mb-stack-xs">데이터 기반 자동 매칭·리포트</div>
+            <p class="text-body-md text-on-surface-variant mb-stack-md">팔로워 진위·참여율·판매 기여도까지 투명하게 관리.</p>
+            <div class="flex items-center gap-stack-sm">
+              <div class="compare-bar flex-1"><span style="width: 90%; background: #0059bb;"></span></div>
+              <span class="text-caption text-primary font-semibold">월 50명+ 관리</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 CRM -->
+      <article class="bg-surface-container-lowest card-border rounded-xl shadow-ambient overflow-hidden">
+        <header class="flex items-center justify-between p-stack-md border-b border-outline-variant bg-surface-container-low">
+          <div class="flex items-center gap-stack-sm">
+            <div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center"><span class="material-symbols-outlined">workflow</span></div>
+            <div>
+              <div class="text-caption text-on-surface-variant">04</div>
+              <div class="text-label-sm text-on-surface font-semibold">CRM</div>
+            </div>
+          </div>
+          <div class="flex items-baseline gap-stack-xs justify-end">
+            <div class="text-display-xl font-bold text-primary leading-none">+72%</div>
+            <div class="text-label-sm text-on-surface-variant font-medium">재구매율</div>
+          </div>
+        </header>
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr]">
+          <div class="p-stack-lg">
+            <div class="flex items-center gap-2 mb-stack-sm">
+              <span class="material-symbols-outlined text-outline text-[18px]" data-weight="fill">campaign</span>
+              <span class="text-caption uppercase tracking-wider text-on-surface-variant">Manual · 도입 전</span>
+            </div>
+            <div class="text-label-sm text-on-surface mb-stack-xs">일괄 푸시 · 이탈 방치</div>
+            <p class="text-body-md text-on-surface-variant mb-stack-md">전 고객 같은 메시지. 이탈하면 되돌릴 방법 없음.</p>
+            <div class="flex items-center gap-stack-sm">
+              <div class="compare-bar flex-1"><span style="width: 28%; background: #c1c6d7;"></span></div>
+              <span class="text-caption text-on-surface-variant">전환율 1.2%</span>
+            </div>
+          </div>
+          <div class="hidden md:flex items-center justify-center px-stack-lg border-x border-outline-variant">
+            <span class="material-symbols-outlined text-primary text-[32px]">arrow_forward</span>
+          </div>
+          <div class="p-stack-lg bg-surface-container-low">
+            <div class="flex items-center gap-2 mb-stack-sm">
+              <span class="material-symbols-outlined text-primary text-[18px]" data-weight="fill">rule</span>
+              <span class="text-caption uppercase tracking-wider text-primary font-semibold">Automated · 도입 후</span>
+            </div>
+            <div class="text-label-sm text-on-surface mb-stack-xs">행동 기반 자동 시나리오</div>
+            <p class="text-body-md text-on-surface-variant mb-stack-md">장바구니 이탈 30분 후 리마인드, LTV별 맞춤 오퍼, 해지 방어 플로우.</p>
+            <div class="flex items-center gap-stack-sm">
+              <div class="compare-bar flex-1"><span style="width: 88%; background: #0059bb;"></span></div>
+              <span class="text-caption text-primary font-semibold">전환율 4.2%</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 Web-Ops -->
+      <article class="bg-surface-container-lowest card-border rounded-xl shadow-ambient overflow-hidden">
+        <header class="flex items-center justify-between p-stack-md border-b border-outline-variant bg-surface-container-low">
+          <div class="flex items-center gap-stack-sm">
+            <div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center"><span class="material-symbols-outlined">dns</span></div>
+            <div>
+              <div class="text-caption text-on-surface-variant">05</div>
+              <div class="text-label-sm text-on-surface font-semibold">Web-Ops</div>
+            </div>
+          </div>
+          <div class="flex items-baseline gap-stack-xs justify-end">
+            <div class="text-display-xl font-bold text-primary leading-none">−87%</div>
+            <div class="text-label-sm text-on-surface-variant font-medium">다운타임</div>
+          </div>
+        </header>
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr]">
+          <div class="p-stack-lg">
+            <div class="flex items-center gap-2 mb-stack-sm">
+              <span class="material-symbols-outlined text-outline text-[18px]" data-weight="fill">build</span>
+              <span class="text-caption uppercase tracking-wider text-on-surface-variant">Manual · 도입 전</span>
+            </div>
+            <div class="text-label-sm text-on-surface mb-stack-xs">개발자 대기 · 수기 모니터링</div>
+            <p class="text-body-md text-on-surface-variant mb-stack-md">장애·품절·법규 이슈 발견은 고객 문의 이후, 대응은 다음 날.</p>
+            <div class="flex items-center gap-stack-sm">
+              <div class="compare-bar flex-1"><span style="width: 40%; background: #c1c6d7;"></span></div>
+              <span class="text-caption text-on-surface-variant">대응 24h+</span>
+            </div>
+          </div>
+          <div class="hidden md:flex items-center justify-center px-stack-lg border-x border-outline-variant">
+            <span class="material-symbols-outlined text-primary text-[32px]">arrow_forward</span>
+          </div>
+          <div class="p-stack-lg bg-surface-container-low">
+            <div class="flex items-center gap-2 mb-stack-sm">
+              <span class="material-symbols-outlined text-primary text-[18px]" data-weight="fill">settings_suggest</span>
+              <span class="text-caption uppercase tracking-wider text-primary font-semibold">Automated · 도입 후</span>
+            </div>
+            <div class="text-label-sm text-on-surface mb-stack-xs">무중단 모니터·자동 복구·Slack 알림</div>
+            <p class="text-body-md text-on-surface-variant mb-stack-md">문제가 고객에게 도달하기 전에, 시스템이 먼저 감지하고 대응합니다.</p>
+            <div class="flex items-center gap-stack-sm">
+              <div class="compare-bar flex-1"><span style="width: 97%; background: #0059bb;"></span></div>
+              <span class="text-caption text-primary font-semibold">대응 즉시</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="max-w-[1280px] mx-auto px-6 py-stack-xl">
+    <div class="border-t card-border pt-stack-xl">
+      <div class="text-center mb-stack-lg">
+        <p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Trusted by Industry Leaders</p>
+      </div>
+      <div class="marquee mb-stack-xl" aria-label="클라이언트 로고">
+        <div class="marquee__track">
+          <!-- Set A -->
+          <div class="marquee__item"><img src="./assets/clients/client-1.jpg" alt="Client 1" loading="eager"/></div>
+          <div class="marquee__item"><img src="./assets/clients/client-2.jpg" alt="Client 2" loading="eager"/></div>
+          <div class="marquee__item"><img src="./assets/clients/client-3.jpg" alt="Client 3" loading="eager"/></div>
+          <div class="marquee__item"><img src="./assets/clients/client-4.jpg" alt="Client 4" loading="eager"/></div>
+          <div class="marquee__item"><img src="./assets/clients/client-5.jpg" alt="Client 5" loading="eager"/></div>
+          <div class="marquee__item"><img src="./assets/clients/client-6.jpg" alt="Client 6" loading="eager"/></div>
+          <div class="marquee__item"><img src="./assets/clients/client-7.jpg" alt="Client 7" loading="eager"/></div>
+          <div class="marquee__item"><img src="./assets/clients/client-8.jpg" alt="Client 8" loading="eager"/></div>
+          <div class="marquee__item"><img src="./assets/clients/client-9.jpg" alt="Client 9" loading="eager"/></div>
+          <div class="marquee__item"><img src="./assets/clients/client-10.jpg" alt="Client 10" loading="eager"/></div>
+          <div class="marquee__item"><img src="./assets/clients/client-11.jpg" alt="Client 11" loading="eager"/></div>
+          <div class="marquee__item"><img src="./assets/clients/client-12.jpg" alt="Client 12" loading="eager"/></div>
+          <!-- Set B (duplicate for seamless loop) -->
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-1.jpg" alt="" loading="eager"/></div>
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-2.jpg" alt="" loading="eager"/></div>
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-3.jpg" alt="" loading="eager"/></div>
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-4.jpg" alt="" loading="eager"/></div>
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-5.jpg" alt="" loading="eager"/></div>
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-6.jpg" alt="" loading="eager"/></div>
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-7.jpg" alt="" loading="eager"/></div>
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-8.jpg" alt="" loading="eager"/></div>
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-9.jpg" alt="" loading="eager"/></div>
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-10.jpg" alt="" loading="eager"/></div>
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-11.jpg" alt="" loading="eager"/></div>
+          <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-12.jpg" alt="" loading="eager"/></div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter max-w-5xl mx-auto">
+        <div class="p-stack-lg text-center card-border rounded-xl bg-surface-container-lowest">
+          <div class="text-display-xl font-bold text-primary mb-stack-xs">300%</div>
+          <div class="text-label-sm text-on-surface-variant">평균 ROAS 개선</div>
+        </div>
+        <div class="p-stack-lg text-center card-border rounded-xl bg-surface-container-lowest">
+          <div class="text-display-xl font-bold text-primary mb-stack-xs">70%</div>
+          <div class="text-label-sm text-on-surface-variant">관리 시간 절감</div>
+        </div>
+        <div class="p-stack-lg text-center card-border rounded-xl bg-surface-container-lowest">
+          <div class="text-display-xl font-bold text-primary mb-stack-xs">−40%</div>
+          <div class="text-label-sm text-on-surface-variant">평균 CPA 감소</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="max-w-[1280px] mx-auto px-6 py-stack-xl">
+    <div class="bg-inverse-surface text-inverse-on-surface rounded-xl p-margin md:p-stack-xl relative overflow-hidden shadow-overlay">
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary opacity-20 blur-3xl rounded-full pointer-events-none"></div>
+      <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-stack-lg">
+        <div>
+          <h2 class="text-headline-lg font-semibold text-white mb-stack-sm">비즈니스의 자동 성장 엔진,<br/>30분이면 설계해 드립니다.</h2>
+          <p class="text-body-md text-slate-300">광고비 규모와 현재 상황만 알려주세요. 24시간 이내 전담 전문가가 직접 연락드립니다.</p>
+        </div>
+        <a href="contact.html" class="bg-primary text-on-primary text-label-sm px-6 py-3 rounded-lg hover:bg-primary-container transition-all shadow-ambient inline-flex items-center gap-2 justify-center whitespace-nowrap">
+          무료 진단 신청
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full border-t border-outline-variant bg-surface-container-lowest mt-stack-xl">
+  <div class="max-w-[1280px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-gutter">
+    <div class="md:col-span-2">
+      <img src="./assets/logo-horizontal.png" alt="Growth Company" class="h-6 w-auto mb-3"/>
+      <p class="text-caption text-on-surface-variant max-w-sm">마케팅을 사람의 일이 아닌 성장하는 시스템으로. 5개 엔진이 하나의 자동 성장 엔진으로 작동합니다.</p>
+    </div>
+    <div>
+      <div class="text-label-sm text-on-surface mb-stack-sm">Engines</div>
+      <ul class="space-y-2 text-caption text-on-surface-variant">
+        <li><a href="services.html" class="hover:text-primary">Performance</a></li>
+        <li><a href="services.html" class="hover:text-primary">Creative</a></li>
+        <li><a href="services.html" class="hover:text-primary">Influencer</a></li>
+        <li><a href="services.html" class="hover:text-primary">CRM</a></li>
+        <li><a href="services.html" class="hover:text-primary">Web-Ops</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="text-label-sm text-on-surface mb-stack-sm">Company</div>
+      <ul class="space-y-2 text-caption text-on-surface-variant">
+        <li><a href="case-studies.html" class="hover:text-primary">Case Studies</a></li>
+        <li><a href="contact.html" class="hover:text-primary">Contact</a></li>
+        <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-outline-variant">
+    <div class="max-w-[1280px] mx-auto px-6 py-4 text-caption text-on-surface-variant flex flex-col md:flex-row justify-between gap-2">
+      <div>© <span data-footer-year>2026</span> Growth Company. All rights reserved.</div>
+      <div>dan@growthcompany.kr</div>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/site.js?v=20260423w"></script>
+</body>
+</html>
