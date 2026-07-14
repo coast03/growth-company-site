@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>고객 DB CRM — 24시간 무인 세일즈 인프라 | 그로스컴퍼니</title>
+<meta name="description" content="광고 클릭부터 AI 등급 판별, 자동 예약, 노쇼 방지 리마인더, 그리고 독점 CRM 대시보드까지. 리드 수집부터 계약까지 100% 무인으로 굴러가는 세일즈 인프라를 심어드립니다."/>
+<link rel="canonical" href="https://growthcompany.kr/crm.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="그로스컴퍼니"/>
+<meta property="og:locale" content="ko_KR"/>
+<meta property="og:url" content="https://growthcompany.kr/crm.html"/>
+<meta property="og:title" content="고객 DB CRM — 24시간 무인 세일즈 인프라"/>
+<meta property="og:description" content="리드 수집부터 계약까지 100% 무인. AI 등급 판별·자동 예약·노쇼 방지·독점 CRM 대시보드."/>
+<meta property="og:image" content="https://growthcompany.kr/assets/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="고객 DB CRM — 24시간 무인 세일즈 인프라"/>
+<meta name="twitter:description" content="리드 수집부터 계약까지 100% 무인. AI 등급 판별·자동 예약·노쇼 방지·독점 CRM 대시보드."/>
+<meta name="twitter:image" content="https://growthcompany.kr/assets/og-image.png"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="./assets/tw-config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="./assets/styles.css?v=20260423w" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="./assets/logo-icon.png"/>
+<link rel="apple-touch-icon" href="./assets/logo-icon.png"/>
+<style>
+  /* 6단계 흐름 스크롤 리빌 (순차 등장) + 호버 리프트 */
+  .flow-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1),
+                box-shadow .25s ease, border-color .25s ease;
+  }
+  .flow-in .flow-card { opacity: 1; transform: none; }
+  .flow-in .flow-card:nth-child(1) { transition-delay: .00s, .00s; }
+  .flow-in .flow-card:nth-child(2) { transition-delay: .10s, .10s; }
+  .flow-in .flow-card:nth-child(3) { transition-delay: .20s, .20s; }
+  .flow-in .flow-card:nth-child(4) { transition-delay: .30s, .30s; }
+  .flow-in .flow-card:nth-child(5) { transition-delay: .40s, .40s; }
+  .flow-in .flow-card:nth-child(6) { transition-delay: .50s, .50s; }
+  .flow-in .flow-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,89,187,.14);
+    border-color: rgba(0,89,187,.45);
+  }
+  /* 아이콘 팝 */
+  .flow-card .material-symbols-outlined {
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+  }
+  .flow-in .flow-card:hover .material-symbols-outlined { transform: scale(1.15); }
+
+  .flow-note {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .5s ease .62s, transform .5s ease .62s;
+  }
+  .flow-in .flow-note { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flow-card, .flow-note { opacity: 1 !important; transform: none !important; transition: none; }
+  }
+</style>
+</head>
+<body class="antialiased bg-background">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 border-b border-outline-variant bg-white/90 backdrop-blur-md">
+  <div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="./index.html" class="flex items-center" aria-label="그로스컴퍼니 홈"><img src="./assets/logo-horizontal.png" alt="Growth Company" class="h-5 md:h-6 w-auto"/></a>
+    <div class="hidden md:flex items-center gap-8">
+      <a data-nav-link href="index.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Home</a>
+      <a data-nav-link href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Services</a>
+      <a data-nav-link href="case-studies.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Case Studies</a>
+      <a data-nav-link href="crm.html" class="text-sm font-semibold text-primary hover:text-primary transition-colors pb-1">고객 DB CRM</a>
+      <a data-nav-link href="contact.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Contact</a>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+      <a href="#inquiry" class="bg-primary text-on-primary text-sm font-medium px-4 py-2 rounded-lg hover:bg-surface-tint transition-all active:scale-95 shadow-ambient">무료 상담 신청</a>
+    </div>
+    <button data-mobile-menu-btn class="md:hidden text-on-surface" aria-label="메뉴 열기">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <div data-mobile-menu class="hidden md:hidden border-t border-outline-variant bg-white px-6 py-4 space-y-3">
+    <a href="index.html" class="block text-sm">Home</a>
+    <a href="services.html" class="block text-sm">Services</a>
+    <a href="case-studies.html" class="block text-sm">Case Studies</a>
+    <a href="crm.html" class="block text-sm font-semibold text-primary">고객 DB CRM</a>
+    <a href="contact.html" class="block text-sm">Contact</a>
+    <a href="#inquiry" class="block bg-primary text-on-primary text-sm font-medium px-4 py-2 rounded-lg text-center">무료 상담 신청</a>
+  </div>
+</nav>
+
+<main class="pt-16">
+
+  <!-- Hero (dark, 제품과 동일한 톤) -->
+  <section class="relative overflow-hidden bg-background">
+    <div class="absolute inset-0 hero-accent pointer-events-none"></div>
+    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(1100px 520px at 82% -12%, rgba(0,89,187,.10), transparent 70%)"></div>
+    <div class="max-w-[1280px] mx-auto px-6 py-20 md:py-28 relative">
+      <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-semibold bg-primary-container text-on-primary-container">
+        <span class="material-symbols-outlined text-[16px]">precision_manufacturing</span>
+        광고비는 쓰는데, 매출은 제자리인 대표님께
+      </span>
+      <h1 class="mt-7 text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight text-on-surface break-keep">
+        사람이 아니라,<br/><span class="text-primary">시스템이 팔게</span> 만듭니다
+      </h1>
+      <div class="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-on-surface-variant break-keep space-y-3">
+        <p class="font-bold text-on-surface">광고 클릭 → AI 등급 판별 → 자동 예약 → 계약 직전까지.</p>
+        <p>리드 수집부터 클로징 직전까지, <b class="text-on-surface">24시간 무인으로 굴러가는 세일즈 인프라</b>를 심어드립니다.</p>
+      </div>
+      <div class="mt-9 flex flex-col sm:flex-row gap-3">
+        <a href="#inquiry" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-base font-bold text-on-primary hover:bg-surface-tint transition active:scale-[.99] shadow-ambient">
+          지금 도입 상담 신청
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+        <a href="#flow" class="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-base font-semibold text-on-surface border border-on-surface hover:bg-surface-container-low transition">
+          자동화 흐름 먼저 보기
+        </a>
+      </div>
+      <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl">
+        <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
+          <div class="text-3xl font-extrabold text-primary">80%</div>
+          <div class="mt-1 text-sm text-on-surface-variant">이탈하던 리드 회수</div>
+        </div>
+        <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
+          <div class="text-3xl font-extrabold text-primary">5분</div>
+          <div class="mt-1 text-sm text-on-surface-variant">골든타임 자동 대응</div>
+        </div>
+        <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
+          <div class="text-3xl font-extrabold text-primary">0건</div>
+          <div class="mt-1 text-sm text-on-surface-variant">리드 누락·수기 정리</div>
+        </div>
+        <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
+          <div class="text-3xl font-extrabold text-primary">24h</div>
+          <div class="mt-1 text-sm text-on-surface-variant">무인 운영</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="max-w-[1280px] mx-auto px-6 py-20 md:py-24">
+    <span class="text-sm font-bold tracking-widest text-primary uppercase">Problem</span>
+    <h2 class="mt-3 text-3xl md:text-4xl font-bold text-on-surface tracking-tight break-keep">비싼 광고비, 정말 매출로 이어지고 있나요?</h2>
+    <p class="mt-3 text-body-lg text-on-surface-variant break-keep">매달 <b class="text-on-surface">수백만 원</b>을 쏟아붓지만, 정작 <b class="text-on-surface">계약까지 이어지는 고객은 손에 꼽힙니다.</b></p>
+
+    <div class="mt-10 grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center rounded-2xl border border-outline-variant bg-surface-container-lowest p-8 md:p-10">
+      <div>
+        <div class="text-7xl md:text-8xl font-extrabold" style="color:#f0644a">80%</div>
+        <p class="mt-2 text-body-md font-medium text-on-surface-variant">광고로 유입된 고객이<br/>계약 전에 이탈합니다</p>
+      </div>
+      <div class="text-lg md:text-xl leading-relaxed text-on-surface break-keep md:border-l md:border-outline-variant md:pl-12 space-y-4">
+        <p>이유는 단순합니다. 담당자의 <b style="color:#f0644a">응대가 늦어지고</b>, 영양가 없는 '찌르기성 문의'에 힘을 쏟습니다.</p>
+        <p>그러다 정작 계약할 준비가 된 <b class="text-primary">진짜 VIP 고객을 놓칩니다.</b></p>
+      </div>
+    </div>
+
+    <h3 class="mt-16 text-sm font-bold tracking-widest text-primary uppercase">Daily Waste · 매일 반복되는 4가지 낭비</h3>
+    <div class="mt-6 grid sm:grid-cols-2 gap-4">
+      <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <div class="text-sm font-bold" style="color:#f0644a">01 · 놓치는 골든타임</div>
+        <p class="mt-2 text-body-md text-on-surface-variant break-keep">주말·야간에 들어온 문의, 월요일에 연락하면 이미 타사와 계약이 끝나 있습니다.</p>
+      </div>
+      <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <div class="text-sm font-bold" style="color:#f0644a">02 · 끝없는 일정 조율</div>
+        <p class="mt-2 text-body-md text-on-surface-variant break-keep">"화요일 어떠세요?" "그땐 제가…" 미팅 한 번에 카톡만 수십 번 오갑니다.</p>
+      </div>
+      <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <div class="text-sm font-bold" style="color:#f0644a">03 · 체리피커 감정 소모</div>
+        <p class="mt-2 text-body-md text-on-surface-variant break-keep">계약할 마음 없는 뻔한 질문에 소중한 시간과 감정을 소진합니다.</p>
+      </div>
+      <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <div class="text-sm font-bold" style="color:#f0644a">04 · 안 보이는 현황</div>
+        <p class="mt-2 text-body-md text-on-surface-variant break-keep">복잡한 GA4·스프레드시트로는 실시간 리드 영업 현황이 한눈에 보이지 않습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="bg-surface-container-low border-y border-outline-variant">
+    <div class="max-w-[1280px] mx-auto px-6 py-20 md:py-24">
+      <span class="text-sm font-bold tracking-widest text-primary uppercase">Solution</span>
+      <h2 class="mt-3 text-3xl md:text-5xl font-bold text-on-surface tracking-tight break-keep">클로징은 대표님이, <span class="text-primary">잡무는 인프라가</span></h2>
+      <div class="mt-4 max-w-3xl text-body-lg text-on-surface-variant break-keep space-y-4">
+        <p><b class="text-on-surface">고객과의 핵심 미팅과 클로징은 대표님이 직접 하세요.</b></p>
+        <p>이 인프라는 미팅 전후의 모든 단순 반복 잡무 — <b class="text-on-surface">일정 조율·노쇼 방지·문자 복붙</b> — 을 완벽히 무인화합니다.</p>
+        <p>그래서 대표님이 오직 <b class="text-primary">계약서 도장 찍는 일</b>에만 100% 에너지를 쏟게 만듭니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5단계 흐름 -->
+  <section id="flow" class="max-w-[1280px] mx-auto px-6 py-20 md:py-24">
+    <span class="text-sm font-bold tracking-widest text-primary uppercase">Full Automation</span>
+    <h2 class="mt-3 text-3xl md:text-4xl font-bold text-on-surface tracking-tight">6단계 완전 자동화 흐름</h2>
+    <p class="mt-3 text-body-lg text-on-surface-variant break-keep">광고 클릭 한 번부터 상담 이후 사후 액션까지, 담당자 개입 0회로 24시간 무인으로 굴러갑니다.</p>
+
+    <div id="flowGrid" class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="flow-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <span class="material-symbols-outlined text-primary">bolt</span>
+        <div class="mt-3 font-bold text-on-surface">01 즉시 수집</div>
+        <p class="mt-1.5 text-sm text-on-surface-variant break-keep">매체 API가 유저 정보를 1초 만에 시스템·구글시트에 자동 저장</p>
+        <div class="mt-3 inline-block rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">리드 누락 0%</div>
+      </div>
+      <div class="flow-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <span class="material-symbols-outlined text-primary">filter_alt</span>
+        <div class="mt-3 font-bold text-on-surface">02 AI 등급 판별</div>
+        <p class="mt-1.5 text-sm text-on-surface-variant break-keep">문의 내용을 실시간 분석해 구매 가능성을 S~C등급으로 분류</p>
+        <div class="mt-3 inline-block rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">체리피커 자동 필터링</div>
+      </div>
+      <div class="flow-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <span class="material-symbols-outlined text-primary">event_available</span>
+        <div class="mt-3 font-bold text-on-surface">03 일정 부킹</div>
+        <p class="mt-1.5 text-sm text-on-surface-variant break-keep">구글 캘린더와 연동해 빈 시간만 골라 고객이 직접 예약</p>
+        <div class="mt-3 inline-block rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">일정 조율 스트레스 0</div>
+      </div>
+      <div class="flow-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <span class="material-symbols-outlined text-primary">notifications_active</span>
+        <div class="mt-3 font-bold text-on-surface">04 철벽 방어</div>
+        <p class="mt-1.5 text-sm text-on-surface-variant break-keep">미팅 링크 자동 생성 + 하루전·1시간전·15분전 3단계 알림</p>
+        <div class="mt-3 inline-block rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">노쇼 0% 도전</div>
+      </div>
+      <div class="flow-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <span class="material-symbols-outlined text-primary">summarize</span>
+        <div class="mt-3 font-bold text-on-surface">05 상담 완료 &amp; 정리</div>
+        <p class="mt-1.5 text-sm text-on-surface-variant break-keep">미팅 종료 즉시 AI가 대화를 3줄 요약·메모로 자동 정리</p>
+        <div class="mt-3 inline-block rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">진행중·상담완료 자동 분류</div>
+      </div>
+      <div class="flow-card rounded-xl border-2 border-primary bg-primary-container/5 p-6">
+        <span class="material-symbols-outlined text-primary">rocket_launch</span>
+        <div class="mt-3 font-bold text-on-surface">06 사후 액션</div>
+        <p class="mt-1.5 text-sm text-on-surface-variant break-keep">대시보드 저장 · 재연락일 자동 지정 · Ready-SMS 후속 문자 발송</p>
+        <div class="mt-3 inline-block rounded-md bg-primary px-2.5 py-1 text-caption font-semibold text-on-primary">클릭 하나로 클로징</div>
+      </div>
+    </div>
+
+    <div class="flow-note mt-6 rounded-xl bg-primary-container/10 border border-primary/20 px-5 py-4 text-body-md text-on-surface break-keep">
+      <b class="text-primary">담당자 개입 0회</b> — 광고 클릭부터 상담 이후 사후 액션까지, 모든 과정이 24시간 무인으로 이어집니다.
+    </div>
+
+    <!-- 미팅 이후 -->
+    <h3 class="mt-16 text-sm font-bold tracking-widest text-primary uppercase">Next Process · 미팅 이후</h3>
+    <h2 class="mt-2 text-2xl md:text-3xl font-bold text-on-surface tracking-tight break-keep">기록으로 끝나는 CRM은 지쳤습니다</h2>
+    <div class="mt-3 max-w-3xl text-body-md text-on-surface-variant break-keep space-y-3">
+      <p>대다수 CRM은 데이터를 쌓는 <b class="text-on-surface">'보관함'</b>에 그칩니다.</p>
+      <p>그로스컴퍼니의 인프라는 미팅이 끝나는 순간, <b class="text-primary">자체 AI 브레인이 계약률을 높이는 백엔드 액션</b>을 즉시 수행합니다.</p>
+    </div>
+    <div class="mt-6 grid md:grid-cols-3 gap-4">
+      <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <div class="text-sm font-bold text-primary">01 · 텍스트 추출 &amp; AI 분석</div>
+        <p class="mt-2 text-sm text-on-surface-variant break-keep">전체 미팅 대화 스크립트를 빠짐없이 확보하고, AI가 맥락을 분석해 <b class="text-on-surface">3줄 핵심 요약·메모</b>를 자동 누적합니다.</p>
+      </div>
+      <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <div class="text-sm font-bold text-primary">02 · 상태 갱신 &amp; 리마인더</div>
+        <p class="mt-2 text-sm text-on-surface-variant break-keep">구매 의사를 판별해 리드 상태를 자동 변경하고, <b class="text-on-surface">"3일 뒤 재연락"</b> 넥스트 액션을 계산해 대시보드 상단에 상시 알림합니다.</p>
+      </div>
+      <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <div class="text-sm font-bold text-primary">03 · 원클릭 후속 문자 (Ready-SMS)</div>
+        <p class="mt-2 text-sm text-on-surface-variant break-keep">감사·다음 단계 안내문을 대표 어조로 AI가 미리 작성. 대시보드에서 <b class="text-on-surface">클릭 한 번으로 즉시 발송</b>합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 우리가 만든 시스템 -->
+  <section class="bg-surface-container-low border-y border-outline-variant">
+    <div class="max-w-[1280px] mx-auto px-6 py-20 md:py-24">
+      <span class="text-sm font-bold tracking-widest text-primary uppercase">The Product</span>
+      <h2 class="mt-3 text-3xl md:text-4xl font-bold text-on-surface tracking-tight break-keep">제안서 속 그림이 아닙니다. 이미 굴러가고 있습니다</h2>
+      <p class="mt-3 max-w-2xl text-body-lg text-on-surface-variant break-keep"><b class="text-on-surface">지금 실제로 동작하는 독점 CRM 대시보드</b>를, 대표님 비즈니스에 맞춰 그대로 이식합니다.</p>
+
+      <div class="mt-10 grid md:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6">
+          <span class="material-symbols-outlined text-primary">view_kanban</span>
+          <div class="mt-3 text-lg font-bold text-on-surface">칸반 · 목록 이중 뷰</div>
+          <p class="mt-2 text-sm leading-relaxed text-on-surface-variant break-keep">연락대기·예약완료·진행중·상담완료·연락불가 5단계 보드. 카드를 드래그하면 상태가 그 자리에서 바뀝니다.</p>
+        </div>
+        <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6">
+          <span class="material-symbols-outlined text-primary">smart_toy</span>
+          <div class="mt-3 text-lg font-bold text-on-surface">AI 등급 판별 S~C</div>
+          <p class="mt-2 text-sm leading-relaxed text-on-surface-variant break-keep">문의 맥락·예산·시급성을 0.5초 만에 분석해 점수화. VIP는 최상단, 체리피커는 하위로 자동 정렬합니다.</p>
+        </div>
+        <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6">
+          <span class="material-symbols-outlined text-primary">hub</span>
+          <div class="mt-3 text-lg font-bold text-on-surface">메타 광고 통합 연동</div>
+          <p class="mt-2 text-sm leading-relaxed text-on-surface-variant break-keep">메타 리드 광고가 실시간으로 CRM에 쌓이고, S·A등급은 Conversions API로 되먹여 알고리즘이 진짜 고객을 더 데려옵니다.</p>
+        </div>
+        <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6">
+          <span class="material-symbols-outlined text-primary">monitoring</span>
+          <div class="mt-3 text-lg font-bold text-on-surface">일일 유입 추이 차트</div>
+          <p class="mt-2 text-sm leading-relaxed text-on-surface-variant break-keep">웹사이트·메타 광고 유입을 두 선으로 구분해 날짜별로 비교. 7·14·30일, 기간 지정으로 광고비 흐름을 한눈에 봅니다.</p>
+        </div>
+        <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6">
+          <span class="material-symbols-outlined text-primary">shield</span>
+          <div class="mt-3 text-lg font-bold text-on-surface">이탈 방지 안전장치</div>
+          <p class="mt-2 text-sm leading-relaxed text-on-surface-variant break-keep">정보만 입력하고 예약 없이 이탈한 리드를 감지해, 복구 링크 문자를 자동 발송합니다.</p>
+        </div>
+        <div class="rounded-2xl bg-primary p-6 shadow-ambient">
+          <span class="material-symbols-outlined text-on-primary">send</span>
+          <div class="mt-3 text-lg font-bold text-on-primary">Ready-SMS 원클릭 발송</div>
+          <p class="mt-2 text-sm leading-relaxed text-primary-fixed break-keep">AI가 대표 어조로 미리 써둔 후속 문자를, 상세 화면에서 버튼 하나로 즉시 전송합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 도입 안내 / 가격 -->
+  <section class="max-w-[1280px] mx-auto px-6 py-20 md:py-24">
+    <span class="text-sm font-bold tracking-widest text-primary uppercase">Why It Pays Off</span>
+    <h2 class="mt-3 text-3xl md:text-4xl font-bold text-on-surface tracking-tight">왜 이게 가장 확실한 투자인가</h2>
+    <p class="mt-3 max-w-2xl text-body-lg text-on-surface-variant break-keep">단순 기능 연결이 아니라, 매출로 이어지는 세일즈 인프라를 영구 소유하게 됩니다.</p>
+
+    <div class="mt-8 grid md:grid-cols-3 gap-4">
+      <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-7">
+        <span class="material-symbols-outlined text-primary">savings</span>
+        <div class="mt-3 text-lg font-bold text-on-surface">대기업 CRM보다 저렴</div>
+        <p class="mt-2 text-body-md text-on-surface-variant break-keep">세일즈포스·허브스팟은 <b class="text-on-surface">매달 구독료가 평생</b> 나갑니다.<br class="hidden sm:block"/>이건 <b class="text-primary">1회 구축으로 영구 소유</b> · 추가 고정비 0원.</p>
+      </div>
+      <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-7">
+        <span class="material-symbols-outlined text-primary">smart_toy</span>
+        <div class="mt-3 text-lg font-bold text-on-surface">월 인건비 평생 0원</div>
+        <p class="mt-2 text-body-md text-on-surface-variant break-keep">이 일을 사람에게 맡기면 <b class="text-on-surface">월 최소 250만 원</b>.<br class="hidden sm:block"/><b class="text-primary">지치지 않는 수석 AI 비서</b>를 영구 배치합니다.</p>
+      </div>
+      <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-7">
+        <span class="material-symbols-outlined text-primary">verified</span>
+        <div class="mt-3 text-lg font-bold text-on-surface">검증된 시나리오 이식</div>
+        <p class="mt-2 text-body-md text-on-surface-variant break-keep">이미 동작 중인 대시보드·AI 판별 로직·고전환 문자 템플릿을 그대로.<br class="hidden sm:block"/><b class="text-primary">기술이 아닌 매출 인프라</b>를 삽니다.</p>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-5 rounded-2xl border border-outline-variant bg-surface-container-low p-7">
+      <div>
+        <div class="text-lg font-bold text-on-surface">1회 구축으로 영구 소유 · 구축 기간 2주 내외</div>
+        <p class="mt-1 text-body-md text-on-surface-variant break-keep">대표님 비즈니스에 맞춘 세부 범위와 도입 비용은 상담에서 안내해 드립니다.</p>
+      </div>
+      <a href="#inquiry" class="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-base font-bold text-on-primary hover:bg-surface-tint transition active:scale-[.99] shadow-ambient">
+        도입 상담 신청 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 상담 인쿼리 -->
+  <section id="inquiry" class="bg-surface-container-low border-t border-outline-variant scroll-mt-20">
+    <div class="max-w-[760px] mx-auto px-6 py-20 md:py-24">
+      <div class="text-center">
+        <span class="text-sm font-bold tracking-widest text-primary uppercase">Get Started</span>
+        <h2 class="mt-3 text-3xl md:text-4xl font-bold text-on-surface tracking-tight">고객 DB CRM 도입 상담</h2>
+        <p class="mt-3 text-body-md text-on-surface-variant break-keep">현재 상황과 광고비 규모만 알려주시면, <b class="text-on-surface">24시간 내</b> 전담 전문가가 <b class="text-on-surface">맞춤 제안서</b>로 연락드립니다.</p>
+      </div>
+
+      <div id="successBanner" class="hidden mt-8 rounded-xl border border-primary bg-secondary-fixed px-5 py-4 text-primary font-semibold text-center">
+        상담 신청이 정상 접수되었습니다. 곧 연락드리겠습니다. 감사합니다.
+      </div>
+
+      <form id="crmForm" class="mt-8 rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 md:p-8 flex flex-col gap-5" novalidate>
+        <input type="hidden" name="source" value="crm-page"/>
+        <input type="hidden" name="painpoint" value="crm"/>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <label class="flex flex-col gap-1.5">
+            <span class="text-label-sm font-semibold text-on-surface">성함 <span class="text-error">*</span></span>
+            <input class="card-border rounded-md p-2.5 focus:ring-1 focus:ring-primary focus:border-primary bg-surface text-body-md text-on-surface placeholder:text-outline" name="name" placeholder="홍길동" type="text" required/>
+          </label>
+          <label class="flex flex-col gap-1.5">
+            <span class="text-label-sm font-semibold text-on-surface">회사명</span>
+            <input class="card-border rounded-md p-2.5 focus:ring-1 focus:ring-primary focus:border-primary bg-surface text-body-md text-on-surface placeholder:text-outline" name="company" placeholder="(주)브랜드명" type="text"/>
+          </label>
+          <label class="flex flex-col gap-1.5">
+            <span class="text-label-sm font-semibold text-on-surface">연락처 <span class="text-error">*</span></span>
+            <input class="card-border rounded-md p-2.5 focus:ring-1 focus:ring-primary focus:border-primary bg-surface text-body-md text-on-surface placeholder:text-outline" name="phone" placeholder="010-1234-5678" type="tel" required/>
+          </label>
+          <label class="flex flex-col gap-1.5">
+            <span class="text-label-sm font-semibold text-on-surface">이메일</span>
+            <input class="card-border rounded-md p-2.5 focus:ring-1 focus:ring-primary focus:border-primary bg-surface text-body-md text-on-surface placeholder:text-outline" name="email" placeholder="name@company.com" type="email"/>
+          </label>
+        </div>
+
+        <label class="flex flex-col gap-1.5">
+          <span class="text-label-sm font-semibold text-on-surface">월 광고비 규모</span>
+          <select class="card-border rounded-md p-2.5 focus:ring-1 focus:ring-primary focus:border-primary bg-surface text-body-md text-on-surface" name="budget">
+            <option value="">선택 안 함</option>
+            <option value="<500">월 500만 원 미만</option>
+            <option value="500-2000">월 500~2,000만 원</option>
+            <option value="2000-5000">월 2,000~5,000만 원</option>
+            <option value=">5000">월 5,000만 원 이상</option>
+          </select>
+        </label>
+
+        <label class="flex flex-col gap-1.5">
+          <span class="text-label-sm font-semibold text-on-surface">문의 내용 <span class="text-error">*</span></span>
+          <textarea class="card-border rounded-md p-2.5 focus:ring-1 focus:ring-primary focus:border-primary bg-surface text-body-md text-on-surface placeholder:text-outline min-h-[120px]" name="message" placeholder="예) 월 광고비 1,000만 원 집행 중인데 주말·야간 리드를 놓칩니다. CRM 대시보드와 자동 예약이 필요합니다." required></textarea>
+        </label>
+
+        <label class="flex items-start gap-2.5 text-sm text-on-surface-variant">
+          <input class="mt-0.5 rounded text-primary focus:ring-primary border-outline-variant" name="consent" type="checkbox" required/>
+          <span>개인정보 수집·이용에 동의합니다. (상담 목적으로만 사용됩니다) <span class="text-error">*</span></span>
+        </label>
+
+        <button type="submit" class="mt-1 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-base font-bold text-on-primary hover:bg-surface-tint transition active:scale-[.99] shadow-ambient">
+          상담 신청하기
+          <span class="material-symbols-outlined text-[18px]">send</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full border-t border-outline-variant bg-surface-container-lowest">
+  <div class="max-w-[1280px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-gutter">
+    <div class="md:col-span-2">
+      <img src="./assets/logo-horizontal.png" alt="Growth Company" class="h-6 w-auto mb-3"/>
+      <p class="text-caption text-on-surface-variant max-w-sm">마케팅을 사람의 일이 아닌 성장하는 시스템으로. 5개 엔진이 하나의 자동 성장 엔진으로 작동합니다.</p>
+    </div>
+    <div>
+      <div class="text-label-sm text-on-surface mb-stack-sm">Engines</div>
+      <ul class="space-y-2 text-caption text-on-surface-variant">
+        <li><a href="services.html" class="hover:text-primary">Performance</a></li>
+        <li><a href="services.html" class="hover:text-primary">Creative</a></li>
+        <li><a href="services.html" class="hover:text-primary">Influencer</a></li>
+        <li><a href="crm.html" class="hover:text-primary">CRM</a></li>
+        <li><a href="services.html" class="hover:text-primary">Web-Ops</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="text-label-sm text-on-surface mb-stack-sm">Company</div>
+      <ul class="space-y-2 text-caption text-on-surface-variant">
+        <li><a href="case-studies.html" class="hover:text-primary">Case Studies</a></li>
+        <li><a href="crm.html" class="hover:text-primary">고객 DB CRM</a></li>
+        <li><a href="contact.html" class="hover:text-primary">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-outline-variant">
+    <div class="max-w-[1280px] mx-auto px-6 py-4 text-caption text-on-surface-variant flex flex-col md:flex-row justify-between gap-2">
+      <div>© <span data-footer-year>2026</span> Growth Company. All rights reserved.</div>
+      <div>dan@growthcompany.kr</div>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/site.js?v=20260423w"></script>
+<script>
+  // 6단계 흐름: 화면에 들어오면 순차 등장
+  (function () {
+    const grid = document.getElementById("flowGrid");
+    if (!grid) return;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const section = document.getElementById("flow");
+    if (prefersReduced || !("IntersectionObserver" in window)) {
+      section?.classList.add("flow-in");
+      return;
+    }
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          section.classList.add("flow-in");
+          o.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
+    obs.observe(grid);
+  })();
+</script>
+<script>
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxT34kLGXUxfWEVuO7GT-L48lNQlbjVb7bz1YtrzK0SB0n1lH6dGah4OfpNlJUYeXI-5A/exec";
+  const form = document.getElementById("crmForm");
+  const banner = document.getElementById("successBanner");
+  const submitBtn = form?.querySelector('button[type="submit"]');
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    submitBtn.disabled = true;
+    const origLabel = submitBtn.innerHTML;
+    submitBtn.innerHTML = '전송 중…';
+
+    const fd = new FormData(form);
+    const body = new URLSearchParams();
+    fd.forEach((v, k) => body.append(k, v));
+    body.append("referrer", document.referrer || "");
+    body.append("ua", navigator.userAgent);
+    body.append("page", "crm");
+
+    try {
+      await fetch(APPS_SCRIPT_URL, { method: "POST", body });
+      banner.classList.remove("hidden");
+      form.reset();
+      banner.scrollIntoView({ behavior: "smooth", block: "center" });
+    } catch (err) {
+      alert("전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origLabel;
+    }
+  });
+</script>
+</body>
+</html>
