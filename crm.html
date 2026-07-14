@@ -77,6 +77,19 @@
   .mock-dot { display: inline-block; width: 7px; height: 7px; border-radius: 9999px; flex: 0 0 auto; }
   .mock-badge { border-radius: 9999px; padding: 1px 7px; font-size: 10px; font-weight: 700; white-space: nowrap; }
   .m-mint { color: #34e39b; } .m-blue { color: #5aa9ff; } .m-dim { color: #8ea0b5; } .m-white { color: #e8edf2; } .m-amber { color: #fbbf24; }
+
+  /* ── 히어로 CRM 자동 작동 시뮬레이션 ── */
+  .crm-sim { border-radius: 16px; overflow: hidden; border: 1px solid #1e2733; background: #0b0f16; box-shadow: 0 30px 70px rgba(11,18,30,.28); }
+  .crm-bar { display: flex; align-items: center; gap: 6px; padding: 12px 16px; border-bottom: 1px solid #1e2733; background: #0f141d; }
+  .crm-bar .dotr { width: 10px; height: 10px; border-radius: 9999px; }
+  .sim-live { width: 8px; height: 8px; border-radius: 9999px; background: #34e39b; animation: simPulse 1.2s ease-in-out infinite; }
+  @keyframes simPulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+  .crm-cols { position: relative; height: 240px; padding: 14px; }
+  .sim-colhead { position: absolute; top: 14px; width: 28%; display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; }
+  .sim-zone { position: absolute; top: 40px; width: 28%; height: 180px; border: 1px dashed #1e2733; border-radius: 10px; background: rgba(20,27,38,.35); }
+  .sim-card { position: absolute; top: 50px; left: 2%; width: 28%; background: #141b26; border: 1px solid #2b3644; border-radius: 10px; padding: 10px; box-shadow: 0 8px 20px rgba(0,0,0,.35); transition: left .8s cubic-bezier(.4,0,.2,1), opacity .4s ease; }
+  .crm-log { border-top: 1px solid #1e2733; padding: 12px 16px; background: #0f141d; font-size: 12.5px; font-weight: 600; color: #e8edf2; min-height: 44px; display: flex; align-items: center; }
+  @media (prefers-reduced-motion: reduce) { .sim-card, .sim-live { transition: none; animation: none; } }
 </style>
 </head>
 <body class="antialiased bg-background">
@@ -115,44 +128,78 @@
   <section class="relative overflow-hidden bg-background">
     <div class="absolute inset-0 hero-accent pointer-events-none"></div>
     <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(1100px 520px at 82% -12%, rgba(0,89,187,.10), transparent 70%)"></div>
-    <div class="max-w-[1280px] mx-auto px-6 py-20 md:py-28 relative">
-      <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-semibold bg-primary-container text-on-primary-container">
-        <span class="material-symbols-outlined text-[16px]">precision_manufacturing</span>
-        광고비는 쓰는데, 매출은 제자리인 대표님께
-      </span>
-      <h1 class="mt-7 text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight text-on-surface break-keep">
-        사람이 아니라,<br/><span class="text-primary">시스템이 팔게</span> 만듭니다
-      </h1>
-      <div class="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-on-surface-variant break-keep space-y-3">
-        <p class="font-bold text-on-surface">광고 클릭 → AI 등급 판별 → 자동 예약 → 계약 직전까지.</p>
-        <p>리드 수집부터 클로징 직전까지, <b class="text-on-surface">24시간 무인으로 굴러가는 세일즈 인프라</b>를 심어드립니다.</p>
+    <div class="max-w-[1280px] mx-auto px-6 py-20 md:py-28 relative grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-semibold bg-primary-container text-on-primary-container">
+          <span class="material-symbols-outlined text-[16px]">precision_manufacturing</span>
+          광고비는 쓰는데, 매출은 제자리인 대표님께
+        </span>
+        <h1 class="mt-7 text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight text-on-surface break-keep">
+          사람이 아니라,<br/><span class="text-primary">시스템이 팔게</span> 만듭니다
+        </h1>
+        <div class="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-on-surface-variant break-keep space-y-3">
+          <p class="font-bold text-on-surface">광고 클릭 → AI 등급 판별 → 자동 예약 → 계약 직전까지.</p>
+          <p>리드 수집부터 클로징 직전까지, <b class="text-on-surface">24시간 무인으로 굴러가는 세일즈 인프라</b>를 심어드립니다.</p>
+        </div>
+        <div class="mt-9 flex flex-col sm:flex-row gap-3">
+          <a href="#inquiry" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-base font-bold text-on-primary hover:bg-surface-tint transition active:scale-[.99] shadow-ambient">
+            지금 도입 상담 신청
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </a>
+          <a href="#flow" class="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-base font-semibold text-on-surface border border-on-surface hover:bg-surface-container-low transition">
+            자동화 흐름 먼저 보기
+          </a>
+        </div>
+        <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
+            <div class="text-3xl font-extrabold text-primary">80%</div>
+            <div class="mt-1 text-sm text-on-surface-variant">이탈하던 리드 회수</div>
+          </div>
+          <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
+            <div class="text-3xl font-extrabold text-primary">5분</div>
+            <div class="mt-1 text-sm text-on-surface-variant">골든타임 자동 대응</div>
+          </div>
+          <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
+            <div class="text-3xl font-extrabold text-primary">0건</div>
+            <div class="mt-1 text-sm text-on-surface-variant">리드 누락·수기 정리</div>
+          </div>
+          <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
+            <div class="text-3xl font-extrabold text-primary">24h</div>
+            <div class="mt-1 text-sm text-on-surface-variant">무인 운영</div>
+          </div>
+        </div>
       </div>
-      <div class="mt-9 flex flex-col sm:flex-row gap-3">
-        <a href="#inquiry" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-base font-bold text-on-primary hover:bg-surface-tint transition active:scale-[.99] shadow-ambient">
-          지금 도입 상담 신청
-          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-        </a>
-        <a href="#flow" class="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-base font-semibold text-on-surface border border-on-surface hover:bg-surface-container-low transition">
-          자동화 흐름 먼저 보기
-        </a>
-      </div>
-      <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl">
-        <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
-          <div class="text-3xl font-extrabold text-primary">80%</div>
-          <div class="mt-1 text-sm text-on-surface-variant">이탈하던 리드 회수</div>
+
+      <!-- 우측: CRM 자동 작동 시뮬레이션 -->
+      <div class="crm-sim">
+        <div class="crm-bar">
+          <span class="dotr" style="background:#f0644a"></span>
+          <span class="dotr" style="background:#fbbf24"></span>
+          <span class="dotr" style="background:#34e39b"></span>
+          <span style="margin-left:8px;font-size:13px;font-weight:600" class="m-white">고객 DB 자동 전환 최적화</span>
+          <span style="margin-left:auto;display:flex;align-items:center;gap:6px;font-size:11px" class="m-mint">
+            <span class="sim-live"></span> 실시간 자동 작동
+          </span>
         </div>
-        <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
-          <div class="text-3xl font-extrabold text-primary">5분</div>
-          <div class="mt-1 text-sm text-on-surface-variant">골든타임 자동 대응</div>
+        <div class="crm-cols">
+          <div class="sim-colhead" style="left:2%"><span class="mock-dot" style="background:#fbbf24"></span><span class="m-amber">연락대기</span></div>
+          <div class="sim-colhead" style="left:36%"><span class="mock-dot" style="background:#5aa9ff"></span><span class="m-blue">예약완료</span></div>
+          <div class="sim-colhead" style="left:70%"><span class="mock-dot" style="background:#34e39b"></span><span class="m-mint">상담완료</span></div>
+          <!-- 컬럼 드롭존 -->
+          <div class="sim-zone" style="left:2%"></div>
+          <div class="sim-zone" style="left:36%"></div>
+          <div class="sim-zone" style="left:70%"></div>
+          <!-- 이동하는 리드 카드 -->
+          <div class="sim-card" id="simCard">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:6px">
+              <span style="font-size:12px;font-weight:800" class="m-white">홍길동</span>
+              <span id="simBadge" class="mock-badge m-mint" style="background:rgba(52,227,155,.15);opacity:0;transition:opacity .35s,transform .35s;transform:scale(.6)">S · 92</span>
+            </div>
+            <div style="font-size:10px;margin-top:2px" class="m-dim">그로스컴퍼니</div>
+            <div id="simMsg" style="font-size:10px;margin-top:6px" class="m-dim">방금 유입됨</div>
+          </div>
         </div>
-        <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
-          <div class="text-3xl font-extrabold text-primary">0건</div>
-          <div class="mt-1 text-sm text-on-surface-variant">리드 누락·수기 정리</div>
-        </div>
-        <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-5">
-          <div class="text-3xl font-extrabold text-primary">24h</div>
-          <div class="mt-1 text-sm text-on-surface-variant">무인 운영</div>
-        </div>
+        <div class="crm-log" id="simLog"><span class="m-dim">대기 중…</span></div>
       </div>
     </div>
   </section>
@@ -640,6 +687,60 @@
 
 <script src="./assets/site.js?v=20260423w"></script>
 <script>
+  // 히어로 CRM 자동 작동 시뮬레이션 (리드 유입 → 등급 → 예약 → 상담완료 → 후속 발송 반복)
+  (function () {
+    const card = document.getElementById("simCard");
+    const badge = document.getElementById("simBadge");
+    const msg = document.getElementById("simMsg");
+    const log = document.getElementById("simLog");
+    if (!card || !log) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // 애니메이션 미선호 시: 마지막 상태로 고정
+      card.style.left = "70%";
+      badge.style.opacity = "1"; badge.style.transform = "scale(1)";
+      msg.textContent = "후속 문자 발송 완료";
+      log.innerHTML = '<span class="m-mint">📩 Ready-SMS 자동 발송 완료</span>';
+      return;
+    }
+
+    const T = "left .8s cubic-bezier(.4,0,.2,1), opacity .4s ease";
+    const steps = [
+      { left: "2%",  badge: 0, msg: "방금 유입됨",       log: '<span class="m-mint">🟢 새 리드 유입</span> · 홍길동 · 그로스컴퍼니' },
+      { left: "2%",  badge: 1, msg: "구매 신호 92점",    log: '<span class="m-mint">🤖 AI 등급 판별</span> · <b class="m-white">S등급 92점</b>' },
+      { left: "36%", badge: 1, msg: "7/15 14:00 예약",   log: '<span class="m-blue">📅 자동 예약 확정</span> · 7월 15일 오후 2시' },
+      { left: "70%", badge: 1, msg: "AI 3줄 요약 완료",  log: '<span class="m-mint">✅ 상담 완료</span> · AI 3줄 요약·메모 자동 정리' },
+      { left: "70%", badge: 1, msg: "후속 문자 발송",     log: '<span class="m-mint">📩 Ready-SMS 자동 발송 완료</span>' }
+    ];
+
+    let i = -1;
+    card.style.transition = T;
+    function frame() {
+      i++;
+      if (i < steps.length) {
+        const s = steps[i];
+        card.style.opacity = "1";
+        card.style.left = s.left;
+        badge.style.opacity = s.badge ? "1" : "0";
+        badge.style.transform = s.badge ? "scale(1)" : "scale(.6)";
+        msg.textContent = s.msg;
+        log.innerHTML = s.log;
+      } else {
+        // 페이드아웃 후 보이지 않게 시작 위치로 되돌림
+        card.style.opacity = "0";
+        log.innerHTML = '<span class="m-dim">… 다음 리드 대기</span>';
+        setTimeout(function () {
+          card.style.transition = "none";
+          card.style.left = "2%";
+          void card.offsetWidth;
+          card.style.transition = T;
+        }, 420);
+        i = -1;
+      }
+    }
+    frame();
+    setInterval(frame, 1700);
+  })();
+
   // 6단계 흐름: 화면에 들어오면 순차 등장
   (function () {
     const grid = document.getElementById("flowGrid");
@@ -687,7 +788,7 @@
         { name: "최지아", company: "제마드", grade: "A", msg: "결정권자 재확인 후 재접촉 예정" },
       ],
       "상담완료": [
-        { name: "한서연", company: "바디코", grade: "S", msg: "구매 의사 확인 · 제안서 발송 완료" },
+        { name: "한서연", company: "바디룩", grade: "S", msg: "구매 의사 확인 · 제안서 발송 완료" },
       ],
     };
 
