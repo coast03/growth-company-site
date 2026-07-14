@@ -63,6 +63,20 @@
   @media (prefers-reduced-motion: reduce) {
     .flow-card, .flow-note { opacity: 1 !important; transform: none !important; transition: none; }
   }
+
+  /* ── 인터랙티브 칸반 데모 ── */
+  .kb-card { cursor: grab; touch-action: none; user-select: none; transition: box-shadow .15s, border-color .15s, opacity .15s; }
+  .kb-card:hover { border-color: rgba(0,89,187,.4); box-shadow: 0 6px 16px rgba(0,89,187,.10); }
+  .kb-card.dragging { opacity: .35; }
+  .kb-col.drop-hl { border-color: #0059bb; background: #eff4ff; }
+  .kb-ghost { position: fixed; z-index: 60; pointer-events: none; width: 220px; box-shadow: 0 16px 36px rgba(0,89,187,.22); transform: rotate(-2deg); }
+
+  /* ── 실제 시스템 다크 미니 목업 ── */
+  .mock { margin-top: 16px; border-radius: 12px; background: #0f141d; border: 1px solid #1e2733; padding: 12px; }
+  .mock-card { background: #141b26; border: 1px solid #1e2733; border-radius: 8px; padding: 8px; }
+  .mock-dot { display: inline-block; width: 7px; height: 7px; border-radius: 9999px; flex: 0 0 auto; }
+  .mock-badge { border-radius: 9999px; padding: 1px 7px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+  .m-mint { color: #34e39b; } .m-blue { color: #5aa9ff; } .m-dim { color: #8ea0b5; } .m-white { color: #e8edf2; } .m-amber { color: #fbbf24; }
 </style>
 </head>
 <body class="antialiased bg-background">
@@ -200,42 +214,95 @@
     <h2 class="mt-3 text-3xl md:text-4xl font-bold text-on-surface tracking-tight">6단계 완전 자동화 흐름</h2>
     <p class="mt-3 text-body-lg text-on-surface-variant break-keep">광고 클릭 한 번부터 상담 이후 사후 액션까지, 담당자 개입 0회로 24시간 무인으로 굴러갑니다.</p>
 
-    <div id="flowGrid" class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-      <div class="flow-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+    <div id="flowGrid" class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- 01 -->
+      <div class="flow-card flex flex-col rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
         <span class="material-symbols-outlined text-primary">bolt</span>
         <div class="mt-3 font-bold text-on-surface">01 즉시 수집</div>
         <p class="mt-1.5 text-sm text-on-surface-variant break-keep">매체 API가 유저 정보를 1초 만에 시스템·구글시트에 자동 저장</p>
-        <div class="mt-3 inline-block rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">리드 누락 0%</div>
+        <div class="mt-3 inline-block self-start rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">리드 누락 0%</div>
+        <div class="mt-4 rounded-lg border border-outline-variant bg-surface-container-low p-3">
+          <p class="text-[11px] font-bold uppercase tracking-wide text-primary">실제 예시</p>
+          <div class="mt-2 flex items-center gap-2">
+            <span class="size-2 shrink-0 rounded-full bg-emerald-500"></span>
+            <div class="min-w-0">
+              <p class="text-sm font-semibold text-on-surface">홍길동 · 010-1234-5678</p>
+              <p class="text-xs text-on-surface-variant">방금 전 자동 저장됨</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flow-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+      <!-- 02 -->
+      <div class="flow-card flex flex-col rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
         <span class="material-symbols-outlined text-primary">filter_alt</span>
         <div class="mt-3 font-bold text-on-surface">02 AI 등급 판별</div>
         <p class="mt-1.5 text-sm text-on-surface-variant break-keep">문의 내용을 실시간 분석해 구매 가능성을 S~C등급으로 분류</p>
-        <div class="mt-3 inline-block rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">체리피커 자동 필터링</div>
+        <div class="mt-3 inline-block self-start rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">저관심 문의 자동 분류</div>
+        <div class="mt-4 rounded-lg border border-outline-variant bg-surface-container-low p-3">
+          <p class="text-[11px] font-bold uppercase tracking-wide text-primary">실제 예시</p>
+          <div class="mt-2 flex items-center justify-between gap-2">
+            <span class="text-sm font-semibold text-on-surface">홍길동</span>
+            <span class="rounded-full border border-emerald-300 bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-700">S등급 · 92점</span>
+          </div>
+          <p class="mt-1.5 text-xs text-on-surface-variant">“예산 300 바로 집행 가능, 이번 주 도입”</p>
+        </div>
       </div>
-      <div class="flow-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+      <!-- 03 -->
+      <div class="flow-card flex flex-col rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
         <span class="material-symbols-outlined text-primary">event_available</span>
         <div class="mt-3 font-bold text-on-surface">03 일정 부킹</div>
         <p class="mt-1.5 text-sm text-on-surface-variant break-keep">구글 캘린더와 연동해 빈 시간만 골라 고객이 직접 예약</p>
-        <div class="mt-3 inline-block rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">일정 조율 스트레스 0</div>
+        <div class="mt-3 inline-block self-start rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">일정 조율 스트레스 0</div>
+        <div class="mt-4 rounded-lg border border-outline-variant bg-surface-container-low p-3">
+          <p class="text-[11px] font-bold uppercase tracking-wide text-primary">실제 예시</p>
+          <p class="mt-2 text-sm font-semibold text-on-surface">✅ 7월 15일 (화) 오후 2:00 예약 확정</p>
+          <p class="mt-1 truncate text-xs text-on-surface-variant">meet.google.com/abc-defg-hij</p>
+        </div>
       </div>
-      <div class="flow-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+      <!-- 04 -->
+      <div class="flow-card flex flex-col rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
         <span class="material-symbols-outlined text-primary">notifications_active</span>
         <div class="mt-3 font-bold text-on-surface">04 철벽 방어</div>
         <p class="mt-1.5 text-sm text-on-surface-variant break-keep">미팅 링크 자동 생성 + 하루전·1시간전·15분전 3단계 알림</p>
-        <div class="mt-3 inline-block rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">노쇼 0% 도전</div>
+        <div class="mt-3 inline-block self-start rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">노쇼 0% 도전</div>
+        <div class="mt-4 rounded-lg border border-outline-variant bg-surface-container-low p-3">
+          <p class="text-[11px] font-bold uppercase tracking-wide text-primary">실제 예시</p>
+          <ul class="mt-2 space-y-1 text-xs text-on-surface-variant">
+            <li>하루 전 알림 · <span class="font-semibold text-emerald-600">발송 완료 ✓</span></li>
+            <li>1시간 전 알림 · <span class="font-semibold text-emerald-600">발송 완료 ✓</span></li>
+            <li>15분 전 알림 · <span class="font-semibold text-primary">발송 대기</span></li>
+          </ul>
+        </div>
       </div>
-      <div class="flow-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+      <!-- 05 -->
+      <div class="flow-card flex flex-col rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
         <span class="material-symbols-outlined text-primary">summarize</span>
         <div class="mt-3 font-bold text-on-surface">05 상담 완료 &amp; 정리</div>
         <p class="mt-1.5 text-sm text-on-surface-variant break-keep">미팅 종료 즉시 AI가 대화를 3줄 요약·메모로 자동 정리</p>
-        <div class="mt-3 inline-block rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">진행중·상담완료 자동 분류</div>
+        <div class="mt-3 inline-block self-start rounded-md bg-secondary-fixed px-2.5 py-1 text-caption font-semibold text-primary">진행중·상담완료 자동 분류</div>
+        <div class="mt-4 rounded-lg border border-outline-variant bg-surface-container-low p-3">
+          <p class="text-[11px] font-bold uppercase tracking-wide text-primary">실제 예시 · AI 3줄 요약</p>
+          <ul class="mt-2 space-y-1 text-xs text-on-surface-variant">
+            <li>1. 월 광고비 1,500만 원 · 예산 300 즉시 집행</li>
+            <li>2. 캘린더 자동 부킹에 가장 큰 관심</li>
+            <li>3. 기존 CRM 데이터 이관 요청</li>
+          </ul>
+        </div>
       </div>
-      <div class="flow-card rounded-xl border-2 border-primary bg-primary-container/5 p-6">
+      <!-- 06 -->
+      <div class="flow-card flex flex-col rounded-xl border-2 border-primary bg-primary-container/5 p-6">
         <span class="material-symbols-outlined text-primary">rocket_launch</span>
         <div class="mt-3 font-bold text-on-surface">06 사후 액션</div>
         <p class="mt-1.5 text-sm text-on-surface-variant break-keep">대시보드 저장 · 재연락일 자동 지정 · Ready-SMS 후속 문자 발송</p>
-        <div class="mt-3 inline-block rounded-md bg-primary px-2.5 py-1 text-caption font-semibold text-on-primary">클릭 하나로 클로징</div>
+        <div class="mt-3 inline-block self-start rounded-md bg-primary px-2.5 py-1 text-caption font-semibold text-on-primary">클릭 하나로 클로징</div>
+        <div class="mt-4 rounded-lg border border-primary/30 bg-white p-3">
+          <p class="text-[11px] font-bold uppercase tracking-wide text-primary">실제 예시 · 후속 문자</p>
+          <p class="mt-2 text-xs italic leading-relaxed text-on-surface-variant">“홍길동님, 논의드린 무인 인프라 제안서 정리해 보내드립니다. 검토 후 회신 주세요.”</p>
+          <div class="mt-2.5 flex items-center gap-2 text-xs">
+            <span class="rounded bg-primary px-2 py-1 font-semibold text-on-primary">➤ 발송</span>
+            <span class="text-on-surface-variant">재연락일 · 3일 뒤 자동 지정</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -274,37 +341,164 @@
       <p class="mt-3 max-w-2xl text-body-lg text-on-surface-variant break-keep"><b class="text-on-surface">지금 실제로 동작하는 독점 CRM 대시보드</b>를, 대표님 비즈니스에 맞춰 그대로 이식합니다.</p>
 
       <div class="mt-10 grid md:grid-cols-3 gap-4">
+        <!-- 칸반 -->
         <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6">
           <span class="material-symbols-outlined text-primary">view_kanban</span>
           <div class="mt-3 text-lg font-bold text-on-surface">칸반 · 목록 이중 뷰</div>
           <p class="mt-2 text-sm leading-relaxed text-on-surface-variant break-keep">연락대기·예약완료·진행중·상담완료·연락불가 5단계 보드. 카드를 드래그하면 상태가 그 자리에서 바뀝니다.</p>
+          <div class="mock">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+              <div>
+                <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px"><span class="mock-dot" style="background:#fbbf24"></span><span style="font-size:10px" class="m-amber">연락대기</span></div>
+                <div class="mock-card"><div style="font-size:11px;font-weight:700" class="m-white">김대표</div></div>
+              </div>
+              <div>
+                <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px"><span class="mock-dot" style="background:#34e39b"></span><span style="font-size:10px" class="m-mint">진행중</span></div>
+                <div class="mock-card"><div style="font-size:11px;font-weight:700" class="m-white">최지아</div></div>
+              </div>
+              <div>
+                <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px"><span class="mock-dot" style="background:#5aa9ff"></span><span style="font-size:10px" class="m-blue">상담완료</span></div>
+                <div class="mock-card"><div style="font-size:11px;font-weight:700" class="m-white">한서연</div></div>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- AI 등급 -->
         <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6">
           <span class="material-symbols-outlined text-primary">smart_toy</span>
           <div class="mt-3 text-lg font-bold text-on-surface">AI 등급 판별 S~C</div>
           <p class="mt-2 text-sm leading-relaxed text-on-surface-variant break-keep">문의 맥락·예산·시급성을 0.5초 만에 분석해 점수화. VIP는 최상단, 체리피커는 하위로 자동 정렬합니다.</p>
+          <div class="mock" style="display:flex;flex-direction:column;gap:6px">
+            <div class="mock-card" style="display:flex;align-items:center;justify-content:space-between;gap:6px">
+              <span style="font-size:11px;font-weight:700" class="m-white">김대표</span>
+              <span class="mock-badge m-mint" style="background:rgba(52,227,155,.15)">S등급 · 92점</span>
+            </div>
+            <div style="height:5px;border-radius:9999px;background:#1e2733;overflow:hidden"><div style="width:92%;height:100%;background:#34e39b"></div></div>
+            <div class="mock-card" style="display:flex;align-items:center;justify-content:space-between;gap:6px;opacity:.6">
+              <span style="font-size:11px;font-weight:700" class="m-dim">박준영</span>
+              <span class="mock-badge m-dim" style="background:#1e2733">C등급 · 8점</span>
+            </div>
+          </div>
         </div>
+        <!-- 메타 연동 -->
         <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6">
           <span class="material-symbols-outlined text-primary">hub</span>
           <div class="mt-3 text-lg font-bold text-on-surface">메타 광고 통합 연동</div>
           <p class="mt-2 text-sm leading-relaxed text-on-surface-variant break-keep">메타 리드 광고가 실시간으로 CRM에 쌓이고, S·A등급은 Conversions API로 되먹여 알고리즘이 진짜 고객을 더 데려옵니다.</p>
+          <div class="mock" style="display:flex;flex-direction:column;gap:6px">
+            <div class="mock-card" style="display:flex;align-items:center;justify-content:space-between;gap:6px">
+              <span style="font-size:11px;font-weight:600" class="m-white">문의 들어옴</span>
+              <span class="mock-badge m-mint" style="background:rgba(52,227,155,.15)">전송됨</span>
+            </div>
+            <div class="mock-card" style="display:flex;align-items:center;justify-content:space-between;gap:6px">
+              <span style="font-size:11px;font-weight:600" class="m-white">우량 고객 (S·A)</span>
+              <span class="mock-badge m-mint" style="background:rgba(52,227,155,.15)">전송됨</span>
+            </div>
+            <div class="mock-card" style="display:flex;align-items:center;justify-content:space-between;gap:6px">
+              <span style="font-size:11px;font-weight:600" class="m-white">상담 완료함</span>
+              <span class="mock-badge m-mint" style="background:rgba(52,227,155,.15)">전송됨</span>
+            </div>
+          </div>
         </div>
+        <!-- 추이 차트 -->
         <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6">
           <span class="material-symbols-outlined text-primary">monitoring</span>
           <div class="mt-3 text-lg font-bold text-on-surface">일일 유입 추이 차트</div>
           <p class="mt-2 text-sm leading-relaxed text-on-surface-variant break-keep">웹사이트·메타 광고 유입을 두 선으로 구분해 날짜별로 비교. 7·14·30일, 기간 지정으로 광고비 흐름을 한눈에 봅니다.</p>
+          <div class="mock">
+            <div style="display:flex;gap:12px;margin-bottom:6px">
+              <span style="font-size:10px;display:flex;align-items:center;gap:4px" class="m-dim"><span style="width:12px;height:2px;background:#34e39b;display:inline-block"></span>웹사이트</span>
+              <span style="font-size:10px;display:flex;align-items:center;gap:4px" class="m-dim"><span style="width:12px;height:2px;background:#5aa9ff;display:inline-block"></span>메타 광고</span>
+            </div>
+            <svg viewBox="0 0 200 60" style="width:100%;height:52px">
+              <polyline fill="none" stroke="#34e39b" stroke-width="2" points="0,45 33,20 66,38 99,15 132,30 165,10 200,25"/>
+              <polyline fill="none" stroke="#5aa9ff" stroke-width="2" points="0,30 33,42 66,18 99,40 132,22 165,44 200,20"/>
+            </svg>
+          </div>
         </div>
+        <!-- 이탈 방지 -->
         <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6">
           <span class="material-symbols-outlined text-primary">shield</span>
           <div class="mt-3 text-lg font-bold text-on-surface">이탈 방지 안전장치</div>
           <p class="mt-2 text-sm leading-relaxed text-on-surface-variant break-keep">정보만 입력하고 예약 없이 이탈한 리드를 감지해, 복구 링크 문자를 자동 발송합니다.</p>
+          <div class="mock">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+              <span style="font-size:11px;font-weight:700" class="m-white">🔒 이탈 방지</span>
+              <span class="mock-badge m-mint" style="background:rgba(52,227,155,.15);display:flex;align-items:center;gap:4px"><span class="mock-dot" style="background:#34e39b"></span>작동 중</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;font-size:10px" class="m-dim">
+              <span class="mock-badge m-mint" style="background:rgba(52,227,155,.15)">STEP1 ✓</span>
+              <span class="m-dim">›</span>
+              <span class="mock-badge m-mint" style="background:rgba(52,227,155,.15)">STEP2 ✓</span>
+              <span class="m-dim">›</span>
+              <span class="mock-badge m-mint" style="background:rgba(52,227,155,.15)">STEP3 ✓</span>
+            </div>
+          </div>
         </div>
+        <!-- Ready-SMS -->
         <div class="rounded-2xl bg-primary p-6 shadow-ambient">
           <span class="material-symbols-outlined text-on-primary">send</span>
           <div class="mt-3 text-lg font-bold text-on-primary">Ready-SMS 원클릭 발송</div>
           <p class="mt-2 text-sm leading-relaxed text-primary-fixed break-keep">AI가 대표 어조로 미리 써둔 후속 문자를, 상세 화면에서 버튼 하나로 즉시 전송합니다.</p>
+          <div class="mock">
+            <div class="mock-card" style="border-color:#1d6f4f;background:#0e2620">
+              <p style="font-size:10.5px;line-height:1.5" class="m-white">“홍길동님, 논의드린 무인 인프라 제안서 정리해 보내드립니다. 검토 후 회신 주세요.”</p>
+            </div>
+            <div style="margin-top:8px;border-radius:8px;background:#34e39b;text-align:center;padding:7px 0;font-size:11px;font-weight:800;color:#0b0f16">➤ 클릭 한 번으로 발송</div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 인터랙티브 칸반 데모 -->
+  <section class="bg-surface-container-low border-t border-outline-variant">
+    <div class="max-w-[1280px] mx-auto px-6 py-20 md:py-24">
+      <span class="text-sm font-bold tracking-widest text-primary uppercase">Try It</span>
+      <h2 class="mt-3 text-3xl md:text-4xl font-bold text-on-surface tracking-tight break-keep">직접 만져보는 CRM 칸반 보드</h2>
+      <p class="mt-3 max-w-2xl text-body-lg text-on-surface-variant break-keep">
+        고객 카드를 <b class="text-on-surface">끌어서 옮겨보세요.</b> 상담 단계가 바뀌는 걸 그대로 체험하실 수 있습니다. (실제 시스템의 미리보기입니다)
+      </p>
+
+      <div id="kbBoard" class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <!-- 연락대기 -->
+        <div class="kb-col rounded-2xl border-2 border-outline-variant bg-surface-container-lowest p-3 transition" data-col="연락대기">
+          <div class="flex items-center gap-2 px-2 py-2">
+            <span class="size-2.5 rounded-full bg-amber-400"></span>
+            <span class="font-bold text-on-surface">연락대기</span>
+            <span class="kb-count rounded-full bg-surface-container px-2 py-0.5 text-xs font-bold text-on-surface-variant">0</span>
+          </div>
+          <div class="kb-list mt-1 space-y-2.5 min-h-[80px]"></div>
+        </div>
+        <!-- 미팅 예약 완료 -->
+        <div class="kb-col rounded-2xl border-2 border-outline-variant bg-surface-container-lowest p-3 transition" data-col="미팅 예약 완료">
+          <div class="flex items-center gap-2 px-2 py-2">
+            <span class="size-2.5 rounded-full bg-sky-400"></span>
+            <span class="font-bold text-on-surface">미팅 예약 완료</span>
+            <span class="kb-count rounded-full bg-surface-container px-2 py-0.5 text-xs font-bold text-on-surface-variant">0</span>
+          </div>
+          <div class="kb-list mt-1 space-y-2.5 min-h-[80px]"></div>
+        </div>
+        <!-- 진행중 -->
+        <div class="kb-col rounded-2xl border-2 border-outline-variant bg-surface-container-lowest p-3 transition" data-col="진행중">
+          <div class="flex items-center gap-2 px-2 py-2">
+            <span class="size-2.5 rounded-full bg-emerald-500"></span>
+            <span class="font-bold text-on-surface">진행중</span>
+            <span class="kb-count rounded-full bg-surface-container px-2 py-0.5 text-xs font-bold text-on-surface-variant">0</span>
+          </div>
+          <div class="kb-list mt-1 space-y-2.5 min-h-[80px]"></div>
+        </div>
+        <!-- 상담완료 -->
+        <div class="kb-col rounded-2xl border-2 border-outline-variant bg-surface-container-lowest p-3 transition" data-col="상담완료">
+          <div class="flex items-center gap-2 px-2 py-2">
+            <span class="size-2.5 rounded-full bg-primary"></span>
+            <span class="font-bold text-on-surface">상담완료</span>
+            <span class="kb-count rounded-full bg-surface-container px-2 py-0.5 text-xs font-bold text-on-surface-variant">0</span>
+          </div>
+          <div class="kb-list mt-1 space-y-2.5 min-h-[80px]"></div>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-on-surface-variant">💡 카드를 드래그해 다른 칸으로 옮기면 상담 단계가 바뀝니다. 새로고침하면 초기화됩니다.</p>
     </div>
   </section>
 
@@ -465,6 +659,110 @@
       });
     }, { threshold: 0.25 });
     obs.observe(grid);
+  })();
+</script>
+<script>
+  // ── 인터랙티브 칸반 데모 (포인터 드래그, 자체 완결) ──
+  (function () {
+    const board = document.getElementById("kbBoard");
+    if (!board) return;
+
+    const GRADE = {
+      S: "bg-emerald-100 text-emerald-700 border border-emerald-300",
+      A: "bg-blue-100 text-blue-700 border border-blue-300",
+      B: "bg-slate-100 text-slate-600 border border-slate-300",
+      C: "bg-slate-100 text-slate-500 border border-slate-200",
+    };
+
+    const SEED = {
+      "연락대기": [
+        { name: "김대표", company: "스미츠키", grade: "S", msg: "월 광고비 1,500만 원, 예산 300 바로 집행 가능" },
+        { name: "이수진", company: "리코맨즈", grade: "B", msg: "자동 응대·예약 시스템 검토 중" },
+        { name: "박준영", company: "-", grade: "C", msg: "가격만 궁금해서 문의" },
+      ],
+      "미팅 예약 완료": [
+        { name: "정민호", company: "액티유", grade: "S", msg: "이번 주 미팅 확정 · 노쇼 방지 알림 작동" },
+      ],
+      "진행중": [
+        { name: "최지아", company: "제마드", grade: "A", msg: "결정권자 재확인 후 재접촉 예정" },
+      ],
+      "상담완료": [
+        { name: "한서연", company: "바디코", grade: "S", msg: "구매 의사 확인 · 제안서 발송 완료" },
+      ],
+    };
+
+    function makeCard(d) {
+      const el = document.createElement("article");
+      el.className = "kb-card rounded-xl border border-outline-variant bg-white p-3.5";
+      el.innerHTML =
+        '<div class="flex items-start justify-between gap-2">' +
+          '<div class="min-w-0">' +
+            '<p class="truncate font-bold text-on-surface">' + d.name + '</p>' +
+            '<p class="truncate text-xs text-on-surface-variant">' + d.company + '</p>' +
+          '</div>' +
+          '<span class="shrink-0 rounded-full px-2 py-0.5 text-[11px] font-bold ' + GRADE[d.grade] + '">' + d.grade + '</span>' +
+        '</div>' +
+        '<p class="mt-2 text-xs leading-relaxed text-on-surface-variant line-clamp-2">' + d.msg + '</p>';
+      return el;
+    }
+
+    // 시드 카드 배치
+    board.querySelectorAll("[data-col]").forEach(function (col) {
+      const list = col.querySelector(".kb-list");
+      (SEED[col.dataset.col] || []).forEach(function (d) { list.appendChild(makeCard(d)); });
+    });
+    updateCounts();
+
+    function updateCounts() {
+      board.querySelectorAll("[data-col]").forEach(function (col) {
+        col.querySelector(".kb-count").textContent = col.querySelectorAll(".kb-card").length;
+      });
+    }
+
+    // 포인터 드래그
+    let card = null, ghost = null, start = null, moved = false, overCol = null;
+
+    board.addEventListener("pointerdown", function (e) {
+      const c = e.target.closest(".kb-card");
+      if (!c || e.button !== 0) return;
+      card = c;
+      start = { x: e.clientX, y: e.clientY };
+      moved = false;
+    });
+
+    window.addEventListener("pointermove", function (e) {
+      if (!card) return;
+      if (!moved) {
+        if (Math.hypot(e.clientX - start.x, e.clientY - start.y) < 5) return;
+        moved = true;
+        card.classList.add("dragging");
+        ghost = card.cloneNode(true);
+        ghost.classList.add("kb-ghost");
+        ghost.classList.remove("dragging");
+        document.body.appendChild(ghost);
+      }
+      e.preventDefault();
+      ghost.style.left = (e.clientX - 110) + "px";
+      ghost.style.top = (e.clientY - 24) + "px";
+
+      const under = document.elementFromPoint(e.clientX, e.clientY);
+      const col = under && under.closest ? under.closest("[data-col]") : null;
+      if (col !== overCol) {
+        if (overCol) overCol.classList.remove("drop-hl");
+        overCol = col;
+        if (overCol) overCol.classList.add("drop-hl");
+      }
+    }, { passive: false });
+
+    window.addEventListener("pointerup", function () {
+      if (!card) return;
+      if (moved && overCol) overCol.querySelector(".kb-list").appendChild(card);
+      if (ghost) { ghost.remove(); ghost = null; }
+      if (overCol) overCol.classList.remove("drop-hl");
+      card.classList.remove("dragging");
+      card = null; overCol = null; moved = false;
+      updateCounts();
+    });
   })();
 </script>
 <script>
