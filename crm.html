@@ -28,6 +28,9 @@
 <link rel="icon" type="image/png" href="./assets/logo-icon.png"/>
 <link rel="apple-touch-icon" href="./assets/logo-icon.png"/>
 <style>
+  /* 한글 줄바꿈: 어절(단어) 단위로 끊어 모바일에서 단어 중간이 잘리지 않게. 긴 영문/URL만 예외적으로 분리 */
+  body { word-break: keep-all; overflow-wrap: break-word; }
+
   /* 6단계 흐름 스크롤 리빌 (순차 등장) + 호버 리프트 */
   .flow-card {
     opacity: 0;
@@ -685,17 +688,17 @@
       <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-7">
         <span class="material-symbols-outlined text-primary">savings</span>
         <div class="mt-3 text-lg font-bold text-on-surface">대기업 CRM보다 저렴</div>
-        <p class="mt-2 text-body-md text-on-surface-variant break-keep">세일즈포스·허브스팟은 <b class="text-on-surface">매달 구독료가 평생</b> 나갑니다.<br class="hidden sm:block"/>이건 <b class="text-primary">1회 구축으로 영구 소유</b> · 추가 고정비 0원.</p>
+        <p class="mt-2 text-body-md text-on-surface-variant break-keep">세일즈포스·허브스팟은 <b class="text-on-surface">매달 구독료가 평생</b> 나갑니다. <br class="hidden sm:block"/>이건 <b class="text-primary">1회 구축으로 영구 소유</b> · 추가 고정비 0원.</p>
       </div>
       <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-7">
         <span class="material-symbols-outlined text-primary">smart_toy</span>
         <div class="mt-3 text-lg font-bold text-on-surface">월 인건비 평생 0원</div>
-        <p class="mt-2 text-body-md text-on-surface-variant break-keep">이 일을 사람에게 맡기면 <b class="text-on-surface">월 최소 250만 원</b>.<br class="hidden sm:block"/><b class="text-primary">지치지 않는 수석 AI 비서</b>를 영구 배치합니다.</p>
+        <p class="mt-2 text-body-md text-on-surface-variant break-keep">이 일을 사람에게 맡기면 <b class="text-on-surface">월 최소 250만 원</b>. <br class="hidden sm:block"/><b class="text-primary">지치지 않는 수석 AI 비서</b>를 영구 배치합니다.</p>
       </div>
       <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-7">
         <span class="material-symbols-outlined text-primary">verified</span>
         <div class="mt-3 text-lg font-bold text-on-surface">검증된 시나리오 이식</div>
-        <p class="mt-2 text-body-md text-on-surface-variant break-keep">이미 동작 중인 대시보드·AI 판별 로직·고전환 문자 템플릿을 그대로.<br class="hidden sm:block"/><b class="text-primary">기술이 아닌 매출 인프라</b>를 삽니다.</p>
+        <p class="mt-2 text-body-md text-on-surface-variant break-keep">이미 동작 중인 대시보드·AI 판별 로직·고전환 문자 템플릿을 그대로. <br class="hidden sm:block"/><b class="text-primary">기술이 아닌 매출 인프라</b>를 삽니다.</p>
       </div>
     </div>
 
