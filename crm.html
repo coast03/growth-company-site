@@ -545,9 +545,46 @@
           <div class="kb-list mt-1 space-y-2.5 min-h-[80px]"></div>
         </div>
       </div>
-      <p class="mt-4 text-sm text-on-surface-variant">💡 카드를 드래그해 다른 칸으로 옮기면 상담 단계가 바뀝니다. 새로고침하면 초기화됩니다.</p>
+      <p class="mt-4 text-sm text-on-surface-variant">💡 카드를 드래그해 다른 칸으로 옮기면 상담 단계가 바뀝니다. 카드를 클릭하면 상세 내용을 볼 수 있습니다. 새로고침하면 초기화됩니다.</p>
     </div>
   </section>
+
+  <!-- 칸반 카드 상세 모달 -->
+  <div id="kbModal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/40 p-4" onclick="if(event.target===this) closeKbModal()">
+    <div class="w-full max-w-md rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 shadow-2xl">
+      <div class="flex items-start justify-between gap-3">
+        <div class="min-w-0">
+          <div class="flex items-center gap-2 flex-wrap">
+            <p id="kbmName" class="font-bold text-on-surface text-lg"></p>
+            <span id="kbmGrade" class="rounded-full px-2 py-0.5 text-[11px] font-bold"></span>
+          </div>
+          <p id="kbmCompany" class="text-sm text-on-surface-variant mt-0.5"></p>
+        </div>
+        <button onclick="closeKbModal()" class="shrink-0 rounded-full p-1.5 hover:bg-surface-container text-on-surface-variant transition">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="mt-4 flex items-center gap-2">
+        <span id="kbmStatusDot" class="size-2.5 rounded-full"></span>
+        <span id="kbmStatus" class="text-sm font-bold text-on-surface"></span>
+      </div>
+
+      <div class="mt-4 rounded-xl bg-surface-container p-4">
+        <p class="text-xs font-bold text-on-surface-variant mb-1">문의 내용</p>
+        <p id="kbmMsg" class="text-sm text-on-surface leading-relaxed"></p>
+      </div>
+
+      <div class="mt-4 grid grid-cols-2 gap-x-3 gap-y-3 text-sm">
+        <div><p class="text-xs text-on-surface-variant">연락처</p><p id="kbmPhone" class="font-semibold text-on-surface"></p></div>
+        <div><p class="text-xs text-on-surface-variant">이메일</p><p id="kbmEmail" class="font-semibold text-on-surface"></p></div>
+        <div><p class="text-xs text-on-surface-variant">유입일</p><p id="kbmDate" class="font-semibold text-on-surface"></p></div>
+        <div><p class="text-xs text-on-surface-variant">다음 액션</p><p id="kbmNext" class="font-semibold text-primary"></p></div>
+      </div>
+
+      <p class="mt-5 text-xs text-on-surface-variant">💡 실제 시스템에서는 여기서 상담 이력, 자동 발송 문자·이메일, 재연락 예약까지 한 화면에서 처리합니다.</p>
+    </div>
+  </div>
 
   <!-- 도입 안내 / 가격 -->
   <section class="max-w-[1280px] mx-auto px-6 py-20 md:py-24">
@@ -775,26 +812,35 @@
       C: "bg-slate-100 text-slate-500 border border-slate-200",
     };
 
+    const DOT = {
+      "연락대기": "bg-amber-400",
+      "미팅 예약 완료": "bg-sky-400",
+      "진행중": "bg-emerald-500",
+      "상담완료": "bg-primary",
+    };
+
     const SEED = {
       "연락대기": [
-        { name: "김대표", company: "스미츠키", grade: "S", msg: "월 광고비 1,500만 원, 예산 300 바로 집행 가능" },
-        { name: "이수진", company: "리코맨즈", grade: "B", msg: "자동 응대·예약 시스템 검토 중" },
-        { name: "박준영", company: "-", grade: "C", msg: "가격만 궁금해서 문의" },
+        { name: "김대표", company: "스미츠키", grade: "S", msg: "월 광고비 1,500만 원, 예산 300 바로 집행 가능", phone: "010-2214-9981", email: "ceo@smitski.co", date: "2026.07.11", next: "5분 내 첫 응대 발송" },
+        { name: "이수진", company: "리코맨즈", grade: "B", msg: "자동 응대·예약 시스템 검토 중", phone: "010-4482-1073", email: "sjlee@rikomanz.kr", date: "2026.07.10", next: "안내 자료 발송 대기" },
+        { name: "박준영", company: "-", grade: "C", msg: "가격만 궁금해서 문의", phone: "010-9930-2841", email: "-", date: "2026.07.09", next: "저관심 · 자동 넛지 예정" },
       ],
       "미팅 예약 완료": [
-        { name: "정민호", company: "액티유", grade: "S", msg: "이번 주 미팅 확정 · 노쇼 방지 알림 작동" },
+        { name: "정민호", company: "액티유", grade: "S", msg: "이번 주 미팅 확정 · 노쇼 방지 알림 작동", phone: "010-7723-5510", email: "minho@actiyou.com", date: "2026.07.08", next: "노쇼 방지 리마인더 발송됨" },
       ],
       "진행중": [
-        { name: "최지아", company: "제마드", grade: "A", msg: "결정권자 재확인 후 재접촉 예정" },
+        { name: "최지아", company: "제마드", grade: "A", msg: "결정권자 재확인 후 재접촉 예정", phone: "010-3391-6642", email: "jachoi@zemard.co.kr", date: "2026.07.05", next: "3일 뒤 재연락 예약" },
       ],
       "상담완료": [
-        { name: "한서연", company: "바디룩", grade: "S", msg: "구매 의사 확인 · 제안서 발송 완료" },
+        { name: "한서연", company: "바디룩", grade: "S", msg: "구매 의사 확인 · 제안서 발송 완료", phone: "010-5567-2298", email: "hsy@bodylook.kr", date: "2026.07.02", next: "계약서 회신 대기" },
       ],
     };
 
-    function makeCard(d) {
+    function makeCard(d, colName) {
       const el = document.createElement("article");
       el.className = "kb-card rounded-xl border border-outline-variant bg-white p-3.5";
+      el.dataset.leadCol = colName;
+      el._data = d;
       el.innerHTML =
         '<div class="flex items-start justify-between gap-2">' +
           '<div class="min-w-0">' +
@@ -810,9 +856,34 @@
     // 시드 카드 배치
     board.querySelectorAll("[data-col]").forEach(function (col) {
       const list = col.querySelector(".kb-list");
-      (SEED[col.dataset.col] || []).forEach(function (d) { list.appendChild(makeCard(d)); });
+      (SEED[col.dataset.col] || []).forEach(function (d) { list.appendChild(makeCard(d, col.dataset.col)); });
     });
     updateCounts();
+
+    // 카드 상세 모달
+    const kbModal = document.getElementById("kbModal");
+    window.closeKbModal = function () {
+      kbModal.classList.add("hidden");
+      kbModal.classList.remove("flex");
+    };
+    function openKbModal(cardEl) {
+      const d = cardEl._data;
+      const colName = cardEl.closest("[data-col]").dataset.col;
+      document.getElementById("kbmName").textContent = d.name;
+      document.getElementById("kbmCompany").textContent = d.company;
+      const g = document.getElementById("kbmGrade");
+      g.textContent = d.grade;
+      g.className = "rounded-full px-2 py-0.5 text-[11px] font-bold " + GRADE[d.grade];
+      document.getElementById("kbmStatusDot").className = "size-2.5 rounded-full " + (DOT[colName] || "bg-slate-400");
+      document.getElementById("kbmStatus").textContent = colName;
+      document.getElementById("kbmMsg").textContent = d.msg;
+      document.getElementById("kbmPhone").textContent = d.phone || "-";
+      document.getElementById("kbmEmail").textContent = d.email || "-";
+      document.getElementById("kbmDate").textContent = d.date || "-";
+      document.getElementById("kbmNext").textContent = d.next || "-";
+      kbModal.classList.remove("hidden");
+      kbModal.classList.add("flex");
+    }
 
     function updateCounts() {
       board.querySelectorAll("[data-col]").forEach(function (col) {
@@ -857,10 +928,14 @@
 
     window.addEventListener("pointerup", function () {
       if (!card) return;
-      if (moved && overCol) overCol.querySelector(".kb-list").appendChild(card);
+      if (moved && overCol) {
+        overCol.querySelector(".kb-list").appendChild(card);
+        card.dataset.leadCol = overCol.dataset.col;
+      }
       if (ghost) { ghost.remove(); ghost = null; }
       if (overCol) overCol.classList.remove("drop-hl");
       card.classList.remove("dragging");
+      if (!moved) openKbModal(card);
       card = null; overCol = null; moved = false;
       updateCounts();
     });
