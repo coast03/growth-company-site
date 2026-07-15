@@ -86,9 +86,27 @@
   @keyframes simPulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
   .crm-cols { position: relative; height: 240px; padding: 14px; }
   .sim-colhead { position: absolute; top: 14px; width: 28%; display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; }
-  .sim-zone { position: absolute; top: 40px; width: 28%; height: 180px; border: 1px dashed #1e2733; border-radius: 10px; background: rgba(20,27,38,.35); }
-  .sim-card { position: absolute; top: 50px; left: 2%; width: 28%; background: #141b26; border: 1px solid #2b3644; border-radius: 10px; padding: 10px; box-shadow: 0 8px 20px rgba(0,0,0,.35); transition: left .8s cubic-bezier(.4,0,.2,1), opacity .4s ease; }
+  .sim-col-count { margin-left: auto; font-size: 10px; font-weight: 800; color: #8ea0b5; background: rgba(255,255,255,.06); border-radius: 9999px; padding: 1px 6px; transition: transform .25s ease; }
+  .sim-col-count.pop { transform: scale(1.35); color: #fff; }
+  .sim-zone { position: absolute; top: 40px; width: 28%; height: 180px; border: 1px dashed #1e2733; border-radius: 10px; background: rgba(20,27,38,.35); padding: 8px; box-sizing: border-box; transition: box-shadow .5s ease, border-color .5s ease; }
+  .sim-zone.glow-amber { box-shadow: inset 0 0 0 1px rgba(251,191,36,.5), 0 0 22px rgba(251,191,36,.25); border-color: rgba(251,191,36,.5); }
+  .sim-zone.glow-blue { box-shadow: inset 0 0 0 1px rgba(90,169,255,.5), 0 0 22px rgba(90,169,255,.25); border-color: rgba(90,169,255,.5); }
+  .sim-zone.glow-mint { box-shadow: inset 0 0 0 1px rgba(52,227,155,.5), 0 0 22px rgba(52,227,155,.28); border-color: rgba(52,227,155,.5); }
+  .sim-mini { background: #141b26; border: 1px solid #232d3a; border-radius: 7px; padding: 6px 8px; margin-bottom: 6px; opacity: .55; }
+  .sim-mini .n { font-size: 10px; font-weight: 700; color: #c3ccd6; }
+  .sim-mini .c { font-size: 9px; color: #6d7c8e; margin-top: 1px; }
+  .sim-card { position: absolute; top: 50px; left: 2%; width: 28%; background: #141b26; border: 1px solid #2b3644; border-radius: 10px; padding: 10px; box-shadow: 0 8px 20px rgba(0,0,0,.35); transition: left .8s cubic-bezier(.4,0,.2,1), opacity .4s ease, box-shadow .4s ease; z-index: 3; }
+  .sim-card.lit { box-shadow: 0 0 0 1px rgba(52,227,155,.6), 0 10px 28px rgba(52,227,155,.22); }
+  .sim-dots { display: flex; gap: 3px; margin-top: 7px; }
+  .sim-dots span { flex: 1; height: 3px; border-radius: 9999px; background: #232d3a; transition: background .3s ease; }
+  .sim-dots span.on { background: #34e39b; }
+  .sim-toast { position: absolute; top: 50px; left: 70%; width: 28%; text-align: center; font-size: 10px; font-weight: 800; color: #34e39b; opacity: 0; pointer-events: none; z-index: 4; }
+  .sim-toast.pop { animation: toastFloat 1.1s ease forwards; }
+  @keyframes toastFloat { 0% { opacity: 0; transform: translateY(6px); } 25% { opacity: 1; transform: translateY(-6px); } 80% { opacity: 1; } 100% { opacity: 0; transform: translateY(-22px); } }
   .crm-log { border-top: 1px solid #1e2733; padding: 12px 16px; background: #0f141d; font-size: 12.5px; font-weight: 600; color: #e8edf2; min-height: 44px; display: flex; align-items: center; }
+  .crm-stats { display: flex; flex-wrap: wrap; gap: 14px; padding: 10px 16px; border-top: 1px solid #1e2733; background: #0b0f16; font-size: 11px; color: #8ea0b5; }
+  .crm-stats b { color: #e8edf2; font-size: 12.5px; transition: transform .2s ease; display: inline-block; }
+  .crm-stats b.bump { transform: scale(1.25); color: #34e39b; }
   @media (prefers-reduced-motion: reduce) { .sim-card, .sim-live { transition: none; animation: none; } }
 </style>
 </head>
@@ -182,13 +200,22 @@
           </span>
         </div>
         <div class="crm-cols">
-          <div class="sim-colhead" style="left:2%"><span class="mock-dot" style="background:#fbbf24"></span><span class="m-amber">연락대기</span></div>
-          <div class="sim-colhead" style="left:36%"><span class="mock-dot" style="background:#5aa9ff"></span><span class="m-blue">예약완료</span></div>
-          <div class="sim-colhead" style="left:70%"><span class="mock-dot" style="background:#34e39b"></span><span class="m-mint">상담완료</span></div>
-          <!-- 컬럼 드롭존 -->
-          <div class="sim-zone" style="left:2%"></div>
-          <div class="sim-zone" style="left:36%"></div>
-          <div class="sim-zone" style="left:70%"></div>
+          <div class="sim-colhead" style="left:2%"><span class="mock-dot" style="background:#fbbf24"></span><span class="m-amber">연락대기</span><span class="sim-col-count" id="simCount0">4</span></div>
+          <div class="sim-colhead" style="left:36%"><span class="mock-dot" style="background:#5aa9ff"></span><span class="m-blue">예약완료</span><span class="sim-col-count" id="simCount1">2</span></div>
+          <div class="sim-colhead" style="left:70%"><span class="mock-dot" style="background:#34e39b"></span><span class="m-mint">상담완료</span><span class="sim-col-count" id="simCount2">7</span></div>
+          <!-- 컬럼 드롭존 (다른 실제 리드가 대기 중인 것처럼 보이는 배경 카드 포함) -->
+          <div class="sim-zone" id="simZone0" style="left:2%">
+            <div class="sim-mini"><div class="n">김민수</div><div class="c">S · 88점</div></div>
+            <div class="sim-mini"><div class="n">이서연</div><div class="c">A · 74점</div></div>
+          </div>
+          <div class="sim-zone" id="simZone1" style="left:36%">
+            <div class="sim-mini"><div class="n">정우진</div><div class="c">노쇼 방지 대기</div></div>
+          </div>
+          <div class="sim-zone" id="simZone2" style="left:70%">
+            <div class="sim-mini"><div class="n">박하은</div><div class="c">계약 완료</div></div>
+          </div>
+          <!-- 완료 토스트 -->
+          <div class="sim-toast" id="simToast">✓ 자동 처리 완료</div>
           <!-- 이동하는 리드 카드 -->
           <div class="sim-card" id="simCard">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:6px">
@@ -197,9 +224,16 @@
             </div>
             <div style="font-size:10px;margin-top:2px" class="m-dim">그로스컴퍼니</div>
             <div id="simMsg" style="font-size:10px;margin-top:6px" class="m-dim">방금 유입됨</div>
+            <div class="sim-dots" id="simDots"><span></span><span></span><span></span><span></span></div>
           </div>
         </div>
         <div class="crm-log" id="simLog"><span class="m-dim">대기 중…</span></div>
+        <div class="crm-stats">
+          <span>오늘 처리 <b id="simStatProcessed">128</b>건</span>
+          <span>전환 <b id="simStatConverted">41</b>건</span>
+          <span>평균 응대 <b>4분</b></span>
+          <span>무인 가동 <b>24h</b></span>
+        </div>
       </div>
     </div>
   </section>
@@ -754,44 +788,87 @@
     const badge = document.getElementById("simBadge");
     const msg = document.getElementById("simMsg");
     const log = document.getElementById("simLog");
+    const dots = document.querySelectorAll("#simDots span");
+    const toast = document.getElementById("simToast");
+    const zones = [document.getElementById("simZone0"), document.getElementById("simZone1"), document.getElementById("simZone2")];
+    const counts = [document.getElementById("simCount0"), document.getElementById("simCount1"), document.getElementById("simCount2")];
+    const statProcessed = document.getElementById("simStatProcessed");
+    const statConverted = document.getElementById("simStatConverted");
     if (!card || !log) return;
+
+    // 실시간 처리 건수 카운터 (배경 연출)
+    if (statProcessed) {
+      setInterval(function () {
+        statProcessed.textContent = String(Number(statProcessed.textContent) + 1);
+        statProcessed.classList.add("bump");
+        setTimeout(function () { statProcessed.classList.remove("bump"); }, 260);
+      }, 3400);
+    }
+
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       // 애니메이션 미선호 시: 마지막 상태로 고정
       card.style.left = "70%";
       badge.style.opacity = "1"; badge.style.transform = "scale(1)";
       msg.textContent = "후속 문자 발송 완료";
       log.innerHTML = '<span class="m-mint">📩 Ready-SMS 자동 발송 완료</span>';
+      if (zones[2]) zones[2].classList.add("glow-mint");
+      dots.forEach(function (d) { d.classList.add("on"); });
       return;
     }
 
-    const T = "left .8s cubic-bezier(.4,0,.2,1), opacity .4s ease";
+    const GLOW = ["glow-amber", "glow-amber", "glow-blue", "glow-mint", "glow-mint"];
+    const T = "left .8s cubic-bezier(.4,0,.2,1), opacity .4s ease, box-shadow .4s ease";
     const steps = [
-      { left: "2%",  badge: 0, msg: "방금 유입됨",       log: '<span class="m-mint">🟢 새 리드 유입</span> · 홍길동 · 그로스컴퍼니' },
-      { left: "2%",  badge: 1, msg: "구매 신호 92점",    log: '<span class="m-mint">🤖 AI 등급 판별</span> · <b class="m-white">S등급 92점</b>' },
-      { left: "36%", badge: 1, msg: "7/15 14:00 예약",   log: '<span class="m-blue">📅 자동 예약 확정</span> · 7월 15일 오후 2시' },
-      { left: "70%", badge: 1, msg: "AI 3줄 요약 완료",  log: '<span class="m-mint">✅ 상담 완료</span> · AI 3줄 요약·메모 자동 정리' },
-      { left: "70%", badge: 1, msg: "후속 문자 발송",     log: '<span class="m-mint">📩 Ready-SMS 자동 발송 완료</span>' }
+      { left: "2%",  col: 0, dot: 1, badge: 0, msg: "방금 유입됨",       log: '<span class="m-mint">🟢 새 리드 유입</span> · 홍길동 · 그로스컴퍼니' },
+      { left: "2%",  col: 0, dot: 2, badge: 1, msg: "구매 신호 92점",    log: '<span class="m-mint">🤖 AI 등급 판별</span> · <b class="m-white">S등급 92점</b>' },
+      { left: "36%", col: 1, dot: 3, badge: 1, msg: "7/15 14:00 예약",   log: '<span class="m-blue">📅 자동 예약 확정</span> · 7월 15일 오후 2시 · <span class="m-dim">노쇼 방지 알림 예약됨</span>' },
+      { left: "70%", col: 2, dot: 4, badge: 1, msg: "AI 3줄 요약 완료",  log: '<span class="m-mint">✅ 상담 완료</span> · AI 3줄 요약·메모 자동 정리' },
+      { left: "70%", col: 2, dot: 4, badge: 1, msg: "후속 문자 발송 · 전환 완료", log: '<span class="m-mint">📩 Ready-SMS 발송</span> + <span class="m-mint">🎉 Purchase 이벤트 전송</span>', toast: true, convert: true }
     ];
 
     let i = -1;
     card.style.transition = T;
+    function setZoneGlow(col) {
+      zones.forEach(function (z, idx) { if (z) z.classList.toggle(GLOW[Math.min(idx, GLOW.length - 1)], idx === col); });
+    }
+    function bumpCount(col) {
+      const el = counts[col]; if (!el) return;
+      el.textContent = String(Number(el.textContent) + 1);
+      el.classList.add("pop");
+      setTimeout(function () { el.classList.remove("pop"); }, 260);
+    }
     function frame() {
       i++;
       if (i < steps.length) {
         const s = steps[i];
         card.style.opacity = "1";
         card.style.left = s.left;
+        card.classList.toggle("lit", Boolean(s.convert));
         badge.style.opacity = s.badge ? "1" : "0";
         badge.style.transform = s.badge ? "scale(1)" : "scale(.6)";
         msg.textContent = s.msg;
         log.innerHTML = s.log;
+        setZoneGlow(s.col);
+        dots.forEach(function (d, idx) { d.classList.toggle("on", idx < s.dot); });
+        if (i === 0 || (steps[i - 1] && steps[i - 1].col !== s.col)) bumpCount(s.col);
+        if (s.toast && toast) {
+          toast.classList.remove("pop"); void toast.offsetWidth; toast.classList.add("pop");
+        }
+        if (s.convert && statConverted) {
+          statConverted.textContent = String(Number(statConverted.textContent) + 1);
+          statConverted.classList.add("bump");
+          setTimeout(function () { statConverted.classList.remove("bump"); }, 260);
+        }
       } else {
         // 페이드아웃 후 보이지 않게 시작 위치로 되돌림
         card.style.opacity = "0";
+        card.classList.remove("lit");
         log.innerHTML = '<span class="m-dim">… 다음 리드 대기</span>';
+        setZoneGlow(-1);
         setTimeout(function () {
           card.style.transition = "none";
           card.style.left = "2%";
+          dots.forEach(function (d) { d.classList.remove("on"); });
           void card.offsetWidth;
           card.style.transition = T;
         }, 420);
