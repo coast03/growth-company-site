@@ -49,6 +49,9 @@ body {
   color: #0b1c30;
   font-family: "Inter", "Pretendard", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
+  /* 한글은 어절(단어) 단위로만 줄바꿈 — 모바일에서 단어 중간이 잘리지 않게. 긴 영문/URL만 예외 분리 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* Elevation tokens */
