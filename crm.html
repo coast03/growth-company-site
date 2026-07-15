@@ -92,9 +92,9 @@
   .sim-zone.glow-amber { box-shadow: inset 0 0 0 1px rgba(251,191,36,.5), 0 0 22px rgba(251,191,36,.25); border-color: rgba(251,191,36,.5); }
   .sim-zone.glow-blue { box-shadow: inset 0 0 0 1px rgba(90,169,255,.5), 0 0 22px rgba(90,169,255,.25); border-color: rgba(90,169,255,.5); }
   .sim-zone.glow-mint { box-shadow: inset 0 0 0 1px rgba(52,227,155,.5), 0 0 22px rgba(52,227,155,.28); border-color: rgba(52,227,155,.5); }
-  .sim-mini { background: #141b26; border: 1px solid #232d3a; border-radius: 7px; padding: 6px 8px; margin-bottom: 6px; opacity: .55; }
-  .sim-mini .n { font-size: 10px; font-weight: 700; color: #c3ccd6; }
-  .sim-mini .c { font-size: 9px; color: #6d7c8e; margin-top: 1px; }
+  .sim-mini { background: #141b26; border: 1px solid #232d3a; border-radius: 7px; padding: 6px 8px; margin-bottom: 6px; opacity: .55; min-width: 0; }
+  .sim-mini .n { font-size: 10px; font-weight: 700; color: #c3ccd6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sim-mini .c { font-size: 9px; color: #6d7c8e; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .sim-card { position: absolute; top: 50px; left: 2%; width: 28%; background: #141b26; border: 1px solid #2b3644; border-radius: 10px; padding: 10px; box-shadow: 0 8px 20px rgba(0,0,0,.35); transition: left .8s cubic-bezier(.4,0,.2,1), opacity .4s ease, box-shadow .4s ease; z-index: 3; }
   .sim-card.lit { box-shadow: 0 0 0 1px rgba(52,227,155,.6), 0 10px 28px rgba(52,227,155,.22); }
   .sim-dots { display: flex; gap: 3px; margin-top: 7px; }
@@ -108,6 +108,13 @@
   .crm-stats b { color: #e8edf2; font-size: 12.5px; transition: transform .2s ease; display: inline-block; }
   .crm-stats b.bump { transform: scale(1.25); color: #34e39b; }
   @media (prefers-reduced-motion: reduce) { .sim-card, .sim-live { transition: none; animation: none; } }
+
+  /* 좁은 화면: 이름과 배지가 한 줄에서 경쟁하며 잘리는 문제 방지 — 배지를 아래 줄로 내림 + 배경 미니 카드는 숨겨 여백 확보 */
+  @media (max-width: 640px) {
+    .sim-card .sim-namerow { flex-wrap: wrap; row-gap: 2px; }
+    .sim-card .sim-namerow span.m-white { flex-basis: 100%; white-space: normal; overflow: visible; text-overflow: clip; }
+    .sim-mini { display: none; }
+  }
 </style>
 </head>
 <body class="antialiased bg-background">
@@ -218,12 +225,12 @@
           <div class="sim-toast" id="simToast">✓ 자동 처리 완료</div>
           <!-- 이동하는 리드 카드 -->
           <div class="sim-card" id="simCard">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:6px">
-              <span style="font-size:12px;font-weight:800" class="m-white">홍길동</span>
-              <span id="simBadge" class="mock-badge m-mint" style="background:rgba(52,227,155,.15);opacity:0;transition:opacity .35s,transform .35s;transform:scale(.6)">S · 92</span>
+            <div class="sim-namerow" style="display:flex;align-items:center;justify-content:space-between;gap:6px;min-width:0">
+              <span style="font-size:12px;font-weight:800;min-width:0;flex:1 1 auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" class="m-white">홍길동</span>
+              <span id="simBadge" class="mock-badge m-mint" style="background:rgba(52,227,155,.15);opacity:0;transition:opacity .35s,transform .35s;transform:scale(.6);flex-shrink:0">S · 92</span>
             </div>
-            <div style="font-size:10px;margin-top:2px" class="m-dim">그로스컴퍼니</div>
-            <div id="simMsg" style="font-size:10px;margin-top:6px" class="m-dim">방금 유입됨</div>
+            <div style="font-size:10px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" class="m-dim">그로스컴퍼니</div>
+            <div id="simMsg" style="font-size:10px;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" class="m-dim">방금 유입됨</div>
             <div class="sim-dots" id="simDots"><span></span><span></span><span></span><span></span></div>
           </div>
         </div>
