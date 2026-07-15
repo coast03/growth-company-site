@@ -60,8 +60,32 @@
   }
   .flow-in .flow-note { opacity: 1; transform: none; }
 
+  /* 미팅 이후 3단계: 1→2→3 순차 강조 */
+  .seq-card {
+    transition: box-shadow .5s ease, border-color .5s ease, transform .5s ease, background .5s ease;
+  }
+  .seq-card.active {
+    border-color: rgba(0,89,187,.55);
+    box-shadow: 0 16px 34px -14px rgba(0,89,187,.32), inset 0 0 0 1px rgba(0,89,187,.25);
+    transform: translateY(-5px);
+    background: rgba(0,89,187,.035);
+  }
+  .seq-card .seq-num {
+    display: inline-block;
+    border-radius: 6px;
+    padding: 1px 6px;
+    margin: -1px -6px;
+    transition: background .4s ease, color .4s ease, transform .4s ease;
+  }
+  .seq-card.active .seq-num {
+    background: #0059bb;
+    color: #fff;
+    transform: scale(1.08);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .flow-card, .flow-note { opacity: 1 !important; transform: none !important; transition: none; }
+    .seq-card, .seq-card .seq-num { transition: none; }
   }
 
   /* ── 인터랙티브 칸반 데모 ── */
@@ -405,17 +429,17 @@
       <p>대다수 CRM은 데이터를 쌓는 <b class="text-on-surface">'보관함'</b>에 그칩니다.</p>
       <p>그로스컴퍼니의 인프라는 미팅이 끝나는 순간, <b class="text-primary">자체 AI 브레인이 계약률을 높이는 백엔드 액션</b>을 즉시 수행합니다.</p>
     </div>
-    <div class="mt-6 grid md:grid-cols-3 gap-4">
-      <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
-        <div class="text-sm font-bold text-primary">01 · 텍스트 추출 &amp; AI 분석</div>
+    <div id="seqGrid" class="mt-6 grid md:grid-cols-3 gap-4">
+      <div class="seq-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <div class="text-sm font-bold text-primary"><span class="seq-num">01</span> · 텍스트 추출 &amp; AI 분석</div>
         <p class="mt-2 text-sm text-on-surface-variant break-keep">전체 미팅 대화 스크립트를 빠짐없이 확보하고, AI가 맥락을 분석해 <b class="text-on-surface">3줄 핵심 요약·메모</b>를 자동 누적합니다.</p>
       </div>
-      <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
-        <div class="text-sm font-bold text-primary">02 · 상태 갱신 &amp; 리마인더</div>
+      <div class="seq-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <div class="text-sm font-bold text-primary"><span class="seq-num">02</span> · 상태 갱신 &amp; 리마인더</div>
         <p class="mt-2 text-sm text-on-surface-variant break-keep">구매 의사를 판별해 리드 상태를 자동 변경하고, <b class="text-on-surface">"3일 뒤 재연락"</b> 넥스트 액션을 계산해 대시보드 상단에 상시 알림합니다.</p>
       </div>
-      <div class="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
-        <div class="text-sm font-bold text-primary">03 · 원클릭 후속 문자 (Ready-SMS)</div>
+      <div class="seq-card rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
+        <div class="text-sm font-bold text-primary"><span class="seq-num">03</span> · 원클릭 후속 문자 (Ready-SMS)</div>
         <p class="mt-2 text-sm text-on-surface-variant break-keep">감사·다음 단계 안내문을 대표 어조로 AI가 미리 작성. 대시보드에서 <b class="text-on-surface">클릭 한 번으로 즉시 발송</b>합니다.</p>
       </div>
     </div>
@@ -905,6 +929,30 @@
       });
     }, { threshold: 0.25 });
     obs.observe(grid);
+  })();
+
+  // 미팅 이후 3단계: 화면에 들어오면 1→2→3 순서로 반복 강조 (PC·모바일 공통)
+  (function () {
+    const cards = document.querySelectorAll("#seqGrid .seq-card");
+    if (!cards.length) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let i = 0;
+    let timer = null;
+    function highlight() {
+      cards.forEach((c, idx) => c.classList.toggle("active", idx === i));
+      i = (i + 1) % cards.length;
+    }
+    function start() {
+      if (timer) return;
+      highlight();
+      timer = setInterval(highlight, 1400);
+    }
+    if (!("IntersectionObserver" in window)) { start(); return; }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) start(); });
+    }, { threshold: 0.4 });
+    obs.observe(document.getElementById("seqGrid"));
   })();
 </script>
 <script>
