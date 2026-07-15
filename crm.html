@@ -551,7 +551,7 @@
 
   <!-- 칸반 카드 상세 모달 -->
   <div id="kbModal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/40 p-4" onclick="if(event.target===this) closeKbModal()">
-    <div class="w-full max-w-md rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 shadow-2xl">
+    <div class="w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 md:p-7 shadow-2xl">
       <div class="flex items-start justify-between gap-3">
         <div class="min-w-0">
           <div class="flex items-center gap-2 flex-wrap">
@@ -565,9 +565,22 @@
         </button>
       </div>
 
-      <div class="mt-4 flex items-center gap-2">
+      <div class="mt-3 flex items-center gap-2">
         <span id="kbmStatusDot" class="size-2.5 rounded-full"></span>
         <span id="kbmStatus" class="text-sm font-bold text-on-surface"></span>
+      </div>
+
+      <!-- 자동화 진행 상태 (6단계 파이프라인) -->
+      <div class="mt-5 rounded-xl border border-outline-variant bg-surface-container p-5">
+        <div class="flex items-center justify-between">
+          <p class="text-sm font-bold text-on-surface">⚙️ 자동화 진행 상태</p>
+          <span id="kbmJourneyCount" class="text-xs font-bold text-primary"></span>
+        </div>
+        <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-surface-container-high">
+          <div id="kbmJourneyBar" class="h-full rounded-full bg-primary transition-all"></div>
+        </div>
+        <div id="kbmJourneySteps" class="mt-5 grid grid-cols-3 gap-x-2 gap-y-5"></div>
+        <div id="kbmConvertBox" class="mt-5 flex items-center gap-3 rounded-xl border p-3.5"></div>
       </div>
 
       <div class="mt-4 rounded-xl bg-surface-container p-4">
@@ -575,10 +588,21 @@
         <p id="kbmMsg" class="text-sm text-on-surface leading-relaxed"></p>
       </div>
 
+      <div class="mt-4 grid sm:grid-cols-2 gap-3">
+        <div id="kbmRiskBox" class="rounded-xl border p-3.5">
+          <p id="kbmRiskTitle" class="text-sm font-bold"></p>
+          <p id="kbmRiskDetail" class="mt-1 text-xs text-on-surface-variant"></p>
+        </div>
+        <div class="rounded-xl border border-primary/30 bg-secondary-fixed/40 p-3.5">
+          <p class="text-sm font-bold text-primary">✓ 구매 신호 자동 분류</p>
+          <p id="kbmScoreDetail" class="mt-1 text-xs text-on-surface-variant"></p>
+        </div>
+      </div>
+
       <div class="mt-4 grid grid-cols-2 gap-x-3 gap-y-3 text-sm">
         <div><p class="text-xs text-on-surface-variant">연락처</p><p id="kbmPhone" class="font-semibold text-on-surface"></p></div>
         <div><p class="text-xs text-on-surface-variant">이메일</p><p id="kbmEmail" class="font-semibold text-on-surface"></p></div>
-        <div><p class="text-xs text-on-surface-variant">유입일</p><p id="kbmDate" class="font-semibold text-on-surface"></p></div>
+        <div><p class="text-xs text-on-surface-variant">유입 경로</p><p id="kbmDate" class="font-semibold text-on-surface"></p></div>
         <div><p class="text-xs text-on-surface-variant">다음 액션</p><p id="kbmNext" class="font-semibold text-primary"></p></div>
       </div>
 
@@ -821,20 +845,37 @@
 
     const SEED = {
       "연락대기": [
-        { name: "김대표", company: "스미츠키", grade: "S", msg: "월 광고비 1,500만 원, 예산 300 바로 집행 가능", phone: "010-2214-9981", email: "ceo@smitski.co", date: "2026.07.11", next: "5분 내 첫 응대 발송" },
-        { name: "이수진", company: "리코맨즈", grade: "B", msg: "자동 응대·예약 시스템 검토 중", phone: "010-4482-1073", email: "sjlee@rikomanz.kr", date: "2026.07.10", next: "안내 자료 발송 대기" },
-        { name: "박준영", company: "-", grade: "C", msg: "가격만 궁금해서 문의", phone: "010-9930-2841", email: "-", date: "2026.07.09", next: "저관심 · 자동 넛지 예정" },
+        { name: "김대표", company: "스미츠키", grade: "S", msg: "월 광고비 1,500만 원, 예산 300 바로 집행 가능", phone: "010-2214-9981", email: "ceo@smitski.co", date: "2026.07.11", next: "5분 내 첫 응대 발송", source: "웹사이트", score: 95 },
+        { name: "이수진", company: "리코맨즈", grade: "B", msg: "자동 응대·예약 시스템 검토 중", phone: "010-4482-1073", email: "sjlee@rikomanz.kr", date: "2026.07.10", next: "안내 자료 발송 대기", source: "웹사이트", score: 62 },
+        { name: "박준영", company: "-", grade: "C", msg: "가격만 궁금해서 문의", phone: "010-9930-2841", email: "-", date: "2026.07.09", next: "저관심 · 자동 넛지 예정", source: "메타 광고", score: 28 },
       ],
       "미팅 예약 완료": [
-        { name: "정민호", company: "액티유", grade: "S", msg: "이번 주 미팅 확정 · 노쇼 방지 알림 작동", phone: "010-7723-5510", email: "minho@actiyou.com", date: "2026.07.08", next: "노쇼 방지 리마인더 발송됨" },
+        { name: "정민호", company: "액티유", grade: "S", msg: "이번 주 미팅 확정 · 노쇼 방지 알림 작동", phone: "010-7723-5510", email: "minho@actiyou.com", date: "2026.07.08", next: "노쇼 방지 리마인더 발송됨", source: "메타 광고", score: 93, bookingDate: "2026.07.15 (수) 오후 2:00" },
       ],
       "진행중": [
-        { name: "최지아", company: "제마드", grade: "A", msg: "결정권자 재확인 후 재접촉 예정", phone: "010-3391-6642", email: "jachoi@zemard.co.kr", date: "2026.07.05", next: "3일 뒤 재연락 예약" },
+        { name: "최지아", company: "제마드", grade: "A", msg: "결정권자 재확인 후 재접촉 예정", phone: "010-3391-6642", email: "jachoi@zemard.co.kr", date: "2026.07.05", next: "3일 뒤 재연락 예약", source: "웹사이트", score: 81, bookingDate: "2026.07.09 (목) 오전 11:00" },
       ],
       "상담완료": [
-        { name: "한서연", company: "바디룩", grade: "S", msg: "구매 의사 확인 · 제안서 발송 완료", phone: "010-5567-2298", email: "hsy@bodylook.kr", date: "2026.07.02", next: "계약서 회신 대기" },
+        { name: "한서연", company: "바디룩", grade: "S", msg: "구매 의사 확인 · 제안서 발송 완료", phone: "010-5567-2298", email: "hsy@bodylook.kr", date: "2026.07.02", next: "계약서 회신 대기", source: "웹사이트", score: 97, bookingDate: "2026.07.03 (금) 오후 3:00", converted: true },
       ],
     };
+
+    const COL_DONE = { "연락대기": 2, "미팅 예약 완료": 3, "진행중": 4, "상담완료": 6 };
+
+    function buildSteps(d, colName) {
+      const doneCount = COL_DONE[colName] || 0;
+      const defs = [
+        { icon: "⚡", label: "즉시 수집", detail: (d.source || "웹사이트") + " · " + d.date },
+        { icon: "🔎", label: "AI 등급 판별", detail: d.grade + "등급 · " + (d.score || 0) + "점" },
+        { icon: "📅", label: "일정 부킹", detail: d.bookingDate || "예약 대기" },
+        { icon: "🔔", label: "노쇼 방지 알림", detail: doneCount > 3 ? "1/1 발송 완료" : doneCount === 3 ? "예약 후 자동 발송" : "-" },
+        { icon: "📝", label: "상담 완료·정리", detail: doneCount >= 5 ? "AI 3줄 요약 완료" : "미팅 후 자동 정리" },
+        { icon: "🚀", label: "사후 액션", detail: doneCount >= 6 ? (d.next || "완료") : "-" },
+      ];
+      return defs.map(function (s, i) {
+        return Object.assign({}, s, { state: i < doneCount ? "done" : i === doneCount ? "current" : "pending" });
+      });
+    }
 
     function makeCard(d, colName) {
       const el = document.createElement("article");
@@ -879,8 +920,52 @@
       document.getElementById("kbmMsg").textContent = d.msg;
       document.getElementById("kbmPhone").textContent = d.phone || "-";
       document.getElementById("kbmEmail").textContent = d.email || "-";
-      document.getElementById("kbmDate").textContent = d.date || "-";
+      document.getElementById("kbmDate").textContent = (d.source || "웹사이트") + " · " + d.date;
       document.getElementById("kbmNext").textContent = d.next || "-";
+
+      // 자동화 진행 상태 (6단계)
+      const steps = buildSteps(d, colName);
+      const doneCount = steps.filter(function (s) { return s.state === "done"; }).length;
+      document.getElementById("kbmJourneyCount").textContent = doneCount + " / 6 완료";
+      document.getElementById("kbmJourneyBar").style.width = (doneCount / 6 * 100) + "%";
+      document.getElementById("kbmJourneySteps").innerHTML = steps.map(function (s, i) {
+        const ring = s.state === "done" ? "border-primary bg-secondary-fixed text-primary"
+          : s.state === "current" ? "border-amber-400 bg-amber-50 text-amber-600 animate-pulse"
+          : "border-outline-variant bg-surface-container-lowest text-on-surface-variant opacity-50";
+        const labelCls = s.state === "pending" ? "text-on-surface-variant opacity-60" : "text-on-surface";
+        const detailCls = s.state === "done" ? "text-primary" : s.state === "current" ? "text-amber-600" : "text-on-surface-variant opacity-60";
+        return '<div class="flex flex-col items-center text-center">' +
+          '<span class="grid size-9 place-items-center rounded-full border-2 text-sm ' + ring + '">' +
+          (s.state === "done" ? "✓" : s.icon) + '</span>' +
+          '<p class="mt-1.5 text-[11px] font-bold ' + labelCls + '">' + (i + 1) + '. ' + s.label + '</p>' +
+          '<p class="mt-0.5 text-[10px] leading-tight ' + detailCls + '">' + s.detail + '</p>' +
+          '</div>';
+      }).join('');
+
+      // 전환(계약 성사) 배너
+      const convertBox = document.getElementById("kbmConvertBox");
+      if (d.converted) {
+        convertBox.className = "mt-5 flex items-center gap-3 rounded-xl border border-primary/50 bg-secondary-fixed/50 p-3.5";
+        convertBox.innerHTML = '<span class="text-xl">🎉</span><div><p class="text-sm font-bold text-primary">전환 완료 · 계약 성사</p><p class="text-xs text-on-surface-variant mt-0.5">자동화 파이프라인이 리드 유입부터 계약까지 사람 개입 없이 처리했습니다.</p></div>';
+      } else {
+        convertBox.className = "mt-5 flex items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-3.5";
+        convertBox.innerHTML = '<span class="text-xl">🎯</span><div><p class="text-sm font-bold text-on-surface">전환 대기</p><p class="text-xs text-on-surface-variant mt-0.5">다음 단계가 완료되면 자동으로 다음 액션이 실행됩니다.</p></div>';
+      }
+
+      // 골든타임 이탈 위험
+      const riskBox = document.getElementById("kbmRiskBox");
+      const isWaiting = colName === "연락대기";
+      riskBox.className = "rounded-xl border p-3.5 " + (isWaiting ? "border-amber-300 bg-amber-50" : "border-primary/30 bg-secondary-fixed/40");
+      document.getElementById("kbmRiskTitle").className = "text-sm font-bold " + (isWaiting ? "text-amber-600" : "text-primary");
+      document.getElementById("kbmRiskTitle").textContent = isWaiting ? "⚠ 골든타임 카운트다운 중" : "✓ 골든타임 대응 완료";
+      document.getElementById("kbmRiskDetail").textContent = isWaiting ? "5분 내 미대응 시 리스크 알림이 자동 발송됩니다." : "골든타임 내 첫 응대 완료 · 이탈 위험 없음";
+
+      // 구매 신호 스코어
+      const score = d.score || 0;
+      document.getElementById("kbmScoreDetail").textContent = score >= 70
+        ? "구매 신호 " + score + "점 — 우선 대응 대상"
+        : "구매 신호 " + score + "점 — 저관심 · 자동 넛지 대상";
+
       kbModal.classList.remove("hidden");
       kbModal.classList.add("flex");
     }
