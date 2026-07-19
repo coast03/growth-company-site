@@ -116,6 +116,14 @@
     .jc-chart .line { animation: none; stroke-dashoffset: 0; }
     .jc-chart .area, .jc-chart .pt { animation: none; opacity: 1; }
   }
+
+  /* ===== Urgency badge pulse ===== */
+  @keyframes jcUrgentPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 6px 16px rgba(90,47,224,0.28); }
+    50% { transform: scale(1.035); box-shadow: 0 12px 30px rgba(90,47,224,0.5); }
+  }
+  .jc-urgent { animation: jcUrgentPulse 2.2s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .jc-urgent { animation: none; } }
 </style>
 </head>
 <body class="antialiased bg-background">
@@ -168,9 +176,9 @@
       </p>
 
       <div class="jc-cta mt-stack-md flex justify-center">
-        <div class="inline-flex items-center gap-2.5 px-5 sm:px-6 py-3 rounded-full bg-primary text-on-primary text-label-sm sm:text-body-md font-bold shadow-ambient break-keep">
+        <div class="jc-urgent inline-flex items-center gap-2.5 px-5 sm:px-6 py-3 rounded-full text-label-sm sm:text-body-md font-bold shadow-ambient break-keep" style="background:linear-gradient(135deg,#7b5cff,#5a2fe0);color:#ffffff;">
           <span class="material-symbols-outlined text-[22px]">local_fire_department</span>
-          일본 의료관광 수요 역대 최고 — 지금이 선점 타이밍입니다
+          <span class="text-center">일본 의료관광 수요 역대 최고 —<br class="sm:hidden"/>지금이 선점 타이밍입니다</span>
         </div>
       </div>
 
