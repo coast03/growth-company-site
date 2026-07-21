@@ -573,6 +573,7 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
       </div>
 
       <form id="leadForm" class="p-stack-lg md:p-stack-xl card-border rounded-xl bg-surface-container-lowest shadow-ambient flex flex-col gap-stack-lg" novalidate>
+        <div aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"/></label></div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-md">
           <div class="flex flex-col gap-stack-xs">
             <label for="clinic" class="text-label-sm text-on-surface">병원명 <span class="text-error">*</span></label>
@@ -670,6 +671,7 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
 <script>
   // 기존 contact 폼과 동일한 Google Apps Script 엔드포인트로 리드 전송
   const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxT34kLGXUxfWEVuO7GT-L48lNQlbjVb7bz1YtrzK0SB0n1lH6dGah4OfpNlJUYeXI-5A/exec";
+  const gcLoadedAt = Date.now();
 
   const form = document.getElementById("leadForm");
   const banner = document.getElementById("successBanner");
@@ -677,6 +679,8 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (form.website && form.website.value) { banner.classList.remove("hidden"); form.reset(); return; } // honeypot
+    if (Date.now() - gcLoadedAt < 2000) return; // too fast (bot)
     if (!form.reportValidity()) return;
 
     submitBtn.disabled = true;
@@ -695,6 +699,7 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
     body.append("source", "japan-clinic");
     body.append("referrer", document.referrer || "");
     body.append("ua", navigator.userAgent);
+    body.append("website", form.website && form.website.value ? form.website.value : "");
 
     try {
       await fetch(APPS_SCRIPT_URL, { method: "POST", body });
