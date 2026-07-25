@@ -678,13 +678,20 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
   const form = document.getElementById("leadForm");
   const banner = document.getElementById("successBanner");
   const submitBtn = form?.querySelector('button[type="submit"]');
+  let submitted = false;
+
+  form?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && e.target.tagName === "INPUT") e.preventDefault();
+  });
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
-    if (form.website && form.website.value) { banner.classList.remove("hidden"); form.reset(); return; } // honeypot
+    if (submitted) return; // 중복 제출 차단
+    if (form.website && form.website.value) { form.style.display = "none"; banner.classList.remove("hidden"); return; } // honeypot
     if (Date.now() - gcLoadedAt < 2000) return; // too fast (bot)
     if (!form.reportValidity()) return;
 
+    submitted = true;
     submitBtn.disabled = true;
     const origLabel = submitBtn.innerHTML;
     submitBtn.innerHTML = "전송 중…";
@@ -706,14 +713,14 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
     try {
       await fetch(APPS_SCRIPT_URL, { method: "POST", body });
       try { if (window.fbq) fbq("track", "Lead"); } catch (e) {}
+      form.style.display = "none";
       banner.classList.remove("hidden");
-      form.reset();
       banner.scrollIntoView({ behavior: "smooth", block: "center" });
     } catch (err) {
-      alert("전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
-    } finally {
+      submitted = false;
       submitBtn.disabled = false;
       submitBtn.innerHTML = origLabel;
+      alert("전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
     }
   });
 </script>
