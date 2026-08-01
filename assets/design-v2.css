@@ -1,0 +1,197 @@
+/* ============================================================
+   Growth Company — Design v2 "Operative" grid system
+   기존 마크업(Tailwind 유틸리티)을 그대로 두고 위에서 덮어씁니다.
+   라틴: Archivo / Azeret Mono · 한글: Pretendard
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Azeret+Mono:wght@400;500;600&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+
+:root {
+  --ink: #0a0a0a;
+  --paper: #ffffff;
+  --rule: #000000;
+  --rule-soft: #f0f0f0;
+  --accent: #60aed5;        /* 면·테두리·점 등 비(非)텍스트 전용 */
+  --accent-text: #2a7ba6;   /* 흰 배경 위 글자용 (대비 4.7:1, AA 통과) */
+  --font-display: Archivo, 'Pretendard Variable', Pretendard, sans-serif;
+  --font-body: 'Pretendard Variable', Pretendard, sans-serif;
+  --font-mono: 'Azeret Mono', 'Pretendard Variable', monospace;
+}
+
+/* ---------- 1. 형태 초기화: 라운드·그림자·그라디언트 제거 ---------- */
+body [class*="rounded"],
+body [class*="rounded"]::before,
+body [class*="rounded"]::after { border-radius: 0 !important; }
+
+body [class*="shadow"] { box-shadow: none !important; }
+
+.shadow-ambient, .shadow-overlay { box-shadow: none !important; }
+
+/* styles.css 커스텀 잔여물 */
+body .engine-row-active { border-radius: 0 !important; }
+body .engine-dot { border-radius: 0 !important; box-shadow: none !important; }
+
+.hero-accent, .dot-grid { background: none !important; background-image: none !important; }
+
+body [class*="bg-gradient"] { background-image: none !important; }
+/* 이미지 위 캡션 오버레이는 단색 먹지로 대체(가독성 유지) */
+body [class*="bg-gradient"][class*="from-black"] { background-color: rgba(0,0,0,0.72) !important; }
+
+/* 카드 → 괘선 셀 */
+.card-border,
+body [class*="card-border"] { border: 1px solid var(--rule) !important; }
+
+/* ---------- 2. 배경/바탕 ---------- */
+/* 페이지 전체에 방안지 격자 (원본과 동일: #f0f0f0 1px / 40px) */
+body {
+  color: var(--ink);
+  font-family: var(--font-body);
+  background-color: var(--paper) !important;
+  background-image:
+    linear-gradient(to right, var(--rule-soft) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rule-soft) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* 섹션 배경은 투명 → 격자가 비쳐 보이게 */
+body .bg-background,
+body .bg-surface-bright,
+body .bg-surface-container-low { background-color: transparent !important; }
+
+/* 카드/폼 같은 실제 면은 흰 종이 */
+body .bg-surface-container-lowest,
+body .bg-surface-container,
+body .bg-surface-container-high,
+body .bg-white { background-color: var(--paper) !important; }
+
+/* ---------- 3. 타이포그래피 ---------- */
+h1, h2, h3,
+body [class*="text-display"],
+body [class*="text-headline"] {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  word-break: keep-all;
+}
+
+body .text-display-xl { font-size: clamp(2.6rem, 6.4vw, 5.2rem); line-height: 0.98; }
+body .text-headline-lg { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.04; }
+body .text-headline-md { font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.1; }
+body .text-title-md { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; }
+
+body .text-body-lg { font-size: 1.0625rem; line-height: 1.75; }
+body .text-body-md { font-size: 1rem; line-height: 1.75; }
+
+/* 강조 텍스트: 대비 통과 악센트 */
+body .text-primary { color: var(--accent-text) !important; }
+
+/* 라벨/eyebrow/캡션 → 등폭 대문자 */
+body .text-caption,
+body .text-label-sm {
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+/* 숫자는 전부 등폭 */
+body { font-variant-numeric: tabular-nums; }
+body [data-count-to], body .tabular-nums { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+/* ---------- 4. 칩/뱃지 → 괘선 라벨 ---------- */
+body .bg-primary-container {
+  background-color: transparent !important;
+  color: var(--accent-text) !important;
+  border: 1px solid var(--accent);
+}
+body .text-on-primary-container { color: var(--accent-text) !important; }
+
+/* ---------- 5. 버튼 ---------- */
+body .bg-primary,
+body .bg-primary * {
+  color: var(--paper) !important;
+}
+body .bg-primary {
+  background-color: var(--ink) !important;
+  border: 1px solid var(--ink);
+}
+body .bg-primary:hover,
+body .bg-primary:hover * {
+  background-color: var(--paper) !important;
+  color: var(--ink) !important;
+}
+
+/* 보조 버튼: 검정 1px 테두리 */
+body .border-on-surface { border-color: var(--ink) !important; }
+
+body a, body button { border-radius: 0 !important; }
+
+/* 포커스 링 */
+body a:focus-visible, body button:focus-visible,
+body input:focus-visible, body textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- 6. 구분선 ---------- */
+body .border-outline-variant { border-color: var(--rule) !important; }
+body [class*="divide-"] > * + * { border-color: var(--rule) !important; }
+
+/* 네비 */
+body nav { background: var(--paper) !important; backdrop-filter: none !important; border-bottom: 1px solid var(--rule); }
+body nav a[data-nav-link] { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; }
+
+/* 푸터 */
+body footer { border-top: 1px solid var(--rule); }
+
+/* ---------- 7. 어두운 반전 블록 ---------- */
+body .bg-inverse-surface { background-color: var(--ink) !important; }
+/* 1) 어두운 블록 안은 기본 흰 글자 */
+body .bg-inverse-surface,
+body .bg-inverse-surface * { color: var(--paper) !important; }
+/* 2) 악센트 텍스트 */
+body .bg-inverse-surface .text-inverse-primary,
+body .bg-inverse-surface [class*="text-primary"] { color: var(--accent) !important; }
+/* 3) 버튼은 반전(흰 배경 + 먹 글자) — 순서상 마지막이라 우선 */
+body .bg-inverse-surface .bg-primary,
+body .bg-inverse-surface .bg-primary * { background-color: var(--paper) !important; color: var(--ink) !important; }
+body .bg-inverse-surface .bg-primary:hover,
+body .bg-inverse-surface .bg-primary:hover * { background-color: var(--accent) !important; color: var(--ink) !important; }
+
+/* ---------- 8. 폼 ---------- */
+body input, body textarea, body select {
+  border-radius: 0 !important;
+  border: 1px solid var(--rule) !important;
+  font-family: var(--font-body);
+}
+/* 라디오는 체크박스와 구분되게 원형 유지 */
+body input[type="radio"] { border-radius: 9999px !important; }
+body input[type="radio"]:checked, body input[type="checkbox"]:checked { background-color: var(--ink) !important; border-color: var(--ink) !important; }
+
+/* ---------- 9. 아이콘 절제 ---------- */
+/* 원본엔 아이콘이 거의 없다. 기능용만 남기고 장식은 죽인다. */
+body .material-symbols-outlined { font-weight: 300; color: var(--ink); }
+
+/* 칩·eyebrow(rounded-full) 안의 장식 아이콘 제거 — 텍스트로 충분 */
+body [class*="rounded-full"] > .material-symbols-outlined { display: none !important; }
+
+/* 목록 체크 아이콘: 파란 원 → 옅은 먹 마커 */
+body li > .material-symbols-outlined {
+  font-size: 15px !important;
+  opacity: 0.4;
+  margin-top: 0.35em;
+}
+
+/* CTA 화살표·네비 등 기능 아이콘은 유지 */
+body .bg-primary .material-symbols-outlined,
+body [data-mobile-menu-btn] .material-symbols-outlined { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  body *, body *::before, body *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
