@@ -22,11 +22,12 @@
 <meta name="twitter:description" content="정산·발주·재고·마케팅. 사람 손을 타던 반복 업무를 시스템으로 바꾸고 함께 운영합니다. 브랜드 운영·매각 경험에서 나온 업무 시스템 설계."/>
 <meta name="twitter:image" content="https://growthcompany.kr/assets/og-image.png"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script src="./assets/tw-config.js"></script>
+<script src="./assets/tw-config.js?v=20261018f"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="./assets/styles.css?v=20260716a" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<link href="./assets/styles.css?v=20261018h" rel="stylesheet"/>
 <link rel="icon" type="image/png" href="./assets/logo-icon.png"/>
 <link rel="apple-touch-icon" href="./assets/logo-icon.png"/>
 <script type="application/ld+json">
@@ -37,7 +38,7 @@
   "alternateName": "Growth Company Inc.",
   "url": "https://growthcompany.kr/",
   "logo": "https://growthcompany.kr/assets/logo-horizontal.png",
-  "description": "퍼포먼스·콘텐츠·인플루언서·CRM·웹 운영. 5가지 엔진을 하나의 자동 성장 시스템으로 설계·구축하는 마케팅 자동화 전문 회사.",
+  "description": "정산·발주·자금·고객 관리부터 광고·콘텐츠까지, 회사에서 반복되는 일을 시스템으로 설계·구축하고 함께 운영하는 업무 시스템 파트너.",
   "email": "dan@growthcompany.kr",
   "areaServed": "KR",
   "contactPoint": {
@@ -74,42 +75,30 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
 <body class="antialiased bg-background">
 
 <!-- Nav -->
-<nav class="fixed top-0 w-full z-50 border-b border-outline-variant bg-white/90 backdrop-blur-md">
-  <div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="./index.html" class="flex items-center" aria-label="그로스컴퍼니 홈"><img src="./assets/logo-horizontal.png" alt="Growth Company" class="h-5 md:h-6 w-auto"/></a>
-    <div class="hidden md:flex items-center gap-6">
-      <a data-nav-link href="index.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Home</a>
-      <a data-nav-link href="ops.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">업무 시스템 구축</a>
-      <div class="relative group">
-        <a data-nav-link href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1 flex items-center gap-1">마케팅 시스템<span class="material-symbols-outlined text-[16px]">expand_more</span></a>
-        <div class="absolute left-0 top-full pt-2 hidden group-hover:block group-focus-within:block">
-          <div class="bg-white border border-outline-variant rounded-lg shadow-ambient py-2 min-w-[180px]">
-            <a href="detail-page.html" class="block px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low">상세페이지 제작</a>
-            <a href="japan-clinic.html" class="block px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low">일본 병원 마케팅</a>
-            <a href="crm.html" class="block px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low">고객 DB CRM</a>
-          </div>
-        </div>
-      </div>
-      <a data-nav-link href="case-studies.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">구축 사례</a>
-      <a data-nav-link href="contact.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">문의하기</a>
+<nav class="gc-nav fixed top-0 w-full z-50 border-b border-outline-variant bg-white/95 backdrop-blur-md">
+  <div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between gap-6">
+    <a href="./index.html" class="flex items-center shrink-0" aria-label="그로스컴퍼니 홈"><img src="./assets/logo-horizontal.png" alt="Growth Company" class="h-5 md:h-6 w-auto"/></a>
+    <div class="hidden lg:flex items-center gap-1 flex-1 justify-center" aria-label="서비스">
+      <a data-nav-link href="ops.html" class="gc-nav__link">업무 시스템 구축</a>
+      <a data-nav-link href="crm.html" class="gc-nav__link">고객 DB·CRM</a>
+      <a data-nav-link href="services.html" class="gc-nav__link">마케팅 자동화</a>
+      <a data-nav-link href="detail-page.html" class="gc-nav__link">상세페이지 제작</a>
+      <span class="gc-nav__sep" aria-hidden="true"></span>
+      <a data-nav-link href="case-studies.html" class="gc-nav__link">구축 사례</a>
     </div>
-    <div class="hidden md:flex items-center gap-4">
-      <a href="contact.html" class="bg-primary text-on-primary text-sm font-medium px-4 py-2 rounded-lg hover:bg-surface-tint transition-all active:scale-95 shadow-ambient">무료 상담 신청</a>
-    </div>
-    <button data-mobile-menu-btn class="md:hidden text-on-surface" aria-label="메뉴 열기">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
+    <a href="contact.html" class="hidden lg:inline-flex items-center bg-primary text-on-primary text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-surface-tint transition-colors shrink-0">무료 상담 신청</a>
+    <button data-mobile-menu-btn class="lg:hidden text-on-surface" aria-label="메뉴 열기"><span class="material-symbols-outlined">menu</span></button>
   </div>
-  <div data-mobile-menu class="hidden md:hidden border-t border-outline-variant bg-white px-6 py-4 space-y-3">
-    <a href="index.html" class="block text-sm">Home</a>
-    <a href="ops.html" class="block text-sm">업무 시스템 구축</a>
-    <a href="services.html" class="block text-sm">마케팅 시스템</a>
-    <a href="detail-page.html" class="block text-sm pl-3">· 상세페이지 제작</a>
-    <a href="japan-clinic.html" class="block text-sm pl-3">· 일본 병원 마케팅</a>
-    <a href="crm.html" class="block text-sm pl-3">· 고객 DB CRM</a>
-    <a href="case-studies.html" class="block text-sm">구축 사례</a>
-    <a href="contact.html" class="block text-sm">문의하기</a>
-    <a href="contact.html" class="block bg-primary text-on-primary text-sm font-medium px-4 py-2 rounded-lg text-center">무료 상담 신청</a>
+  <div data-mobile-menu class="hidden lg:hidden border-t border-outline-variant bg-white px-6 pt-2 pb-6 max-h-[calc(100dvh-64px)] overflow-y-auto">
+    <div class="gc-mnav__label">서비스</div>
+    <a href="ops.html" class="gc-mnav__item"><strong>업무 시스템 구축</strong><span>정산·발주·재고·자금 관리</span></a>
+    <a href="crm.html" class="gc-mnav__item"><strong>고객 DB·CRM</strong><span>리드 수집·상담·재구매</span></a>
+    <a href="services.html" class="gc-mnav__item"><strong>마케팅 자동화</strong><span>광고·콘텐츠·인플루언서</span></a>
+    <a href="detail-page.html" class="gc-mnav__item"><strong>상세페이지 제작</strong><span>국내·해외 상세페이지</span></a>
+    <div class="gc-mnav__label">회사</div>
+    <a href="case-studies.html" class="gc-mnav__item"><strong>구축 사례</strong></a>
+    <a href="index.html#process" class="gc-mnav__item"><strong>진행 방식</strong></a>
+    <a href="contact.html" class="block mt-5 bg-primary text-on-primary text-[15px] font-semibold px-4 py-3 rounded-lg text-center">무료 상담 신청</a>
   </div>
 </nav>
 
@@ -117,14 +106,13 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
 
   <!-- Hero -->
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 hero-accent pointer-events-none"></div>
-    <div class="max-w-[1280px] mx-auto px-6 py-stack-xl flex flex-col md:flex-row items-center gap-gutter relative">
-      <div class="flex-1 space-y-stack-md">
+    <div class="max-w-[1280px] mx-auto px-6 py-stack-xl flex flex-col md:flex-row items-center gap-gutter lg:gap-stack-xl relative">
+      <div class="flex-1 md:flex-[1.3] space-y-stack-md min-w-0">
         <span class="hero-anim hero-anim--1 inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium">
           <span class="material-symbols-outlined text-[14px]">settings_suggest</span>
           대표 경험에서 나온 업무 시스템 설계
         </span>
-        <h1 class="hero-anim hero-anim--2 text-display-xl font-bold text-on-surface leading-tight break-keep">반복되는 일은,<br/><span class="text-primary">시스템이 하게 만듭니다.</span></h1>
+        <h1 class="hero-anim hero-anim--2 gc-hero-h1 text-display-xl font-bold text-on-surface leading-tight break-keep">반복되는 일은,<br/><span class="text-primary">시스템이 하게 만듭니다.</span></h1>
         <p class="hero-anim hero-anim--3 text-body-lg md:text-[20px] leading-relaxed text-on-surface-variant max-w-xl break-keep">
           회사가 굴러가는 방식을 다시 설계합니다.<br/>
           정산·발주·재고부터 마케팅까지, 만든 시스템을 같이 운영합니다.
@@ -139,17 +127,17 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
           </a>
         </div>
-        <div class="hero-anim hero-anim--5 flex flex-wrap items-center gap-x-6 gap-y-2 pt-stack-md text-caption text-on-surface-variant">
-          <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">verified</span>누적 광고비 운영 50억+</div>
-          <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">groups</span>시스템 도입 고객사 80+</div>
-          <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">schedule</span>평균 관리 시간 70% 절감</div>
+        <div class="hero-anim hero-anim--5 hero-stats">
+          <div><strong>50억<em>+</em></strong><span>누적 광고비 운영</span></div>
+          <div><strong>80<em>+</em></strong><span>시스템 도입 고객사</span></div>
+          <div><strong>70<em>%</em></strong><span>평균 관리 시간 절감</span></div>
+          <div><strong>30<em>+</em></strong><span>직접 만든 운영 시스템</span></div>
         </div>
       </div>
 
       <div class="flex-1 w-full relative">
-        <div class="hero-card w-full aspect-square rounded-xl bg-gradient-to-br from-surface-container-high to-surface-container-low relative overflow-hidden card-border shadow-ambient">
-          <div class="absolute inset-0 dot-grid"></div>
-          <div class="absolute top-8 left-8 right-8 bg-white rounded-lg card-border shadow-ambient p-stack-md">
+        <div class="hero-card w-full">
+          <div class="bg-white rounded-xl card-border gc-shadow p-6">
             <div class="flex items-center justify-between mb-stack-md">
               <div class="flex items-center gap-2">
                 <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
@@ -184,7 +172,7 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
             <!-- Engine Live Status -->
             <div class="mt-stack-md pt-stack-md border-t border-outline-variant">
               <div class="flex items-center justify-between mb-stack-sm">
-                <div class="text-caption text-on-surface-variant uppercase tracking-wider">5 Services · Live</div>
+                <div class="text-caption text-on-surface-variant uppercase tracking-wider">4 Services · Live</div>
                 <div class="flex items-center gap-1 text-caption text-on-surface-variant">
                   <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
                   <span>All systems operational</span>
@@ -223,14 +211,6 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
                   </div>
                   <span class="text-on-surface-variant truncate ml-2">재구매 메시지 발송 342건 · 1m</span>
                 </div>
-                <div class="hero-row hero-row--5 engine-row-active engine-row-active--5 flex items-center justify-between text-caption">
-                  <div class="flex items-center gap-2 min-w-0">
-                    <span class="engine-dot engine-dot--5"></span>
-                    <span class="w-6 h-6 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[14px]">flag</span></span>
-                    <span class="text-on-surface font-medium">05 Japan Clinic</span>
-                  </div>
-                  <span class="text-on-surface-variant truncate ml-2">LINE 상담 12건 · now</span>
-                </div>
               </div>
             </div>
           </div>
@@ -243,8 +223,8 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
   <section id="founder" class="bg-surface-container-low py-stack-xl">
     <div class="max-w-[1280px] mx-auto px-6">
       <div class="max-w-3xl">
-        <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium">Founder's Story</span>
-        <h2 class="text-headline-lg font-semibold text-on-surface mt-stack-md mb-stack-md break-keep">패션 브랜드를 운영하다 매각했습니다.</h2>
+        <span class="gc-label">대표 이야기</span>
+        <h2 class="text-headline-lg font-semibold text-on-surface mb-stack-md break-keep">패션 브랜드를 운영하다 매각했습니다.</h2>
         <!-- TODO: 매각 시점(연도) 확정 시 "패션 브랜드를 운영하다 매각했습니다." → "2023년, 패션 브랜드를 운영하다 매각했습니다." 형태로 교체 -->
         <div class="space-y-stack-md text-body-lg text-on-surface-variant break-keep">
           <p>무신사·지그재그·자사몰 — 채널마다 수수료도 정산 주기도 달랐습니다. 정산은 매달 손으로 맞췄고, 재고는 엑셀에만 있었습니다.</p>
@@ -258,78 +238,96 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
 
   <!-- 문제 인식 -->
   <section class="max-w-[1280px] mx-auto px-6 py-stack-xl">
-    <h2 class="text-headline-lg font-semibold text-on-surface mb-stack-lg break-keep">혹시, 이런 상황이신가요?</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-      <div class="p-stack-lg rounded-xl card-border bg-surface-container-lowest">
-        <span class="w-11 h-11 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center mb-stack-md"><span class="material-symbols-outlined">table_chart</span></span>
-        <h3 class="text-title-md font-semibold text-on-surface mb-stack-xs break-keep">거래처마다 정산서를 손으로 만듭니다.</h3>
-        <p class="text-body-md text-on-surface-variant break-keep">월말이면 직원 두 명이 한 주를 통째로 씁니다. 채널이 늘 때마다 엑셀 시트가 하나씩 늘어납니다.</p>
+    <div class="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-10 lg:gap-20">
+      <div class="lg:sticky lg:top-28 self-start">
+        <span class="gc-label">이런 회사가 찾아옵니다</span>
+        <h2 class="text-headline-lg font-semibold text-on-surface break-keep">혹시, 이런 상황이신가요?</h2>
+        <p class="text-body-lg font-semibold text-on-surface mt-stack-lg break-keep">세 가지의 공통점은 하나입니다.<br/>전부 사람 손을 타는 일이라는 것.</p>
+        <p class="text-body-lg text-on-surface-variant mt-stack-sm break-keep">그래서 사람을 뽑습니다.<br/>그리고 다음 해에 또 뽑습니다.</p>
       </div>
-      <div class="p-stack-lg rounded-xl card-border bg-surface-container-lowest">
-        <span class="w-11 h-11 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center mb-stack-md"><span class="material-symbols-outlined">inventory_2</span></span>
-        <h3 class="text-title-md font-semibold text-on-surface mb-stack-xs break-keep">발주와 재고가 사람 머릿속에만 있습니다.</h3>
-        <p class="text-body-md text-on-surface-variant break-keep">그 직원이 휴가를 가면 회사가 멈춥니다. 퇴사하면 처음부터 다시입니다.</p>
-      </div>
-      <div class="p-stack-lg rounded-xl card-border bg-surface-container-lowest">
-        <span class="w-11 h-11 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center mb-stack-md"><span class="material-symbols-outlined">campaign</span></span>
-        <h3 class="text-title-md font-semibold text-on-surface mb-stack-xs break-keep">광고는 돌아가는데, 그 뒤가 보이지 않습니다.</h3>
-        <p class="text-body-md text-on-surface-variant break-keep">힘들게 모은 고객이 어디로 갔는지 아무도 모릅니다. 다음 달에 또 광고비를 씁니다.</p>
-      </div>
+      <ul class="gc-rows">
+        <li><span class="gc-rows__tag">정산</span><h3 class="break-keep">거래처마다 정산서를 손으로 만듭니다.</h3><p class="break-keep">월말이면 직원 두 명이 한 주를 통째로 씁니다. 채널이 늘 때마다 엑셀 시트가 하나씩 늘어납니다.</p></li>
+        <li><span class="gc-rows__tag">발주·재고</span><h3 class="break-keep">발주와 재고가 사람 머릿속에만 있습니다.</h3><p class="break-keep">그 직원이 휴가를 가면 회사가 멈춥니다. 퇴사하면 처음부터 다시입니다.</p></li>
+        <li><span class="gc-rows__tag">광고 이후</span><h3 class="break-keep">광고는 돌아가는데, 그 뒤가 보이지 않습니다.</h3><p class="break-keep">힘들게 모은 고객이 어디로 갔는지 아무도 모릅니다. 다음 달에 또 광고비를 씁니다.</p></li>
+      </ul>
     </div>
-    <p class="text-body-lg font-semibold text-on-surface mt-stack-lg break-keep">세 가지의 공통점은 하나입니다. 전부 사람 손을 타는 일이라는 것.<br/>그래서 사람을 뽑습니다. 그리고 다음 해에 또 뽑습니다.</p>
   </section>
 
-  <!-- ============================== -->
-  <!-- What We Systemize (3영역)       -->
-  <!-- ============================== -->
-  <section id="services" class="max-w-[1280px] mx-auto px-6 pt-stack-xl pb-stack-md">
-    <div class="text-center max-w-3xl mx-auto">
-      <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium">
-        <span class="material-symbols-outlined text-[14px]">apps</span> What We Systemize
-      </span>
-      <h2 class="text-headline-lg font-semibold text-on-surface mt-stack-md mb-stack-sm break-keep">회사에서 반복되는 일은, 전부 같은 문제입니다.</h2>
-      <p class="text-body-md text-on-surface-variant break-keep">세 영역 다 지금은 사람이 손으로 하고 계실 겁니다. 저희는 전부 시스템으로 바꿉니다.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-stack-lg">
-      <div class="p-stack-lg rounded-xl card-border bg-surface-container-lowest">
-        <h3 class="text-title-md font-semibold text-on-surface mb-stack-xs break-keep">매출을 만드는 일</h3>
-        <p class="text-body-md text-on-surface-variant break-keep mb-stack-sm">광고 운영 · 콘텐츠 제작 · 상세페이지 · 해외 진출</p>
-        <p class="text-body-md text-on-surface break-keep">80개사에서 시스템으로 만들어봤습니다</p>
+  <!-- 구축 사례 (assets/systems.js 가 표·목록을 채움) -->
+  <section id="systems" class="gc-systems py-stack-xl" data-systems>
+    <div class="max-w-[1280px] mx-auto px-6">
+      <span class="gc-label">구축 사례</span>
+      <div class="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-stack-md lg:gap-stack-xl lg:items-end">
+        <h2 class="text-headline-lg font-semibold text-on-surface break-keep">말로 설명하지 않습니다.<br/>직접 만들어서 돌리고 있습니다.</h2>
+        <p class="text-body-lg text-on-surface-variant break-keep">고객사 현장과 저희 회사 안에서 직접 설계하고 운영 중인 시스템입니다. 업종은 달라도, 전부 사람 손을 타던 일을 대신합니다.</p>
       </div>
-      <div class="p-stack-lg rounded-xl card-border bg-surface-container-lowest">
-        <h3 class="text-title-md font-semibold text-on-surface mb-stack-xs break-keep">매출을 관리하는 일</h3>
-        <p class="text-body-md text-on-surface-variant break-keep mb-stack-sm">정산 · 발주 · 재고 · 자금 · 원가 관리</p>
-        <p class="text-body-md text-on-surface break-keep mb-stack-sm">지금 건설·유통 현장에서 만들고 있습니다</p>
-        <a href="ops.html" class="inline-flex items-center gap-1 text-label-sm text-primary">자세히 보기 <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      <div class="gc-figures mt-stack-xl">
+        <div><strong>30+</strong><span>직접 만든 시스템</span></div>
+        <div><strong>7</strong><span>업종</span></div>
+        <div><strong>한·일</strong><span>2개 시장</span></div>
       </div>
-      <div class="p-stack-lg rounded-xl card-border bg-surface-container-lowest">
-        <h3 class="text-title-md font-semibold text-on-surface mb-stack-xs break-keep">고객을 관리하는 일</h3>
-        <p class="text-body-md text-on-surface-variant break-keep mb-stack-sm">고객 DB · 재구매 · 상담 · CRM 자동화</p>
-        <p class="text-body-md text-on-surface break-keep mb-stack-sm">유입부터 재방문까지 끊기지 않게 잇습니다</p>
-        <a href="crm.html" class="inline-flex items-center gap-1 text-label-sm text-primary">자세히 보기 <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      <h3 class="gc-sub">대표 사례 <small>무엇이 바뀌었나</small></h3>
+      <div class="gc-ba" data-systems-featured></div>
+      <h3 class="gc-sub">분야별 전체 목록 <small>고객사 보호를 위해 업종으로만 표기합니다</small></h3>
+      <div class="gc-groups" data-systems-groups></div>
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-stack-md pt-stack-md">
+        <a href="contact.html" class="bg-primary text-on-primary text-label-sm px-6 py-3 rounded-lg hover:bg-surface-tint transition-colors inline-flex items-center gap-2 justify-center whitespace-nowrap">우리 회사에 맞는 시스템 상담 <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
       </div>
     </div>
   </section>
 
-  <!-- 매출을 만드는 일 — 하위 5개 엔진 -->
-  <!-- 01 Performance -->
-  <section class="max-w-[1280px] mx-auto px-6 py-stack-lg">
+  <!-- 우리가 하는 일 (3영역 = 서비스 바로가기) -->
+  <section id="services" class="max-w-[1280px] mx-auto px-6 py-stack-xl">
+    <span class="gc-label">우리가 하는 일</span>
+    <h2 class="text-headline-lg font-semibold text-on-surface mb-stack-sm break-keep">회사에서 반복되는 일은, 전부 같은 문제입니다.</h2>
+    <p class="text-body-lg text-on-surface-variant break-keep">세 영역 다 지금은 사람이 손으로 하고 계실 겁니다. 저희는 전부 시스템으로 바꿉니다.</p>
+    <div class="gc-areas mt-stack-xl">
+      <a href="ops.html">
+        <div class="gc-area__title">매출을 관리하는 일</div>
+        <div><div class="gc-area__what">정산 · 발주 · 재고 · 자금 · 원가 관리</div><div class="gc-area__note">지금 건설·유통 현장에서 만들고 있습니다</div></div>
+        <span class="gc-area__go">업무 시스템 구축 <span class="material-symbols-outlined">arrow_forward</span></span>
+      </a>
+      <a href="crm.html">
+        <div class="gc-area__title">고객을 관리하는 일</div>
+        <div><div class="gc-area__what">고객 DB · 재구매 · 상담 · CRM 자동화</div><div class="gc-area__note">유입부터 재방문까지 끊기지 않게 잇습니다</div></div>
+        <span class="gc-area__go">고객 DB·CRM <span class="material-symbols-outlined">arrow_forward</span></span>
+      </a>
+      <a href="services.html">
+        <div class="gc-area__title">매출을 만드는 일</div>
+        <div><div class="gc-area__what">광고 운영 · 콘텐츠 제작 · 상세페이지 · 해외 진출</div><div class="gc-area__note">80개사에서 시스템으로 만들어봤습니다</div></div>
+        <span class="gc-area__go">마케팅 자동화 <span class="material-symbols-outlined">arrow_forward</span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 매출을 만드는 일 — 마케팅 엔진 4개 (한 챕터) -->
+  <section id="marketing" class="bg-surface-container-low py-stack-xl">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-stack-md">
+        <div>
+          <span class="gc-label">매출을 만드는 일 · 마케팅 자동화</span>
+          <h2 class="text-headline-lg font-semibold text-on-surface break-keep">광고부터 고객 관리까지,<br/>네 가지를 시스템으로 돌립니다.</h2>
+        </div>
+        <a href="services.html" class="gc-area__go shrink-0">마케팅 자동화 자세히 보기 <span class="material-symbols-outlined">arrow_forward</span></a>
+      </div>
+      <div class="gc-engines">
+      <!-- 01 Performance -->
+      <article class="gc-engine">
     <div class="flex flex-col md:flex-row items-center gap-gutter md:gap-stack-xl">
       <div class="flex-1">
         <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium"><span class="material-symbols-outlined text-[14px]">radar</span>01 · 퍼포먼스 마케팅</span>
         <h3 class="text-headline-lg font-semibold text-on-surface mt-stack-md mb-stack-sm break-keep">데이터로 최적화하는 <span class="text-primary">메타·구글 광고</span></h3>
         <p class="text-body-lg text-on-surface-variant break-keep mb-stack-md">감이 아닌 실시간 데이터로 예산을 움직입니다. 낭비를 차단하고 예약·구매당 비용을 최소화합니다.</p>
         <ul class="space-y-stack-sm">
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>Meta·Google·Naver·TikTok 통합 운영</span></li>
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>실시간 입찰·예산 재분배 자동화</span></li>
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>A/B 테스트로 CPA 최소화 · ROAS 극대화</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>Meta·Google·Naver·TikTok 통합 운영</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>실시간 입찰·예산 재분배 자동화</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>A/B 테스트로 CPA 최소화 · ROAS 극대화</span></li>
         </ul>
+        <div class="tool-line"><span class="tool-line__label"><span class="material-symbols-outlined text-[16px]">build</span>직접 만든 도구</span><a href="#systems" class="tool-chip">메타 광고 자동화</a><a href="#systems" class="tool-chip">큐텐 자동 입찰</a><a href="#systems" class="tool-chip">광고 소재 분석기</a></div>
       </div>
       <div class="flex-1 w-full">
-        <div class="rounded-xl bg-gradient-to-br from-surface-container-high to-surface-container-low card-border shadow-ambient p-stack-lg relative overflow-hidden">
-          <div class="absolute inset-0 dot-grid"></div>
-          <div class="relative bg-white rounded-lg card-border shadow-ambient p-stack-md">
+        <div class="rounded-xl bg-surface-container-low p-stack-lg">
+          <div class="bg-white rounded-lg card-border gc-shadow p-stack-md">
             <div class="flex items-center justify-between mb-stack-md"><span class="text-label-sm text-on-surface">캠페인 성과</span><span class="flex items-center gap-1 text-caption text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>실시간</span></div>
             <div class="grid grid-cols-3 gap-stack-sm mb-stack-md">
               <div><div class="text-caption text-on-surface-variant">ROAS</div><div class="text-headline-md font-semibold text-primary">418%</div></div>
@@ -349,21 +347,21 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- 02 Content -->
-  <section class="bg-surface-container-low py-stack-xl">
-    <div class="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row-reverse items-center gap-gutter md:gap-stack-xl">
+      </article>
+      <!-- 02 Content -->
+      <article class="gc-engine">
+    <div class="flex flex-col md:flex-row-reverse items-center gap-gutter md:gap-stack-xl">
       <div class="flex-1">
         <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium"><span class="material-symbols-outlined text-[14px]">draw</span>02 · 콘텐츠 마케팅</span>
         <h3 class="text-headline-lg font-semibold text-on-surface mt-stack-md mb-stack-sm break-keep">'팔리는' 광고 콘텐츠와 <span class="text-primary">상세페이지</span></h3>
         <p class="text-body-lg text-on-surface-variant break-keep mb-stack-md">구매를 부르는 광고 소재부터, 전환을 만드는 국내·해외 상세페이지까지 직접 기획하고 제작합니다.</p>
         <ul class="space-y-stack-sm">
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>광고 크리에이티브(이미지·숏폼) 제작</span></li>
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>국내 상세페이지 기획·제작</span></li>
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>일본 등 해외 상세페이지 현지화 제작</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>광고 크리에이티브(이미지·숏폼) 제작</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>국내 상세페이지 기획·제작</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>일본 등 해외 상세페이지 현지화 제작</span></li>
         </ul>
         <a href="detail-page.html" class="inline-flex items-center gap-2 mt-stack-lg bg-primary text-on-primary text-label-sm px-5 py-3 rounded-lg hover:bg-surface-tint transition-all shadow-ambient">상세페이지 제작 사례 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+        <div class="tool-line"><span class="tool-line__label"><span class="material-symbols-outlined text-[16px]">build</span>직접 만든 도구</span><a href="#systems" class="tool-chip">AI 모델 컷</a><a href="#systems" class="tool-chip">숏폼 자동 편집</a><a href="#systems" class="tool-chip">광고 영상 멀티컷</a></div>
       </div>
       <div class="flex-1 w-full">
         <div class="rounded-xl card-border shadow-ambient p-stack-lg bg-surface-container-lowest">
@@ -393,53 +391,21 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- 03 Japan Clinic -->
-  <section class="max-w-[1280px] mx-auto px-6 py-stack-xl">
+      </article>
+      <!-- 03 CRM -->
+      <article class="gc-engine">
     <div class="flex flex-col md:flex-row items-center gap-gutter md:gap-stack-xl">
       <div class="flex-1">
-        <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium"><span class="material-symbols-outlined text-[14px]">flag</span>03 · 일본 병원 마케팅</span>
-        <h3 class="text-headline-lg font-semibold text-on-surface mt-stack-md mb-stack-sm break-keep">일본 뷰티 1위 데이터로 <span class="text-primary">실제 예약 환자</span></h3>
-        <p class="text-body-lg text-on-surface-variant break-keep mb-stack-md">일본 시장에서 판매 1위를 만든 실전 데이터로, 병원의 일본 환자 유치를 전담합니다. 광고·인플루언서·상담·자산화까지 한 번에.</p>
-        <ul class="space-y-stack-sm mb-stack-lg">
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>메타·구글 광고 + 방문형 인플루언서</span></li>
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>네이티브 LINE 실시간 상담</span></li>
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>병원 자체 고객 DB 자산화</span></li>
-        </ul>
-        <a href="japan-clinic.html" class="inline-flex items-center gap-2 bg-primary text-on-primary text-label-sm px-5 py-3 rounded-lg hover:bg-surface-tint transition-all shadow-ambient">일본 병원 마케팅 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
-      </div>
-      <div class="flex-1 w-full">
-        <div class="rounded-xl card-border shadow-ambient p-stack-lg bg-surface-container-lowest">
-          <div class="rounded-lg bg-inverse-surface text-white p-stack-md text-center mb-stack-md relative overflow-hidden">
-            <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary opacity-30 blur-3xl rounded-full pointer-events-none"></div>
-            <div class="relative text-caption text-inverse-primary uppercase tracking-wider">6개월 평균 · 일본 예약 환자</div>
-            <div class="relative text-display-xl font-bold">+220%</div>
-          </div>
-          <div class="grid grid-cols-2 gap-stack-sm">
-            <div class="rounded-lg bg-surface-container p-stack-sm flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-primary text-[20px]">share</span><span class="text-caption font-medium">SNS 계정</span></div>
-            <div class="rounded-lg bg-surface-container p-stack-sm flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-primary text-[20px]">ads_click</span><span class="text-caption font-medium">메타·구글 광고</span></div>
-            <div class="rounded-lg bg-surface-container p-stack-sm flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-primary text-[20px]">person_pin_circle</span><span class="text-caption font-medium">방문 인플루언서</span></div>
-            <div class="rounded-lg bg-surface-container p-stack-sm flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-primary text-[20px]">support_agent</span><span class="text-caption font-medium">LINE 상담</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 04 CRM -->
-  <section class="bg-surface-container-low py-stack-xl">
-    <div class="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row-reverse items-center gap-gutter md:gap-stack-xl">
-      <div class="flex-1">
-        <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium"><span class="material-symbols-outlined text-[14px]">database</span>04 · 고객 DB CRM</span>
+        <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium"><span class="material-symbols-outlined text-[14px]">database</span>03 · 고객 DB CRM</span>
         <h3 class="text-headline-lg font-semibold text-on-surface mt-stack-md mb-stack-sm break-keep">광고로 모은 고객을 <span class="text-primary">'자산'으로</span></h3>
         <p class="text-body-lg text-on-surface-variant break-keep mb-stack-md">힘들게 모은 고객을 흘려보내지 않습니다. 유입부터 재방문까지 데이터로 관리해, 매출로 다시 깨웁니다.</p>
         <ul class="space-y-stack-sm mb-stack-lg">
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>유입 → 상담 → 예약 → 재방문 전 과정 추적</span></li>
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>LINE·이메일 자동 시나리오로 전환율 상승</span></li>
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>재구매·이탈 데이터로 지속 최적화</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>유입 → 상담 → 예약 → 재방문 전 과정 추적</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>LINE·이메일 자동 시나리오로 전환율 상승</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>재구매·이탈 데이터로 지속 최적화</span></li>
         </ul>
         <a href="crm.html" class="inline-flex items-center gap-2 bg-primary text-on-primary text-label-sm px-5 py-3 rounded-lg hover:bg-surface-tint transition-all shadow-ambient">고객 DB CRM 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+        <div class="tool-line"><span class="tool-line__label"><span class="material-symbols-outlined text-[16px]">build</span>직접 만든 도구</span><a href="#systems" class="tool-chip">광고 리드 자동 수집</a><a href="#systems" class="tool-chip">자체 CRM</a></div>
       </div>
       <div class="flex-1 w-full">
         <div class="rounded-xl card-border shadow-ambient p-stack-lg bg-surface-container-lowest">
@@ -456,20 +422,20 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- 05 Influencer -->
-  <section class="max-w-[1280px] mx-auto px-6 py-stack-xl">
-    <div class="flex flex-col md:flex-row items-center gap-gutter md:gap-stack-xl">
+      </article>
+      <!-- 04 Influencer -->
+      <article class="gc-engine">
+    <div class="flex flex-col md:flex-row-reverse items-center gap-gutter md:gap-stack-xl">
       <div class="flex-1">
-        <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium"><span class="material-symbols-outlined text-[14px]">diversity_3</span>05 · 인플루언서 마케팅</span>
+        <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-caption font-medium"><span class="material-symbols-outlined text-[14px]">diversity_3</span>04 · 인플루언서 마케팅</span>
         <h3 class="text-headline-lg font-semibold text-on-surface mt-stack-md mb-stack-sm break-keep">검증된 인플루언서로 <span class="text-primary">리스크 제로</span></h3>
         <p class="text-body-lg text-on-surface-variant break-keep mb-stack-md">팔로워 거품 없는 '진짜' 인플루언서를 직접 매칭합니다. 도달부터 전환까지 실시간으로 측정합니다.</p>
         <ul class="space-y-stack-sm">
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>국내외(일본 등) 검증 KOL 네트워크</span></li>
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>방문형·협찬·공동기획 캠페인</span></li>
-          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">check_circle</span><span>도달·참여·전환 실시간 트래킹</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>국내외(일본 등) 검증 KOL 네트워크</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>방문형·협찬·공동기획 캠페인</span></li>
+          <li class="flex items-start gap-2 text-body-md text-on-surface break-keep"><span class="gc-dot"></span><span>도달·참여·전환 실시간 트래킹</span></li>
         </ul>
+        <div class="tool-line"><span class="tool-line__label"><span class="material-symbols-outlined text-[16px]">build</span>직접 만든 도구</span><a href="#systems" class="tool-chip">인플루언서 AI 발굴·평가</a></div>
       </div>
       <div class="flex-1 w-full">
         <div class="rounded-xl card-border shadow-ambient p-stack-lg bg-surface-container-lowest">
@@ -482,37 +448,47 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- 차별점 -->
-  <section class="bg-surface-container-low py-stack-xl">
-    <div class="max-w-[1280px] mx-auto px-6">
-      <h2 class="text-headline-lg font-semibold text-on-surface mb-stack-lg break-keep">왜 그로스컴퍼니인가</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-        <div class="p-stack-lg rounded-xl card-border bg-surface-container-lowest">
-          <div class="text-caption font-semibold text-primary mb-stack-sm">01</div>
-          <h3 class="text-title-md font-semibold text-on-surface mb-stack-xs break-keep">만들고 나가지 않습니다</h3>
-          <p class="text-body-md text-on-surface-variant break-keep">개발사는 납품하고 끝납니다. 저희는 만든 시스템을 같이 굴립니다. 실제로 안 쓰이는 시스템은 만들지 않은 것과 같기 때문입니다.</p>
-        </div>
-        <div class="p-stack-lg rounded-xl card-border bg-surface-container-lowest">
-          <div class="text-caption font-semibold text-primary mb-stack-sm">02</div>
-          <h3 class="text-title-md font-semibold text-on-surface mb-stack-xs break-keep">요구사항을 받아적지 않습니다</h3>
-          <p class="text-body-md text-on-surface-variant break-keep">브랜드를 운영했고, 매각했습니다. 사람 뽑는 고민도, 고정비 무서운 것도 겪어봤습니다. 요구사항을 설명하지 않으셔도 됩니다.</p>
-        </div>
-        <div class="p-stack-lg rounded-xl card-border bg-surface-container-lowest">
-          <div class="text-caption font-semibold text-primary mb-stack-sm">03</div>
-          <h3 class="text-title-md font-semibold text-on-surface mb-stack-xs break-keep">개발사가 아니라 운영자입니다</h3>
-          <p class="text-body-md text-on-surface-variant break-keep">광고를 직접 돌리고, 정산을 직접 해봤습니다. 그래서 "이 버튼이 왜 필요한지"를 압니다. 화면만 예쁜 시스템을 만들지 않습니다.</p>
-        </div>
+      </article>
       </div>
     </div>
   </section>
 
+  <!-- 차별점 -->
+  <section class="py-stack-xl">
+    <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-10 lg:gap-20">
+      <div class="lg:sticky lg:top-28 self-start">
+        <span class="gc-label">다른 점</span>
+        <h2 class="text-headline-lg font-semibold text-on-surface break-keep">왜 그로스컴퍼니인가</h2>
+      </div>
+      <ul class="gc-rows">
+        <li><h3 class="break-keep">만들고 나가지 않습니다</h3><p class="break-keep">개발사는 납품하고 끝납니다. 저희는 만든 시스템을 같이 굴립니다. 실제로 안 쓰이는 시스템은 만들지 않은 것과 같기 때문입니다.</p></li>
+        <li><h3 class="break-keep">요구사항을 받아적지 않습니다</h3><p class="break-keep">브랜드를 운영했고, 매각했습니다. 사람 뽑는 고민도, 고정비 무서운 것도 겪어봤습니다. 요구사항을 설명하지 않으셔도 됩니다.</p></li>
+        <li><h3 class="break-keep">개발사가 아니라 운영자입니다</h3><p class="break-keep">광고를 직접 돌리고, 정산을 직접 해봤습니다. 그래서 "이 버튼이 왜 필요한지"를 압니다. 화면만 예쁜 시스템을 만들지 않습니다.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 진행 방식 -->
+  <section id="process" class="bg-surface-container-low py-stack-xl">
+   <div class="max-w-[1280px] mx-auto px-6">
+    <div class="max-w-3xl">
+      <span class="gc-label">진행 방식</span>
+      <h2 class="text-headline-lg font-semibold text-on-surface mb-stack-sm break-keep">한 번에 다 만들지 않습니다.<br/>급한 것부터 2주마다 써보시게 합니다.</h2>
+    </div>
+    <ol class="steps mt-stack-lg">
+      <li><span class="steps__when">1주차</span><h3>업무 진단</h3><p class="break-keep">대표님과 실무자 인터뷰. 지금 어디에 시간이 새고 있는지 찾습니다.</p></li>
+      <li><span class="steps__when">2주차</span><h3>설계서 전달</h3><p class="break-keep">무엇을 만들고, 얼마나 걸리고, 얼마가 드는지. 여기서 그만두셔도 설계서는 가져가십니다.</p></li>
+      <li><span class="steps__when">3~6주차</span><h3>구축</h3><p class="break-keep">전부 완성해서 한 번에 드리지 않습니다. 제일 급한 것부터 2주 단위로 만들어 바로 써보십니다.</p></li>
+      <li><span class="steps__when">이후</span><h3>운영</h3><p class="break-keep">만든 다음에도 같이 씁니다. 회사가 바뀌면 시스템도 바꿔야 하니까요.</p></li>
+    </ol>
+   </div>
+  </section>
+
   <!-- Social Proof -->
   <section class="max-w-[1280px] mx-auto px-6 py-stack-xl">
-    <div class="border-t card-border pt-stack-xl">
+    <div>
       <div class="text-center mb-stack-lg">
-        <p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Trusted by Industry Leaders</p>
+        <p class="text-[15px] font-bold text-on-surface-variant">함께한 고객사</p>
       </div>
       <!-- TODO: 각 클라이언트 업종/규모 텍스트 확정 필요. 예: "제조업 · 연매출 80억" -->
       <div class="marquee mb-stack-xl" aria-label="클라이언트 로고">
@@ -545,19 +521,10 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
           <div class="marquee__item" aria-hidden="true"><img src="./assets/clients/client-12.jpg" alt="" loading="eager"/></div>
         </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter max-w-5xl mx-auto">
-        <div class="p-stack-lg text-center card-border rounded-xl bg-surface-container-lowest">
-          <div class="text-display-xl font-bold text-primary mb-stack-xs">300%</div>
-          <div class="text-label-sm text-on-surface-variant">평균 ROAS 개선</div>
-        </div>
-        <div class="p-stack-lg text-center card-border rounded-xl bg-surface-container-lowest">
-          <div class="text-display-xl font-bold text-primary mb-stack-xs">70%</div>
-          <div class="text-label-sm text-on-surface-variant">관리 시간 절감</div>
-        </div>
-        <div class="p-stack-lg text-center card-border rounded-xl bg-surface-container-lowest">
-          <div class="text-display-xl font-bold text-primary mb-stack-xs">−40%</div>
-          <div class="text-label-sm text-on-surface-variant">평균 CPA 감소</div>
-        </div>
+      <div class="gc-statline max-w-5xl mx-auto">
+        <div><strong>300%</strong><span>평균 ROAS 개선</span></div>
+        <div><strong>70%</strong><span>관리 시간 절감</span></div>
+        <div><strong>−40%</strong><span>평균 CPA 감소</span></div>
       </div>
     </div>
   </section>
@@ -565,7 +532,6 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
   <!-- Final CTA -->
   <section class="max-w-[1280px] mx-auto px-6 py-stack-xl">
     <div class="bg-inverse-surface text-inverse-on-surface rounded-xl p-margin md:p-stack-xl relative overflow-hidden shadow-overlay">
-      <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary opacity-20 blur-3xl rounded-full pointer-events-none"></div>
       <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-stack-lg">
         <div>
           <h2 class="text-headline-lg font-semibold text-white mb-stack-sm break-keep">한 명 더 뽑기 전에, 30분만 주세요.</h2>
@@ -584,27 +550,26 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
 
 <!-- Footer -->
 <footer class="w-full border-t border-outline-variant bg-surface-container-lowest mt-stack-xl">
-  <div class="max-w-[1280px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-gutter">
-    <div class="md:col-span-2">
+  <div class="max-w-[1280px] mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-gutter">
+    <div class="col-span-2 md:col-span-1">
       <img src="./assets/logo-horizontal.png" alt="Growth Company" class="h-6 w-auto mb-3"/>
-      <p class="text-caption text-on-surface-variant max-w-sm">회사에서 반복되는 일을 시스템으로 바꿉니다. 만들고 끝내지 않고, 같이 운영합니다.</p>
+      <p class="text-[14px] leading-6 text-on-surface-variant max-w-sm break-keep">회사에서 반복되는 일을 시스템으로 바꿉니다. 만들고 끝내지 않고, 같이 운영합니다.</p>
     </div>
     <div>
-      <div class="text-label-sm text-on-surface mb-stack-sm">Engines</div>
-      <ul class="space-y-2 text-caption text-on-surface-variant">
-        <li><a href="services.html" class="hover:text-primary">Performance</a></li>
-        <li><a href="services.html" class="hover:text-primary">Creative</a></li>
-        <li><a href="services.html" class="hover:text-primary">Influencer</a></li>
-        <li><a href="services.html" class="hover:text-primary">CRM</a></li>
-        <li><a href="services.html" class="hover:text-primary">Web-Ops</a></li>
+      <div class="text-[13px] font-bold text-on-surface mb-3">서비스</div>
+      <ul class="space-y-2 text-[14px] text-on-surface-variant">
+        <li><a href="ops.html" class="hover:text-primary">업무 시스템 구축</a></li>
+        <li><a href="crm.html" class="hover:text-primary">고객 DB·CRM</a></li>
+        <li><a href="services.html" class="hover:text-primary">마케팅 자동화</a></li>
+        <li><a href="detail-page.html" class="hover:text-primary">상세페이지 제작</a></li>
       </ul>
     </div>
     <div>
-      <div class="text-label-sm text-on-surface mb-stack-sm">Company</div>
-      <ul class="space-y-2 text-caption text-on-surface-variant">
+      <div class="text-[13px] font-bold text-on-surface mb-3">회사</div>
+      <ul class="space-y-2 text-[14px] text-on-surface-variant">
         <li><a href="case-studies.html" class="hover:text-primary">구축 사례</a></li>
+        <li><a href="index.html#process" class="hover:text-primary">진행 방식</a></li>
         <li><a href="contact.html" class="hover:text-primary">문의하기</a></li>
-        <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
       </ul>
     </div>
   </div>
@@ -622,7 +587,8 @@ src="https://www.facebook.com/tr?id=3857501761208582&ev=PageView&noscript=1"/></
   <button type="button" id="gcLightboxClose" aria-label="닫기" class="absolute top-4 right-4 md:top-6 md:right-6 w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center backdrop-blur transition-colors"><span class="material-symbols-outlined">close</span></button>
 </div>
 
-<script src="./assets/site.js?v=20260423w"></script>
+<script src="./assets/site.js?v=20261018d"></script>
+<script src="./assets/systems.js?v=20261018d"></script>
 <script>
 (function(){
   var lb = document.getElementById('gcLightbox'), lbImg = document.getElementById('gcLightboxImg');

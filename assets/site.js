@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     menuBtn.addEventListener("click", () => {
       mobileMenu.classList.toggle("hidden");
     });
+    mobileMenu.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+    });
   }
 
   // Highlight active nav based on current page filename
